@@ -361,6 +361,31 @@ a.bento-card:hover {
   background: linear-gradient(135deg, rgba(250, 208, 196, 0.15) 0%, rgba(255, 209, 255, 0.15) 100%);
 }
 
+.brand-card.solution {
+  background: linear-gradient(135deg, rgba(255, 183, 94, 0.15) 0%, rgba(237, 255, 133, 0.15) 100%);
+}
+
+.brand-card.natural-balance {
+  background: linear-gradient(135deg, rgba(255, 154, 158, 0.15) 0%, rgba(250, 208, 196, 0.15) 100%);
+}
+
+/* 去除部分 JPG logo 的白邊視覺 */
+.brand-card.catidea .brand-logo-wrapper,
+.brand-card.solution .brand-logo-wrapper,
+.brand-card.natural-balance .brand-logo-wrapper {
+  background: transparent;
+  box-shadow: none;
+}
+
+.brand-card.catidea .brand-logo-img,
+.brand-card.solution .brand-logo-img,
+.brand-card.natural-balance .brand-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
 /* ===== Category Title Card ===== */
 .category-title-card {
   grid-column: span 4;
