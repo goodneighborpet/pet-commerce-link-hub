@@ -1,434 +1,126 @@
-# 🐾 Pet Commerce Link Hub
+# Pet Commerce Link Hub
 
-> 寵物生活用品館專用導流頁面（Link-in-bio）
+寵物生活用品館專用導流頁（Link-in-bio），以單頁靜態網站整合品牌與分類連結，適合部署在 GitHub Pages。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-brightgreen)](https://bruce-yang-422.github.io/pet-commerce-link-hub/)
 
-## 📖 專案簡介
+線上預覽: <https://bruce-yang-422.github.io/pet-commerce-link-hub/>
 
-本專案為自建寵物商品導流層（Link-in-bio），提供多品牌、多賣場的統一入口頁面。採用現代化的 **Bento Grid 網格佈局**，結合 **玻璃擬態設計**與**流暢動畫**，打造簡潔優雅的使用者體驗。作為使用者進入各電商賣場前的集中導航介面，解決多平台管理困難與連結分散的問題。
+## 專案特色
 
-**線上預覽**：<https://bruce-yang-422.github.io/pet-commerce-link-hub/>
+- 單頁靜態網站，無後端、無建置流程
+- Bento Grid 卡片式版面，支援桌面/平板/手機
+- 品牌卡 + 商品分類卡，集中導流到外部賣場
+- 視覺風格以玻璃擬態與漸層卡片為主
 
-### ✨ 快速設定
+## 目前內容
 
-```javascript
-// 編輯 assets/js/config.js 即可控制功能
-CONFIG.banner.enabled = false;  // 關閉 Banner
-CONFIG.scrollAnimation.enabled = false;  // 關閉滾動動畫
-```
+### 品牌卡
 
-## 🎯 專案定位
+- Royal Canin
+- Farmina
+- TOMA-PRO（優格）
+- CIAO
+- Solution（耐吉斯）
+- Natural Balance（自然平衡）
 
-- ✅ **純導流層**：僅提供連結導航，不承載商品資訊
-- ✅ **輕量靜態**：純 HTML + CSS，無後端依賴
-- ✅ **響應式設計**：支援 PC、平板、手機各裝置
-- ✅ **易於維護**：結構簡單，修改容易
+### 商品分類卡
 
-## 🚀 功能特色
+- 貓乾糧
+- 狗乾糧
+- 貓濕糧
+- 狗濕糧
+- 零食專區
+- 保健品
 
-### 核心功能
+## 重要現況（Banner）
 
-- 🏷️ **品牌賣場導流**：整合 Royal Canin、Farmina、Catidea、CIAO 等品牌入口
-- 📦 **商品分類導流**：貓狗乾濕糧、零食、保健品等 6 大分類快速導航
-- 🎪 **響應式 Banner**：支援輪播廣告，桌面/手機自動切換不同圖片
-- 📞 **簡潔頁尾**：LINE 官方按鈕 + Email 純文字連結
-- ⚙️ **配置管理**：透過 config.js 簡單開關各項功能
+- `index.html` 目前已移除 Banner 區塊
+- `assets/js/config.js` 與 `assets/js/main.js` 保留 Banner 設定/程式碼
+- 若 `CONFIG.banner.enabled = true`，因頁面沒有 Banner 元素，Console 會出現找不到元素的警告
+- 建議目前將 `CONFIG.banner.enabled` 設為 `false`
 
-### 佈局特色
+## 專案結構
 
-- 🎨 **Header Card**：品牌標題與標語，紫色漸層背景
-- 🎠 **Banner Card**：活動輪播區，粉紅漸層背景
-- 🏢 **Brand Cards**：4 個品牌卡片，各自獨特漸層配色
-- 🔵 **Category Title**：商品分類標題，藍色漸層橫幅
-- 📦 **Category Cards**：6 個分類卡片，整齊網格排列
-- 📧 **Footer**：傳統平面頁尾，極簡設計
-
-### 技術特點
-
-- ⚡ **零依賴**：不需要 Node.js、Python 或任何建置工具
-- 🎨 **Bento Grid 佈局**：不規則網格系統，類似日本便當盒的視覺層次
-- 🌈 **玻璃擬態設計**：半透明背景、模糊效果、柔和漸層
-- 📱 **完全響應式**：桌面版 4 欄網格，手機版細長條形卡片
-- 🎬 **流暢動畫**：錯開淡入效果、hover 互動回饋
-- 🔧 **易於配置**：功能開關集中管理，一鍵啟用/停用
-
-## 📁 專案結構
-
-```plaintext
+```text
 pet-commerce-link-hub/
-├── index.html              # 主頁面（唯一入口）
-├── assets/                 # 靜態資源
+├── index.html
+├── README.md
+├── assets/
+│   ├── favicon.ico
 │   ├── css/
-│   │   └── style.css      # 主樣式表（玻璃擬態、動畫）
+│   │   └── style.css
 │   ├── js/
-│   │   ├── config.js      # ⚙️ 配置檔案（功能開關）
-│   │   └── main.js        # JavaScript 主檔案
-│   ├── images/
-│   │   ├── logos/         # 品牌 Logo（royal-canin.png、farmina.png）
-│   │   ├── banners/       # Banner 圖片（桌面版 + 手機版）
-│   │   ├── brand/         # 其他品牌圖（預留）
-│   │   └── icon/          # 圖示（預留）
-│   └── favicon.ico        # 網站圖標
-├── README.md              # 專案說明
-└── .gitignore             # Git 忽略設定
+│   │   ├── config.js
+│   │   └── main.js
+│   └── images/
+│       ├── banners/
+│       │   ├── README.md
+│       │   └── banner-*-desktop/mobile.(png|jpg)
+│       ├── logos/
+│       │   ├── royal-canin.png
+│       │   ├── farmina.png
+│       │   ├── toma-pro_logo.jpg
+│       │   ├── solution_logo.jpg
+│       │   └── natural-balance_logo.jpg
+│       ├── brand/
+│       └── icon/
+└── .gitignore
 ```
 
-## 🛠️ 使用方式
-
-### 🚀 快速開始（3 步驟）
-
-**步驟 1：Clone 專案**
+## 快速開始
 
 ```bash
 git clone https://github.com/bruce-yang-422/pet-commerce-link-hub.git
 cd pet-commerce-link-hub
 ```
 
-**步驟 2：設定功能開關（可選）**
+直接用瀏覽器開啟 `index.html`，或使用 VS Code Live Server 預覽。
 
-編輯 `assets/js/config.js` 開關功能：
+## 常用調整
+
+### 1) 修改品牌或分類連結
+
+編輯 `index.html` 內對應卡片的 `href`:
+
+```html
+<a class="bento-card brand-card" href="https://example.com" target="_blank" rel="noopener noreferrer">
+```
+
+### 2) 更新品牌 Logo
+
+1. 將圖片放到 `assets/images/logos/`
+2. 在 `index.html` 對應卡片改 `<img src="...">`
+3. 若圖片有留白邊，可在 `assets/css/style.css` 調整該品牌卡片的 logo wrapper / image 樣式
+
+### 3) 調整卡片樣式
+
+- 主要檔案: `assets/css/style.css`
+- 品牌卡背景可搜尋: `.brand-card.<brand-name>`
+
+### 4) 功能開關
+
+編輯 `assets/js/config.js`:
 
 ```javascript
-banner: { enabled: true }  // true: 顯示 Banner | false: 隱藏
-```
-
-**步驟 3：開啟頁面**
-
-直接在瀏覽器開啟 `index.html` 即可預覽。
-
-或使用 VS Code Live Server 擴充功能：
-
-```bash
-# 安裝 Live Server 後，右鍵 index.html → Open with Live Server
-```
-
-### 部署到 GitHub Pages
-
-**步驟 1：推送到 GitHub**
-
-```bash
-git add .
-git commit -m "Update content"
-git push origin main
-```
-
-**步驟 2：啟用 GitHub Pages**
-
-前往 Repository → Settings → Pages → Source 選擇 `main` 分支 → Save
-
-**步驟 3：等待部署**
-
-約 1-2 分鐘後即可訪問：`https://[username].github.io/[repo-name]/`
-
-## ✏️ 客製化指南
-
-### ⚙️ 功能開關管理（最重要！）
-
-編輯 `assets/js/config.js` 即可快速開關各項功能：
-
-```javascript
-const CONFIG = {
-  banner: {
-    enabled: true,         // 👈 改成 false 可完全隱藏 Banner
-    autoPlay: true,        // 自動輪播開關
-    autoPlayInterval: 5000 // 輪播間隔（毫秒）
-  },
-  scrollAnimation: {
-    enabled: true          // 滾動動畫開關
-  }
+window.CONFIG = {
+  banner: { enabled: false },
+  scrollAnimation: { enabled: true },
+  parallax: { enabled: false }
 };
 ```
 
-### 🖼️ 上傳 Banner 圖片
+## 部署到 GitHub Pages
 
-將 Banner 圖片依照命名規則（桌面版、手機版）放入 `assets/images/banners/` 資料夾。
+1. 推送到 `main` 分支
+2. GitHub Repository -> `Settings` -> `Pages`
+3. Source 選 `Deploy from a branch`，分支選 `main` / root
 
-**詳細規格與說明**：請參考 [`assets/images/banners/README.md`](assets/images/banners/README.md)
+部署完成後網址:
 
-### 修改品牌 Logo
+`https://<username>.github.io/pet-commerce-link-hub/`
 
-將 Logo 圖片放入 `assets/images/logos/` 資料夾，檔名範例：
-- `royal-canin.png`
-- `farmina.png`
+## 授權
 
-系統會自動套用白色背景與淡色漸層。
-
-### 修改連結
-
-編輯 `index.html` 中的 `<a>` 標籤，將 `href="#"` 替換為實際連結：
-
-```html
-<a class="bento-card brand-card" href="https://your-store.com" target="_blank">
-  <!-- ... -->
-</a>
-```
-
-### 調整顏色
-
-在 `style.css` 修改漸層配色變數（搜尋 `linear-gradient`）。
-
-### 響應式佈局
-
-- **桌面版（> 1024px）**：4 欄 Bento Grid 網格，方形卡片
-- **平板版（769-1024px）**：3 欄網格
-- **手機版（≤ 768px）**：單欄佈局，細長條形卡片（Logo 在左，內容在中，箭頭在右）
-- **極小螢幕（≤ 480px）**：進一步優化間距與字體
-
-## ⚙️ 配置說明
-
-### 📁 配置檔案位置
-
-```plaintext
-assets/js/config.js
-```
-
-### 🎛️ 配置項目說明
-
-#### Banner 輪播設定
-
-```javascript
-banner: {
-  enabled: true,              // Banner 開關
-  autoPlay: true,             // 自動輪播開關
-  autoPlayInterval: 5000,     // 自動輪播間隔（毫秒）
-  pauseOnHover: true          // 懸停暫停開關
-}
-```
-
-**`enabled` - Banner 顯示開關**
-
-- **類型**：`boolean`
-- **預設值**：`true`
-- **說明**：
-  - `true`：顯示 Banner 輪播區塊
-  - `false`：完全隱藏 Banner（不佔空間）
-
-**使用情境**：
-- 活動期間開啟 Banner
-- 平常關閉 Banner 節省空間
-- 測試版面時快速切換
-
-**`autoPlay` - 自動輪播開關**
-
-- **類型**：`boolean`
-- **預設值**：`true`
-- **說明**：
-  - `true`：Banner 會自動切換
-  - `false`：需手動點擊切換
-
-**`autoPlayInterval` - 輪播間隔**
-
-- **類型**：`number`（毫秒）
-- **預設值**：`5000`（5 秒）
-- **建議範圍**：3000 - 8000
-- **說明**：每張 Banner 停留的時間
-
-**`pauseOnHover` - 懸停暫停**
-
-- **類型**：`boolean`
-- **預設值**：`true`
-- **說明**：
-  - `true`：滑鼠移上去時暫停輪播
-  - `false`：滑鼠移上去仍繼續輪播
-
-#### 滾動動畫設定
-
-```javascript
-scrollAnimation: {
-  enabled: true,              // 滾動動畫開關
-  threshold: 0.1,             // 觸發門檻
-  rootMargin: '0px 0px -50px 0px'  // 觸發範圍
-}
-```
-
-**`enabled` - 滾動動畫開關**
-
-- **類型**：`boolean`
-- **預設值**：`true`
-- **說明**：
-  - `true`：啟用滾動觸發的淡入動畫
-  - `false`：關閉所有滾動動畫
-
-**`threshold` - 觸發門檻**
-
-- **類型**：`number`（0-1）
-- **預設值**：`0.1`
-- **說明**：元素顯示多少比例時觸發動畫
-  - `0.1`：顯示 10% 時觸發
-  - `0.5`：顯示 50% 時觸發
-  - `1.0`：完全顯示時觸發
-
-**`rootMargin` - 觸發範圍**
-
-- **類型**：`string`
-- **預設值**：`'0px 0px -50px 0px'`
-- **說明**：擴大或縮小觸發範圍
-  - `-50px`：向上提前 50px 觸發
-  - `-100px`：向上提前 100px 觸發
-
-#### 視差效果設定
-
-```javascript
-parallax: {
-  enabled: false              // 視差效果開關
-}
-```
-
-**`enabled` - 視差效果開關**
-
-- **類型**：`boolean`
-- **預設值**：`false`（建議關閉）
-- **說明**：
-  - `true`：啟用視差滾動效果
-  - `false`：關閉視差效果
-
-**注意**：視差效果可能影響效能和背景穩定性，建議保持關閉。
-
-### 🔧 如何修改配置
-
-#### 方式 1：直接編輯 config.js（推薦）
-
-1. 開啟 `assets/js/config.js`
-2. 修改對應的值
-3. 儲存檔案
-4. 重新整理頁面
-
-#### 方式 2：透過瀏覽器開發者工具測試
-
-在瀏覽器 Console 輸入：
-
-```javascript
-// 查看目前配置
-console.log(CONFIG);
-
-// ⚠️ 注意：因為 CONFIG 被凍結，無法直接修改
-// 需要重新部署才能生效
-```
-
-### 📋 常見使用場景
-
-#### 場景 1：關閉 Banner
-
-```javascript
-banner: {
-  enabled: false,  // 👈 改為 false
-  // ... 其他設定
-}
-```
-
-#### 場景 2：關閉自動輪播，只允許手動切換
-
-```javascript
-banner: {
-  enabled: true,
-  autoPlay: false,  // 👈 改為 false
-  // ... 其他設定
-}
-```
-
-#### 場景 3：加快輪播速度（3 秒切換）
-
-```javascript
-banner: {
-  enabled: true,
-  autoPlay: true,
-  autoPlayInterval: 3000,  // 👈 改為 3000
-  // ... 其他設定
-}
-```
-
-#### 場景 4：關閉所有動畫（靜態模式）
-
-```javascript
-banner: {
-  enabled: true,
-  autoPlay: false,  // 👈 關閉自動輪播
-  // ... 其他設定
-},
-scrollAnimation: {
-  enabled: false,  // 👈 關閉滾動動畫
-  // ... 其他設定
-},
-parallax: {
-  enabled: false  // 👈 關閉視差（本來就建議關閉）
-}
-```
-
-### ⚠️ 配置注意事項
-
-1. **配置被凍結**：`CONFIG` 物件被 `Object.freeze()` 保護，無法在執行時期修改
-2. **重新載入生效**：修改配置後需要重新整理頁面
-3. **Git 追蹤**：`config.js` 會被 Git 追蹤，團隊成員會看到你的修改
-4. **備份原始值**：修改前建議記下原始值
-
-### 🚀 快速測試
-
-想快速測試關閉 Banner？
-
-1. 開啟 `assets/js/config.js`
-2. 找到第 8 行：`enabled: true,`
-3. 改為：`enabled: false,`
-4. 儲存並重新整理頁面
-5. Banner 消失了！✅
-
-想恢復？改回 `true` 即可。
-
-## 🔧 常見問題
-
-### Q: 如何關閉 Banner？
-
-A: 編輯 `assets/js/config.js`，將 `banner.enabled` 改為 `false` 即可。Banner 會完全消失。
-
-### Q: 如何調整 Banner 輪播速度？
-
-A: 編輯 `assets/js/config.js`，修改 `banner.autoPlayInterval` 數值。例如 `3000` 表示 3 秒切換一次。
-
-### Q: 如何上傳 Banner 圖片？
-
-A: 將圖片依照命名規則（`banner-1-desktop.jpg`、`banner-1-mobile.jpg`）放入 `assets/images/banners/` 資料夾。詳見 [`assets/images/banners/README.md`](assets/images/banners/README.md)。
-
-### Q: 如何關閉滾動動畫？
-
-A: 編輯 `assets/js/config.js`，將 `scrollAnimation.enabled` 改為 `false`。
-
-### Q: 如何新增更多品牌連結？
-
-A: 複製任一 `.link-card` 區塊，修改內容、連結與樣式類別即可。
-
-## 📋 解決的問題
-
-本專案解決以下電商營運痛點：
-
-- ❌ 賣貨便賣場數量上限（每帳號最多 10 個）
-- ❌ 單一賣場商品上限（100 商品）
-- ❌ 商品分類能力不足
-- ❌ 多品牌、多用品類導流管理困難
-- ❌ 社群媒體只能放單一連結
-
-## 📚 相關文件
-
-- 🖼️ **[Banner 圖片規格](assets/images/banners/README.md)** - Banner 尺寸與上傳說明
-
-## ⚠️ 注意事項
-
-**重要提醒**：
-
-- 🚫 本專案僅作為導流層，**不應**承載商品資訊
-- 🚫 **禁止**放入價格、SKU、規格、功效說明等商品細節
-- ✅ 所有商品資料應維護在實際賣場平台
-
-**技術提醒**：
-
-- ⚙️ 功能開關請使用 `assets/js/config.js`，不要直接修改 `main.js`
-- 🖼️ Banner 圖片未上傳時會顯示漸層背景（不影響使用）
-- 🔄 修改配置後需重新整理頁面才會生效
-
-## 📄 授權
-
-MIT License - 自由使用、修改、分發
-
----
-
-Made with ❤️ for Pet Lovers
+MIT License
