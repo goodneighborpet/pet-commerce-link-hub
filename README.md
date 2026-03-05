@@ -41,11 +41,16 @@
 - 若 `CONFIG.banner.enabled = true`，因頁面沒有 Banner 元素，Console 會出現找不到元素的警告
 - 建議目前將 `CONFIG.banner.enabled` 設為 `false`
 
+## 404 頁面
+
+專案根目錄已包含 `404.html`。GitHub Pages 會自動在訪問不存在的路徑時顯示此頁面，無需額外設定。
+
 ## 專案結構
 
 ```text
 pet-commerce-link-hub/
 ├── index.html
+├── 404.html
 ├── README.md
 ├── assets/
 │   ├── favicon.ico
