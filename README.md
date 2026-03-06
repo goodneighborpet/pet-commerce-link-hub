@@ -1,6 +1,6 @@
 # Pet Commerce Link Hub
 
-寵物生活用品館專用導流頁（Link-in-bio），以單頁靜態網站整合品牌與分類連結，適合部署在 GitHub Pages。
+好厝邊寵物店專用導流頁（Link-in-bio），以單頁靜態網站整合品牌與分類連結，適合部署在 GitHub Pages。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-brightgreen)](https://bruce-yang-422.github.io/pet-commerce-link-hub/)
