@@ -144,10 +144,12 @@ a.bento-card:hover {
   z-index: 1;
 }
 
-.paw-icon {
-  width: 64px;
-  height: 64px;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+.site-logo {
+  width: min(280px, 72vw);
+  height: auto;
+  max-height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.16));
 }
 
 .brand-title {
@@ -371,6 +373,10 @@ a.bento-card:hover {
 
 .brand-card.blackwood {
   background: linear-gradient(135deg, rgba(86, 171, 47, 0.15) 0%, rgba(168, 224, 99, 0.18) 100%);
+}
+
+.brand-card.gootoe {
+  background: linear-gradient(135deg, rgba(255, 176, 59, 0.18) 0%, rgba(255, 92, 92, 0.14) 100%);
 }
 
 /* 去除部分 JPG logo 的白邊視覺 */
@@ -602,9 +608,9 @@ a.bento-card:hover .card-arrow {
     font-size: 0.9rem;
   }
 
-  .paw-icon {
-    width: 56px;
-    height: 56px;
+  .site-logo {
+    width: min(240px, 76vw);
+    max-height: 96px;
   }
 
   /* Banner - 全寬 */
