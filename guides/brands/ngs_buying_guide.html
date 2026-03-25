@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>耐吉斯 Solution 飼料選購懶人包</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --accent: #e8874a;
+  --accent-light: #fdf0e6;
+  --accent-dark: #c96c30;
+  --dog: #5b8dd9;
+  --dog-light: #eef3fc;
+  --cat: #d9709b;
+  --cat-light: #fceef4;
+  --text: #1a1a1a;
+  --text-muted: #777;
+  --border: #e8e8e8;
+  --bg: #f5f4f2;
+  --card: #ffffff;
+  --radius: 14px;
+  --radius-sm: 8px;
+  /* E 系列實際袋色 */
+  --e-green: #8dc63f;       /* E 犬 萊姆綠 */
+  --e-green-light: #f3fae3;
+  /* P 系列實際袋色 */
+  --p21: #d4478a;           /* 填心犬 桃紅 */
+  --p21-light: #fce8f1;
+  --p23: #7ab038;           /* 填心貓 萊姆綠 */
+  --p23-light: #eef7e0;
+  --p-dog: #c41530;         /* 多拼犬 深紅 */
+  --p-dog-light: #fce8ea;
+  --p-cat: #006b80;         /* 多拼貓 深青 */
+  --p-cat-light: #e0f4f7;
+  --can: #00a8b8;           /* 好腸胃罐 */
+  --can-light: #e0f6f8;
+  --bc30: #0d3b8c;          /* BC30 深藍 */
+  --bc30-orange: #f7a435;   /* BC30「30」橘黃 */
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* ── Typography ── */
+h1, h2, h3 { line-height: 1.2; }
+.en { font-family: 'Montserrat', sans-serif; }
+
+/* ── Header ── */
+.site-header {
+  background: #fff;
+  border-bottom: 1.5px solid var(--border);
+  padding: 0 24px;
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 62px;
+}
+.site-header .brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900; font-size: 17px; color: var(--text);
+  letter-spacing: 1px;
+}
+.site-header .brand span { color: var(--accent); }
+.site-header .bc30 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  background: var(--bc30); color: #fff;
+  padding: 5px 14px; border-radius: 30px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  flex-shrink: 0; line-height: 1; gap: 2px;
+}
+.site-header .bc30 .bc-num {
+  font-size: 15px; font-weight: 900;
+  letter-spacing: 0; line-height: 1;
+}
+.site-header .bc30 .bc-num .bc-thirty { color: var(--bc30-orange); }
+.site-header .bc30 .bc-sub {
+  font-size: 8px; letter-spacing: 1px;
+  opacity: .85; white-space: nowrap;
+}
+
+/* ── Hero ── */
+.hero {
+  background: linear-gradient(120deg, #005f72 0%, #009aaa 100%);
+  border-bottom: 1.5px solid var(--border);
+  padding: 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-banner {
+  background: transparent;
+  padding: 44px 24px 36px;
+  position: relative;
+}
+.hero-banner .hero-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; font-size: 11px; letter-spacing: 3px;
+  color: rgba(255,255,255,0.6); text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.hero-banner h1 {
+  font-size: clamp(28px, 5vw, 46px);
+  font-weight: 900; color: #fff;
+  margin-bottom: 10px; line-height: 1.25;
+}
+.hero-banner h1 em {
+  font-style: normal;
+  color: var(--e-green);          /* 萊姆綠跳出 */
+  text-shadow: 0 2px 12px rgba(141,198,63,0.35);
+}
+.hero-banner p {
+  font-size: 14px; color: rgba(255,255,255,0.75);
+  max-width: 480px; margin: 0 auto;
+}
+.hero-pills {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  justify-content: center;
+  padding: 0 24px 36px;
+  background: transparent;
+}
+.hero-pill {
+  font-size: 13px; font-weight: 500;
+  background: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.7); padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(255,255,255,0.35);
+}
+.hero-pill strong {
+  color: #fff; font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ── Main layout ── */
+.container { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+
+/* ── Section ── */
+.section { padding: 40px 0 0; }
+.section-title {
+  font-size: 20px; font-weight: 900;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-title::after {
+  content: ''; flex: 1;
+  height: 1px; background: var(--border);
+}
+
+/* ── Species Tabs ── */
+.species-tabs {
+  display: flex; gap: 0;
+  background: var(--card);
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  border-bottom: none;
+  margin-top: 24px;
+}
+.stab {
+  flex: 1; padding: 14px 20px;
+  font-size: 15px; font-weight: 700;
+  cursor: pointer; border: none; background: transparent;
+  transition: all .2s; display: flex; align-items: center;
+  justify-content: center; gap: 8px;
+}
+.stab .icon { font-size: 20px; }
+.stab.dog.active { background: var(--dog-light); color: var(--dog); border-bottom: 3px solid var(--dog); }
+.stab.cat.active { background: var(--cat-light); color: var(--cat); border-bottom: 3px solid var(--cat); }
+.stab:not(.active) { color: var(--text-muted); }
+.stab:not(.active):hover { background: #f9f9f9; }
+
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* ── Quick Pick ── */
+.quick-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px; padding: 20px;
+  background: var(--card); border: 1.5px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.qcard {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  border-left: 3px solid var(--accent);
+}
+.qcard.dog { border-left-color: var(--dog); }
+.qcard.cat { border-left-color: var(--cat); }
+.qcard .need {
+  font-size: 13px; font-weight: 700; color: var(--text);
+  margin-bottom: 4px;
+}
+.qcard .suggest {
+  font-size: 12px; color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.qcard .codes {
+  display: flex; flex-wrap: wrap; gap: 4px;
+}
+.code-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; font-size: 11px;
+  padding: 2px 8px; border-radius: 6px;
+  background: var(--accent-light); color: var(--accent-dark);
+}
+.code-badge.dog { background: var(--dog-light); color: var(--dog); }
+.code-badge.cat { background: var(--cat-light); color: var(--cat); }
+
+/* ── Series Cards ── */
+.series-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+}
+.scard {
+  background: var(--card); border-radius: var(--radius);
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: box-shadow .2s, transform .2s;
+}
+.scard:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.12); transform: translateY(-3px); }
+/* 彩色頂條 */
+.scard::before {
+  content: ''; display: block;
+  height: 5px; background: var(--c);
+}
+.scard-body { padding: 16px; }
+.scard-header {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+}
+.scard-icon {
+  width: 40px; height: 40px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+  background: var(--cl);
+}
+.scard-code {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900; font-size: 22px; color: var(--c);
+}
+.scard-type {
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 20px;
+  display: inline-block; margin-bottom: 8px;
+  background: var(--cl); color: var(--c);
+}
+.scard-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--text); }
+.scard-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+.badge-row { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 10px; }
+.badge {
+  font-size: 11px; padding: 3px 10px; border-radius: 20px;
+  background: var(--cl); color: var(--c); font-weight: 700;
+  border: 1px solid color-mix(in srgb, var(--c) 20%, transparent);
+}
+
+/* color themes — 對應實際袋色 */
+.theme-e    { --c: var(--e-green); --cl: var(--e-green-light); }
+.theme-p    { --c: #7b68c8;        --cl: #f0eefb; }
+.theme-v    { --c: #5aaa6e;        --cl: #edfaf1; }
+.theme-can  { --c: var(--can);     --cl: var(--can-light); }
+.theme-freeze { --c: var(--p21);   --cl: var(--p21-light); }
+/* P 系列 table code colors */
+.td-code.p21  { color: var(--p21); }
+.td-code.p23  { color: var(--p23); }
+.td-code.p-dog { color: var(--p-dog); }
+.td-code.p-cat { color: var(--p-cat); }
+.code-badge.p21  { background: var(--p21-light); color: var(--p21); }
+.code-badge.p23  { background: var(--p23-light); color: var(--p23); }
+.code-badge.p-dog { background: var(--p-dog-light); color: var(--p-dog); }
+.code-badge.p-cat { background: var(--p-cat-light); color: var(--p-cat); }
+/* P 系列 sub-badge */
+.sub-badge.p-dog { background: var(--p-dog-light); color: var(--p-dog); }
+.sub-badge.p-cat { background: var(--p-cat-light); color: var(--p-cat); }
+.sub-badge.can   { background: var(--can-light); color: var(--can); }
+.scard .scard-icon { background: var(--cl); color: var(--c); }
+.scard .scard-type { background: var(--cl); color: var(--c); }
+
+/* ── Product Table ── */
+.section-sub { font-size: 17px; font-weight: 700; margin: 28px 0 12px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+.section-sub .sub-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 700;
+  padding: 2px 10px; border-radius: 10px;
+  background: var(--accent-light); color: var(--accent-dark);
+}
+.section-sub .sub-badge.dog { background: var(--dog-light); color: var(--dog); }
+.section-sub .sub-badge.cat { background: var(--cat-light); color: var(--cat); }
+
+.product-table {
+  width: 100%; border-collapse: collapse;
+  background: var(--card); border-radius: var(--radius);
+  overflow: hidden; border: 1.5px solid var(--border);
+  font-size: 13px;
+}
+.product-table thead tr { background: #f5f5f5; }
+.product-table th {
+  padding: 10px 14px; text-align: left;
+  font-weight: 700; font-size: 12px; color: var(--text-muted);
+  letter-spacing: .3px; white-space: nowrap;
+  border-bottom: 1.5px solid var(--border);
+}
+.product-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.product-table tbody tr:last-child td { border-bottom: none; }
+.product-table tbody tr:hover { background: #fafafa; }
+.td-code {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900; font-size: 13px; color: var(--accent);
+  white-space: nowrap;
+}
+.td-code.dog { color: var(--dog); }
+.td-code.cat { color: var(--cat); }
+.td-name { font-weight: 700; font-size: 13px; }
+.td-spec { color: var(--text-muted); font-size: 12px; white-space: nowrap; }
+.td-target { color: #555; font-size: 12px; }
+.td-diff { color: #444; font-size: 12px; line-height: 1.5; }
+.highlight-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  padding: 1px 7px; border-radius: 6px; margin: 1px 2px 1px 0;
+  background: var(--accent-light); color: var(--accent-dark);
+}
+
+/* ── Selector Guide ── */
+.guide-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+.guide-panel {
+  background: var(--card); border-radius: var(--radius);
+  border: 1.5px solid var(--border); overflow: hidden;
+}
+.guide-panel-head {
+  padding: 12px 18px;
+  font-weight: 700; font-size: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.guide-panel-head.dog { background: var(--dog-light); color: var(--dog); }
+.guide-panel-head.cat { background: var(--cat-light); color: var(--cat); }
+.guide-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.guide-row:last-child { border-bottom: none; }
+.guide-row .situation { flex: 1; color: #444; }
+.guide-row .reco {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; font-size: 12px;
+  color: var(--accent); flex-shrink: 0;
+  text-align: right;
+}
+
+/* ── Conclusion ── */
+.conclusion-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+.conc-card {
+  background: var(--card); border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  padding: 16px 18px;
+}
+.conc-card .ctitle {
+  font-size: 13px; font-weight: 700;
+  color: var(--accent); margin-bottom: 6px;
+  display: flex; align-items: center; gap: 6px;
+}
+.conc-card .ctitle::before {
+  content: ''; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--accent); flex-shrink: 0;
+}
+.conc-card p { font-size: 13px; color: #555; line-height: 1.6; }
+
+/* ── Footer ── */
+.site-footer {
+  margin-top: 60px; padding: 28px 24px;
+  background: #1a1a1a; text-align: center;
+}
+.site-footer p {
+  font-size: 12px; color: #555;
+  font-family: 'Montserrat', sans-serif; letter-spacing: .5px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  /* Header */
+  .site-header { padding: 0 16px; height: 52px; }
+  .site-header .brand { font-size: 13px; }
+  .site-header .bc30 { width: auto; padding: 4px 10px;
+    border-radius: 20px; flex-direction: row; gap: 3px; }
+  .site-header .bc30 .bc-num { font-size: 13px; }
+  .site-header .bc30 .bc-sub { font-size: 7px; margin-top: 0; }
+
+  /* Hero */
+  .hero-banner { padding: 28px 20px 22px; text-align: left; }
+  .hero-banner h1 { font-size: 26px; word-break: keep-all; }
+  .hero-banner p { font-size: 13px; text-align: left; }
+  .hero-pills { padding: 0 16px 24px; justify-content: flex-start; }
+
+  /* Content */
+  .quick-grid { grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px; }
+  .product-table th:nth-child(3),
+  .product-table td:nth-child(3) { display: none; }
+  .series-grid { grid-template-columns: 1fr 1fr; }
+  .guide-grid { grid-template-columns: 1fr; }
+  .conclusion-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="brand en">Holistic Recipe® <span>SOLUTION</span></div>
+  <div class="bc30 en"><span class="bc-num">BC<span class="bc-thirty">30</span></span><span class="bc-sub">PROBIOTIC</span></div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-banner">
+    <div class="hero-label en">BUYING GUIDE 2026</div>
+    <h1>耐吉斯 Solution <em>飼料選購懶人包</em></h1>
+    <p>系列總覽、快速配對、商品比較一次看完，幫毛孩找到最合適的那一款。</p>
+  </div>
+  <div class="hero-pills">
+    <div class="hero-pill"><strong>無穀配方</strong> 全系列</div>
+    <div class="hero-pill"><strong>BC30™</strong> 美國專利益生菌</div>
+    <div class="hero-pill"><strong>AAFCO</strong> 營養標準設計</div>
+    <div class="hero-pill"><strong>E / P / V</strong> 多系列選擇</div>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- ══ 系列總覽 ══ -->
+  <section class="section">
+    <h2 class="section-title">系列是什麼意思？</h2>
+    <div class="series-grid">
+
+      <div class="scard theme-e">
+        <div class="scard-body">
+          <div class="scard-header">
+            <div class="scard-icon">🌿</div>
+            <div class="scard-code en">E</div>
+          </div>
+          <div class="scard-type">無穀乾糧</div>
+          <div class="scard-title">E 系列</div>
+          <div class="scard-desc">依生命階段分款，品項最多。幼犬、成犬、高齡犬、室內貓各有專屬配方。</div>
+          <div class="badge-row">
+            <span class="badge">犬</span><span class="badge">貓</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scard theme-p">
+        <div class="scard-body">
+          <div class="scard-header">
+            <div class="scard-icon">❄️</div>
+            <div class="scard-code en">P</div>
+          </div>
+          <div class="scard-type">凍乾升級版</div>
+          <div class="scard-title">P 系列</div>
+          <div class="scard-desc">E 系列的凍乾升級版。每粒乾糧搭配含鮮肉＋內臟的獵物凍乾，適口性更高。</div>
+          <div class="badge-row">
+            <span class="badge">犬</span><span class="badge">貓</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scard theme-v">
+        <div class="scard-body">
+          <div class="scard-header">
+            <div class="scard-icon">🌾</div>
+            <div class="scard-code en">V</div>
+          </div>
+          <div class="scard-type">純素乾糧</div>
+          <div class="scard-title">V 系列</div>
+          <div class="scard-desc">100% 純素配方，藜麥為主要蛋白來源，不含大豆、玉米、小麥。</div>
+          <div class="badge-row">
+            <span class="badge">犬</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scard theme-can">
+        <div class="scard-body">
+          <div class="scard-header">
+            <div class="scard-icon">🥫</div>
+            <div class="scard-code" style="font-size:14px;font-weight:900;color:var(--c);">好腸胃</div>
+          </div>
+          <div class="scard-type">主食罐</div>
+          <div class="scard-title">好腸胃</div>
+          <div class="scard-desc">98% 動物性蛋白主食罐，添加果寡糖與膳食纖維，可單吃或搭配乾糧。</div>
+          <div class="badge-row">
+            <span class="badge">犬</span><span class="badge">貓</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scard theme-freeze">
+        <div class="scard-body">
+          <div class="scard-header">
+            <div class="scard-icon">✨</div>
+            <div class="scard-code" style="font-size:13px;font-weight:900;color:var(--c);">呼嚕</div>
+          </div>
+          <div class="scard-type">貓零食</div>
+          <div class="scard-title">呼嚕凍乾</div>
+          <div class="scard-desc">凍乾貓零食，全系列添加茶胺酸舒緩，搭配貓薄荷或木天蓼，日常互動獎勵用。</div>
+          <div class="badge-row">
+            <span class="badge">貓</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ 快速挑選 + 商品矩陣 (分 dog/cat Tab) ══ -->
+  <section class="section">
+    <h2 class="section-title">怎麼挑？</h2>
+
+    <div class="species-tabs">
+      <button class="stab dog active" onclick="switchTab('dog')">
+        <span class="icon">🐶</span> 狗狗
+      </button>
+      <button class="stab cat" onclick="switchTab('cat')">
+        <span class="icon">🐱</span> 貓咪
+      </button>
+    </div>
+
+    <!-- DOG TAB -->
+    <div id="tab-dog" class="tab-pane active">
+      <!-- Quick pick -->
+      <div class="quick-grid">
+        <div class="qcard dog">
+          <div class="need">幼犬、正在成長</div>
+          <div class="suggest">幼犬專屬高蛋白配方</div>
+          <div class="codes"><span class="code-badge dog">E1</span></div>
+        </div>
+        <div class="qcard dog">
+          <div class="need">成犬、小型犬或腸胃敏感</div>
+          <div class="suggest">羊肉單一肉源，小顆粒好消化</div>
+          <div class="codes"><span class="code-badge dog">E2</span></div>
+        </div>
+        <div class="qcard dog">
+          <div class="need">成犬、大型犬</div>
+          <div class="suggest">羊肉單一肉源，大顆粒適合大型犬</div>
+          <div class="codes"><span class="code-badge dog">E3</span></div>
+        </div>
+        <div class="qcard dog">
+          <div class="need">想換肉源、試試火雞</div>
+          <div class="suggest">火雞單一肉源，低敏高蛋白</div>
+          <div class="codes"><span class="code-badge dog">E5</span></div>
+        </div>
+        <div class="qcard dog">
+          <div class="need">高齡犬、關節退化</div>
+          <div class="suggest">添加軟骨素，熱量控制設計</div>
+          <div class="codes"><span class="code-badge dog">E6</span></div>
+        </div>
+        <div class="qcard dog">
+          <div class="need">對常見肉源敏感、低脂需求</div>
+          <div class="suggest">鹿肉稀有蛋白，低脂低敏</div>
+          <div class="codes"><span class="code-badge dog">E7</span><span class="code-badge p-dog">P1</span></div>
+        </div>
+        <div class="qcard dog">
+          <div class="need">想補充 Omega-3</div>
+          <div class="suggest">鮭魚配方，DHA + EPA</div>
+          <div class="codes"><span class="code-badge dog">E8</span><span class="code-badge p-dog">P2</span></div>
+        </div>
+        <div class="qcard dog">
+          <div class="need">想加凍乾、提升適口性</div>
+          <div class="suggest">P 系列 = E 系列 + 獵物凍乾</div>
+          <div class="codes"><span class="code-badge p-dog">P1</span><span class="code-badge p-dog">P2</span><span class="code-badge p21">P21</span></div>
+        </div>
+        <div class="qcard dog">
+          <div class="need">純素食需求</div>
+          <div class="suggest">100% 純素藜麥配方</div>
+          <div class="codes"><span class="code-badge dog">V1</span></div>
+        </div>
+        <div class="qcard dog">
+          <div class="need">搭配乾糧、補充濕食</div>
+          <div class="suggest">好腸胃主食罐，98% 動物蛋白</div>
+          <div class="codes"><span class="code-badge">好腸胃</span></div>
+        </div>
+        <div class="qcard dog">
+          <div class="need">熟齡犬、牙口退化</div>
+          <div class="suggest">軟嫩慕斯質地，好入口易消化</div>
+          <div class="codes"><span class="code-badge">好腸胃 羊奶</span></div>
+        </div>
+      </div>
+
+      <!-- 詳細商品 -->
+      <div class="section-sub">
+        乾糧 E 系列
+        <span class="sub-badge dog">原野無穀</span>
+      </div>
+      <div style="overflow-x:auto;">
+      <table class="product-table">
+        <thead><tr>
+          <th>編號</th><th>名稱</th><th>規格</th><th>適合誰</th><th>主要差異</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="td-code dog">E1</div></td>
+            <td><div class="td-name">活力羊肉餐 幼犬</div></td>
+            <td class="td-spec">4.5lb / 10lb</td>
+            <td class="td-target">幼犬（成長期）</td>
+            <td class="td-diff">32% 高蛋白支持成長，紐西蘭放牧羊肉<span class="highlight-tag">單一肉源</span>，幼犬完整營養</td>
+          </tr>
+          <tr>
+            <td><div class="td-code dog">E2</div></td>
+            <td><div class="td-name">活力羊肉餐 成犬 <small style="color:#aaa;">小顆粒</small></div></td>
+            <td class="td-spec">4.5lb / 10lb</td>
+            <td class="td-target">成犬、小型犬、腸胃敏感</td>
+            <td class="td-diff"><span class="highlight-tag">小顆粒</span>紐西蘭羊肉單一肉源，好咀嚼，適合腸胃敏感</td>
+          </tr>
+          <tr>
+            <td><div class="td-code dog">E3</div></td>
+            <td><div class="td-name">活力羊肉餐 成犬 <small style="color:#aaa;">大顆粒</small></div></td>
+            <td class="td-spec">4.5lb / 10lb</td>
+            <td class="td-target">成犬、大型犬</td>
+            <td class="td-diff"><span class="highlight-tag">大顆粒</span>同 E2 配方，顆粒更大適合大型犬、喜歡咀嚼</td>
+          </tr>
+          <tr>
+            <td><div class="td-code dog">E5</div></td>
+            <td><div class="td-name">好蛋白火雞餐 成犬</div></td>
+            <td class="td-spec">4.5lb / 10lb</td>
+            <td class="td-target">成犬、換蛋白質需求</td>
+            <td class="td-diff">火雞<span class="highlight-tag">單一肉源</span>，32% 高蛋白，低敏換肉源首選</td>
+          </tr>
+          <tr>
+            <td><div class="td-code dog">E6</div></td>
+            <td><div class="td-name">銀髮羊肉餐 高齡犬</div></td>
+            <td class="td-spec">4.5lb / 10lb</td>
+            <td class="td-target">高齡犬、關節保養</td>
+            <td class="td-diff">添加<span class="highlight-tag">軟骨素</span>，熱量控制 3300 kcal/kg，羊肉單一肉源</td>
+          </tr>
+          <tr>
+            <td><div class="td-code dog">E7</div></td>
+            <td><div class="td-name">源野極品鹿肉餐 全齡犬</div></td>
+            <td class="td-spec">4.5lb / 10lb</td>
+            <td class="td-target">全齡犬、低脂低敏</td>
+            <td class="td-diff"><span class="highlight-tag">鹿肉稀有蛋白</span>，80%+ 動物蛋白，低脂低敏</td>
+          </tr>
+          <tr>
+            <td><div class="td-code dog">E8</div></td>
+            <td><div class="td-name">源野能量鮭魚餐 全齡犬</div></td>
+            <td class="td-spec">4.5lb / 10lb</td>
+            <td class="td-target">全齡犬、Omega-3 補充</td>
+            <td class="td-diff">鮭魚為主，富含 <span class="highlight-tag">Omega-3</span>，皮毛保養日常補給</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="section-sub">
+        乾糧＋凍乾 P 系列
+        <span class="sub-badge p-dog">凍乾升級</span>
+      </div>
+      <div style="overflow-x:auto;">
+      <table class="product-table">
+        <thead><tr>
+          <th>編號</th><th>名稱</th><th>規格</th><th>肉源</th><th>主要差異</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="td-code p-dog">P1</div></td>
+            <td><div class="td-name">凍乾多拼鹿肉餐 全齡犬</div></td>
+            <td class="td-spec">350g / 4.5lb / 9.5lb</td>
+            <td class="td-target">鹿肉</td>
+            <td class="td-diff">鹿肉乾糧＋<span class="highlight-tag" style="background:var(--p-dog-light);color:var(--p-dog);">獵物凍乾</span>（鮮肉＋內臟），低脂低敏</td>
+          </tr>
+          <tr>
+            <td><div class="td-code p-dog">P2</div></td>
+            <td><div class="td-name">凍乾多拼鮭魚餐 全齡犬</div></td>
+            <td class="td-spec">350g / 4.5lb / 9.5lb</td>
+            <td class="td-target">鮭魚</td>
+            <td class="td-diff">鮭魚乾糧＋<span class="highlight-tag" style="background:var(--p-dog-light);color:var(--p-dog);">獵物凍乾</span>，Omega-3 高適口性</td>
+          </tr>
+          <tr>
+            <td><div class="td-code p21">P21</div></td>
+            <td><div class="td-name">凍乾填心雞肉餐 全齡犬</div></td>
+            <td class="td-spec">350g / 4.5lb / 9.5lb</td>
+            <td class="td-target">雞肉</td>
+            <td class="td-diff"><span class="highlight-tag" style="background:var(--p21-light);color:var(--p21);">凍乾填心</span>技術，每顆含 8% 凍乾內餡（鮮肉＋內臟）</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="section-sub">
+        純素乾糧 V 系列
+        <span class="sub-badge" style="background:#edfaf1;color:#5aaa6e;">純素</span>
+      </div>
+      <div style="overflow-x:auto;">
+      <table class="product-table">
+        <thead><tr>
+          <th>編號</th><th>名稱</th><th>規格</th><th>適合誰</th><th>主要差異</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="td-code" style="color:#5aaa6e;">V1</div></td>
+            <td><div class="td-name">維根田園黎麥餐 成犬素食</div></td>
+            <td class="td-spec">5.5lb</td>
+            <td class="td-target">成犬、素食需求</td>
+            <td class="td-diff"><span class="highlight-tag" style="background:#edfaf1;color:#5aaa6e;">100% 純素</span>藜麥蛋白，7 種以上彩色蔬果，零大豆/玉米/小麥</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="section-sub">
+        主食罐 好腸胃
+        <span class="sub-badge can">98% 動物蛋白</span>
+      </div>
+      <div style="overflow-x:auto;">
+      <table class="product-table">
+        <thead><tr>
+          <th>名稱</th><th>規格</th><th>適合誰</th><th>主要差異</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="td-name">好腸胃 雞肉＋羊肉 全齡犬</div></td>
+            <td class="td-spec">80g</td>
+            <td class="td-target">全齡犬</td>
+            <td class="td-diff">肉絲＋肉泥雙口感，添加蛋黃與奇亞籽，<span class="highlight-tag">皮毛保養</span></td>
+          </tr>
+          <tr>
+            <td><div class="td-name">好腸胃 雞肉＋牛肉 全齡犬</div></td>
+            <td class="td-spec">80g</td>
+            <td class="td-target">全齡犬、關節保養</td>
+            <td class="td-diff">添加<span class="highlight-tag">綠貽貝</span>關節保養，98% 動物蛋白</td>
+          </tr>
+          <tr>
+            <td><div class="td-name">好腸胃 雞肉＋羊奶 熟齡犬</div></td>
+            <td class="td-spec">80g</td>
+            <td class="td-target">熟齡犬、牙口較弱</td>
+            <td class="td-diff"><span class="highlight-tag">慕斯質地</span>好入口，添加羊奶與起司補鈣</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div><!-- /tab-dog -->
+
+    <!-- CAT TAB -->
+    <div id="tab-cat" class="tab-pane">
+      <!-- Quick pick -->
+      <div class="quick-grid">
+        <div class="qcard cat">
+          <div class="need">幼貓、母貓、有化毛需求</div>
+          <div class="suggest">低碳高蛋白，膳食纖維助排毛</div>
+          <div class="codes"><span class="code-badge cat">E9</span></div>
+        </div>
+        <div class="qcard cat">
+          <div class="need">室內貓、容易變胖</div>
+          <div class="suggest">低卡低磷，泌尿道保健設計</div>
+          <div class="codes"><span class="code-badge cat">E10</span></div>
+        </div>
+        <div class="qcard cat">
+          <div class="need">熟齡貓、腎臟保養</div>
+          <div class="suggest">低磷配方，熟齡專屬設計</div>
+          <div class="codes"><span class="code-badge cat">E11</span></div>
+        </div>
+        <div class="qcard cat">
+          <div class="need">全齡貓、補充 DHA/EPA</div>
+          <div class="suggest">鮭魚 42% 高蛋白，Omega-3</div>
+          <div class="codes"><span class="code-badge cat">E12</span></div>
+        </div>
+        <div class="qcard cat">
+          <div class="need">全齡貓、想換多元蛋白</div>
+          <div class="suggest">海陸雙蛋白，高蛋白低碳水</div>
+          <div class="codes"><span class="code-badge cat">E13</span><span class="code-badge cat">P4</span></div>
+        </div>
+        <div class="qcard cat">
+          <div class="need">想加凍乾、提升適口性</div>
+          <div class="suggest">P 系列 = E 系列 + 獵物凍乾</div>
+          <div class="codes"><span class="code-badge p-cat">P3</span><span class="code-badge p-cat">P4</span><span class="code-badge p23">P23</span></div>
+        </div>
+        <div class="qcard cat">
+          <div class="need">搭配乾糧、補充濕食</div>
+          <div class="suggest">好腸胃主食罐，98% 動物蛋白</div>
+          <div class="codes"><span class="code-badge">好腸胃</span></div>
+        </div>
+        <div class="qcard cat">
+          <div class="need">貓咪需要舒緩獎勵零食</div>
+          <div class="suggest">呼嚕凍乾，全系列含茶胺酸舒緩</div>
+          <div class="codes"><span class="code-badge cat">呼嚕凍乾</span></div>
+        </div>
+      </div>
+
+      <div class="section-sub">
+        乾糧 E 系列
+        <span class="sub-badge cat">無穀貓糧</span>
+      </div>
+      <div style="overflow-x:auto;">
+      <table class="product-table">
+        <thead><tr>
+          <th>編號</th><th>名稱</th><th>規格</th><th>適合誰</th><th>主要差異</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="td-code cat">E9</div></td>
+            <td><div class="td-name">低碳火雞餐 幼母貓化毛</div></td>
+            <td class="td-spec">4.5lb / 10lb</td>
+            <td class="td-target">幼貓、母貓、化毛需求</td>
+            <td class="td-diff"><span class="highlight-tag" style="background:var(--cat-light);color:var(--cat);">24% 低碳水</span>35% 高蛋白，膳食纖維助排毛</td>
+          </tr>
+          <tr>
+            <td><div class="td-code cat">E10</div></td>
+            <td><div class="td-name">窈窕火雞餐 室內貓低卡</div></td>
+            <td class="td-spec">4.5lb / 10lb</td>
+            <td class="td-target">室內貓、體重管理、泌尿保健</td>
+            <td class="td-diff"><span class="highlight-tag" style="background:var(--cat-light);color:var(--cat);">低卡低磷</span>火雞單一肉源，不愛動的室內貓首選</td>
+          </tr>
+          <tr>
+            <td><div class="td-code cat">E11</div></td>
+            <td><div class="td-name">優腎火雞餐 熟齡貓低磷</div></td>
+            <td class="td-spec">4.5lb / 10lb</td>
+            <td class="td-target">熟齡老貓、腎臟保健</td>
+            <td class="td-diff"><span class="highlight-tag" style="background:var(--cat-light);color:var(--cat);">低磷配方</span>火雞單一肉源，熟齡貓專屬設計</td>
+          </tr>
+          <tr>
+            <td><div class="td-code cat">E12</div></td>
+            <td><div class="td-name">能量鮭魚餐 全齡貓</div></td>
+            <td class="td-spec">4.5lb / 10lb</td>
+            <td class="td-target">全齡貓、補充 DHA/EPA</td>
+            <td class="td-diff"><span class="highlight-tag" style="background:var(--cat-light);color:var(--cat);">42% 高蛋白</span>80%+ 動物蛋白，鮭魚 DHA、EPA、Omega-3</td>
+          </tr>
+          <tr>
+            <td><div class="td-code cat">E13</div></td>
+            <td><div class="td-name">源野能量海陸餐 全齡貓</div></td>
+            <td class="td-spec">4.5lb / 10lb</td>
+            <td class="td-target">全齡貓、多元蛋白</td>
+            <td class="td-diff"><span class="highlight-tag" style="background:var(--cat-light);color:var(--cat);">海陸雙蛋白</span>高蛋白低碳水，多元蛋白來源</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="section-sub">
+        乾糧＋凍乾 P 系列
+        <span class="sub-badge p-cat">凍乾升級</span>
+      </div>
+      <div style="overflow-x:auto;">
+      <table class="product-table">
+        <thead><tr>
+          <th>編號</th><th>名稱</th><th>規格</th><th>肉源</th><th>主要差異</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="td-code p-cat">P3</div></td>
+            <td><div class="td-name">凍乾多拼鮭魚餐 全齡貓</div></td>
+            <td class="td-spec">350g / 4.5lb / 9.5lb</td>
+            <td class="td-target">鮭魚</td>
+            <td class="td-diff">鮭魚乾糧＋<span class="highlight-tag" style="background:var(--p-cat-light);color:var(--p-cat);">獵物凍乾</span>（鮮肉＋內臟），高蛋白</td>
+          </tr>
+          <tr>
+            <td><div class="td-code p-cat">P4</div></td>
+            <td><div class="td-name">凍乾多拼海陸餐 全齡貓</div></td>
+            <td class="td-spec">350g / 4.5lb / 9.5lb</td>
+            <td class="td-target">海陸雙蛋白</td>
+            <td class="td-diff">乾糧＋<span class="highlight-tag" style="background:var(--p-cat-light);color:var(--p-cat);">獵物凍乾</span>，多層次口感與蛋白來源</td>
+          </tr>
+          <tr>
+            <td><div class="td-code p23">P23</div></td>
+            <td><div class="td-name">凍乾填心雞肉餐 全齡貓</div></td>
+            <td class="td-spec">350g / 4.5lb / 9.5lb</td>
+            <td class="td-target">雞肉</td>
+            <td class="td-diff"><span class="highlight-tag" style="background:var(--p23-light);color:var(--p23);">凍乾填心</span>每顆 8% 凍乾內餡，避免只挑凍乾</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="section-sub">
+        主食罐 好腸胃
+        <span class="sub-badge can">98% 動物蛋白</span>
+      </div>
+      <div style="overflow-x:auto;">
+      <table class="product-table">
+        <thead><tr>
+          <th>名稱</th><th>規格</th><th>適合誰</th><th>主要差異</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="td-name">好腸胃 雞肉＋鯛魚 成幼貓</div></td>
+            <td class="td-spec">65g</td>
+            <td class="td-target">全齡貓、泌尿道保健</td>
+            <td class="td-diff">添加<span class="highlight-tag" style="background:var(--cat-light);color:var(--cat);">蔓越莓</span>泌尿道保健，軟嫩肉泥質地</td>
+          </tr>
+          <tr>
+            <td><div class="td-name">好腸胃 雞肉＋鮭魚 成幼貓</div></td>
+            <td class="td-spec">65g</td>
+            <td class="td-target">全齡貓、化毛保健</td>
+            <td class="td-diff">添加<span class="highlight-tag" style="background:var(--cat-light);color:var(--cat);">南瓜纖維</span>助排毛，肉絲＋肉泥雙口感</td>
+          </tr>
+          <tr>
+            <td><div class="td-name">好腸胃 雞肉＋羊奶 成幼貓</div></td>
+            <td class="td-spec">65g</td>
+            <td class="td-target">全齡貓、補鈣</td>
+            <td class="td-diff">羊奶＋起司<span class="highlight-tag" style="background:var(--cat-light);color:var(--cat);">補鈣</span>，軟嫩肉泥，舔食型貓咪適合</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="section-sub">
+        貓咪零食 呼嚕凍乾
+        <span class="sub-badge cat">茶胺酸舒緩</span>
+      </div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">全系列皆添加茶胺酸，支持情緒舒緩；搭配貓薄荷或木天蓼提升吸引力。</p>
+      <div style="overflow-x:auto;">
+      <table class="product-table">
+        <thead><tr>
+          <th>商品</th><th>規格</th><th>肉源</th><th>舒緩成分</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="td-name">呼嚕凍乾 嫩雞柳</div></td>
+            <td class="td-spec">45g</td>
+            <td class="td-target">雞柳</td>
+            <td class="td-diff"><span class="highlight-tag" style="background:var(--cat-light);color:var(--cat);">貓薄荷</span>＋茶胺酸</td>
+          </tr>
+          <tr>
+            <td><div class="td-name">呼嚕凍乾 骰子牛</div></td>
+            <td class="td-spec">40g</td>
+            <td class="td-target">牛肉</td>
+            <td class="td-diff"><span class="highlight-tag" style="background:var(--cat-light);color:var(--cat);">木天蓼</span>＋茶胺酸</td>
+          </tr>
+          <tr>
+            <td><div class="td-name">呼嚕凍乾 鮭魚片</div></td>
+            <td class="td-spec">40g</td>
+            <td class="td-target">鮭魚</td>
+            <td class="td-diff"><span class="highlight-tag" style="background:var(--cat-light);color:var(--cat);">貓薄荷</span>＋茶胺酸</td>
+          </tr>
+          <tr>
+            <td><div class="td-name">呼嚕凍乾 鮮雞心</div></td>
+            <td class="td-spec">40g</td>
+            <td class="td-target">雞心</td>
+            <td class="td-diff"><span class="highlight-tag" style="background:var(--cat-light);color:var(--cat);">貓薄荷</span>＋茶胺酸</td>
+          </tr>
+          <tr>
+            <td><div class="td-name">呼嚕凍乾 草蝦仁</div></td>
+            <td class="td-spec">20g</td>
+            <td class="td-target">草蝦</td>
+            <td class="td-diff"><span class="highlight-tag" style="background:var(--cat-light);color:var(--cat);">木天蓼</span>＋茶胺酸</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div><!-- /tab-cat -->
+  </section>
+
+  <!-- ══ 怎麼幫毛孩選 ══ -->
+  <section class="section">
+    <h2 class="section-title">對照狀況快速配對</h2>
+    <div class="guide-grid">
+      <div class="guide-panel">
+        <div class="guide-panel-head dog">🐶 狗狗狀況</div>
+        <div class="guide-row"><div class="situation">幼犬、正在成長</div><div class="reco">E1</div></div>
+        <div class="guide-row"><div class="situation">成犬、小型犬或腸胃敏感</div><div class="reco">E2</div></div>
+        <div class="guide-row"><div class="situation">成犬、大型犬</div><div class="reco">E3</div></div>
+        <div class="guide-row"><div class="situation">對常見肉源敏感、想低脂換口</div><div class="reco">E7 / P1</div></div>
+        <div class="guide-row"><div class="situation">高齡犬、關節退化</div><div class="reco">E6</div></div>
+        <div class="guide-row"><div class="situation">想補充 Omega-3</div><div class="reco">E8 / P2</div></div>
+        <div class="guide-row"><div class="situation">想試試凍乾升級版</div><div class="reco">P1 / P2 / P21</div></div>
+        <div class="guide-row"><div class="situation">純素食需求</div><div class="reco">V1</div></div>
+        <div class="guide-row"><div class="situation">想補充濕食、腸胃保健</div><div class="reco">好腸胃罐</div></div>
+        <div class="guide-row"><div class="situation">熟齡犬、牙口退化</div><div class="reco">好腸胃羊奶</div></div>
+      </div>
+      <div class="guide-panel">
+        <div class="guide-panel-head cat">🐱 貓咪狀況</div>
+        <div class="guide-row"><div class="situation">幼貓、母貓、有化毛需求</div><div class="reco">E9</div></div>
+        <div class="guide-row"><div class="situation">室內貓、容易變胖、泌尿問題</div><div class="reco">E10</div></div>
+        <div class="guide-row"><div class="situation">熟齡貓、腎臟保養</div><div class="reco">E11</div></div>
+        <div class="guide-row"><div class="situation">想補充 DHA/EPA、偏好魚類</div><div class="reco">E12</div></div>
+        <div class="guide-row"><div class="situation">想換多元蛋白、全齡貓</div><div class="reco">E13 / P4</div></div>
+        <div class="guide-row"><div class="situation">想加凍乾提升適口性</div><div class="reco">P3 / P4 / P23</div></div>
+        <div class="guide-row"><div class="situation">想補充濕食、腸胃保健</div><div class="reco">好腸胃罐</div></div>
+        <div class="guide-row"><div class="situation">貓咪需要舒緩互動零食</div><div class="reco">呼嚕凍乾</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 簡單結論 ══ -->
+  <section class="section" style="padding-bottom: 20px;">
+    <h2 class="section-title">不知道怎麼選？從這裡開始</h2>
+    <div class="conclusion-grid">
+      <div class="conc-card">
+        <div class="ctitle">狗狗安全牌</div>
+        <p>E2（小型犬）或 E3（大型犬），紐西蘭羊肉單一肉源，無穀低敏，最多飼主選擇的入門款。</p>
+      </div>
+      <div class="conc-card">
+        <div class="ctitle">對雞肉或羊肉敏感</div>
+        <p>換 E7 或 P1（鹿肉），低脂高蛋白，稀有蛋白源，適合對常見肉過敏的狗。</p>
+      </div>
+      <div class="conc-card">
+        <div class="ctitle">貓咪安全牌</div>
+        <p>E12（鮭魚全齡貓）或 E13（海陸全齡貓），高蛋白低碳水，適合多數成貓日常主食。</p>
+      </div>
+      <div class="conc-card">
+        <div class="ctitle">想加凍乾提升適口性</div>
+        <p>升級 P 系列，肉源與 E 系列相同，每粒多一顆含鮮肉＋內臟的獵物凍乾。</p>
+      </div>
+      <div class="conc-card">
+        <div class="ctitle">需要濕食補充</div>
+        <p>好腸胃主食罐，98% 動物蛋白，可單吃也可拌入乾糧，腸道保健配方。</p>
+      </div>
+      <div class="conc-card">
+        <div class="ctitle">貓咪零食互動</div>
+        <p>呼嚕凍乾系列全含茶胺酸舒緩，容易緊張的貓咪特別適合，日常獎勵首選。</p>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<footer class="site-footer">
+  <p class="en">Holistic Recipe® SOLUTION · 耐吉斯 · 選購懶人包</p>
+</footer>
+
+<script>
+function switchTab(species) {
+  document.querySelectorAll('.stab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelector('.stab.' + species).classList.add('active');
+  document.getElementById('tab-' + species).classList.add('active');
+}
+</script>
+</body>
+</html>
