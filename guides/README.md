@@ -17,6 +17,13 @@
 - 短網址：<https://lihi1.me/Xpxug>
 - 備註：狗零食挑選懶人包
 
+#### 耐吉斯
+
+- 檔案路徑：`guides/brands/ngs_buying_guide.html`
+- 正式網址：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/ngs_buying_guide.html>
+- 短網址：<https://lihi1.me/DdZ7U>
+- 備註：耐吉斯購買指南
+
 ## 建議新增規則
 
 - 品牌懶人包：`guides/brands/<brand>.html`
