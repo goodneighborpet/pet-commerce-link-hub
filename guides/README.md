@@ -8,9 +8,14 @@
 
 ## Public Pages
 
-| 類型 | 名稱 | 檔案路徑 | 公開網址 | 備註 |
-| --- | --- | --- | --- | --- |
-| 品牌懶人包 | GooToe 活力零食 | `guides/brands/gootoe.html` | `https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/gootoe.html` | 狗零食挑選懶人包 |
+### 品牌懶人包
+
+#### GooToe 活力零食
+
+- 檔案路徑：`guides/brands/gootoe.html`
+- 正式網址：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/gootoe.html>
+- 短網址：<https://lihi1.me/Xpxug>
+- 備註：狗零食挑選懶人包
 
 ## 建議新增規則
 
