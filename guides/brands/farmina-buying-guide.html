@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>法米納 Farmina 飼料選購懶人包</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #16374d;
+      --muted: #647789;
+      --line: rgba(21, 91, 150, 0.14);
+      --card: rgba(255,255,255,0.94);
+      --forest: #1c74ba;
+      --forest-soft: #e8f4fd;
+      --sea: #0e5f97;
+      --sea-soft: #e4effa;
+      --gold: #f28a1c;
+      --gold-soft: #fff0df;
+      --berry: #7c8791;
+      --berry-soft: #eef2f5;
+      --shadow: 0 18px 50px rgba(13, 63, 112, 0.08);
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", sans-serif;
+      color: var(--ink);
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at top left, rgba(231,244,253,0.96), transparent 34%),
+        radial-gradient(circle at top right, rgba(255,240,223,0.88), transparent 28%),
+        linear-gradient(180deg, #f7fbff 0%, #f1f7fc 46%, #f8fbfe 100%);
+    }
+    h1, h2, h3, h4, .brand, .kicker, .tab-btn, .badge {
+      font-family: "Space Grotesk", "Noto Sans TC", sans-serif;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(247, 251, 255, 0.82);
+      border-bottom: 1px solid rgba(21, 91, 150, 0.1);
+    }
+    .nav, .wrap { max-width: 1160px; margin: 0 auto; }
+    .nav {
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand { font-size: 17px; font-weight: 700; color: var(--forest); }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+      filter: drop-shadow(0 4px 10px rgba(14, 95, 151, 0.14));
+    }
+    .links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: 999px;
+    }
+    .wrap { padding: 28px 20px 80px; }
+    .hero {
+      border-radius: 34px;
+      padding: 30px;
+      color: #f6faf7;
+      background:
+        linear-gradient(135deg, rgba(20,102,167,0.98), rgba(8,84,142,0.96)),
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
+      box-shadow: var(--shadow);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 22px;
+      align-items: center;
+    }
+    .kicker {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(255,255,255,0.12);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(34px, 5vw, 60px);
+      line-height: 1.05;
+    }
+    .hero h1 em { color: #ffb24c; font-style: normal; }
+    .hero p { margin: 0; color: rgba(246,250,247,0.84); font-size: 15px; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .hero-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .hero-card, .card, .notice {
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .hero-card {
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .hero-card { padding: 18px; }
+    .hero-card p { margin: 0; font-size: 13px; color: rgba(255,255,255,0.82); }
+    .hero-card strong { display: block; color: #fff; font-size: 16px; margin-bottom: 6px; }
+    .section { margin-top: 34px; }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 0 0 16px;
+      font-size: 28px;
+      line-height: 1.15;
+    }
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(34,95,74,0.22), transparent);
+    }
+    .intro { margin: 0 0 18px; color: var(--muted); font-size: 15px; }
+    .starter-grid, .notice-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .card, .notice, .series-card, .support-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .card, .notice { padding: 18px; }
+    .card h3, .notice h4 { margin: 0 0 8px; font-size: 16px; }
+    .card p, .notice p { margin: 0; color: var(--muted); font-size: 13px; }
+    .mini-tags, .code-row, .meta-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      background: #f1f6f4;
+      color: var(--sea);
+    }
+    .tabs {
+      background: rgba(255,255,255,0.52);
+      border-radius: 28px;
+      border: 1px solid rgba(22,49,59,0.08);
+      padding: 10px;
+      box-shadow: var(--shadow);
+    }
+    .tab-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+    .tab-btn {
+      border: none;
+      padding: 15px 18px;
+      border-radius: 18px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 900;
+      background: transparent;
+      color: var(--muted);
+    }
+    .tab-btn.active[data-tab="dog"] { background: linear-gradient(135deg, #fff4df, #ffe5bb); color: #b56200; }
+    .tab-btn.active[data-tab="cat"] { background: linear-gradient(135deg, #edf6fe, #dcecff); color: #0f5f97; }
+    .pane { display: none; }
+    .pane.active { display: block; }
+    .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .quick {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .quick.dog .eyebrow { background: var(--gold-soft); color: var(--gold); }
+    .quick.cat .eyebrow { background: var(--sea-soft); color: var(--sea); }
+    .quick h3 { margin: 0 0 8px; font-size: 16px; line-height: 1.35; }
+    .quick p { margin: 0; color: var(--muted); font-size: 13px; }
+    .quick.dog .badge { background: #fff1da; color: var(--gold); }
+    .quick.cat .badge { background: #e8f3fd; color: var(--sea); }
+    .series-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
+    .series-card, .support-card { background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .sku-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 12px; }
+    .sku-table th { background: #f3f7f4; color: var(--forest); font-weight: 700; padding: 6px 8px; text-align: left; border-bottom: 2px solid var(--line); }
+    .sku-table td { padding: 5px 8px; border-bottom: 1px solid var(--line); color: var(--ink); vertical-align: top; }
+    .sku-table tr:last-child td { border-bottom: none; }
+    .sku-table .tag-col { color: var(--muted); font-size: 11px; white-space: nowrap; }
+    .sku-table .spec-col { color: var(--muted); white-space: nowrap; }
+    .series-body, .support-body { padding: 18px; }
+    .series-top { display: flex; justify-content: space-between; gap: 14px; margin-bottom: 10px; }
+    .series-top h3, .support-body h3 { margin: 0; line-height: 1.15; }
+    .series-sub { color: var(--muted); font-size: 13px; margin-top: 4px; }
+    .tag { padding: 8px 12px; border-radius: 16px; font-size: 12px; font-weight: 700; }
+    .green { background: var(--forest-soft); color: var(--forest); }
+    .blue { background: var(--sea-soft); color: var(--sea); }
+    .red { background: var(--berry-soft); color: var(--berry); }
+    .gold { background: var(--gold-soft); color: var(--gold); }
+    .series-body p, .support-body p { margin: 0 0 14px; color: var(--muted); font-size: 14px; }
+    .detail { display: grid; gap: 10px; }
+    .detail div { display: grid; grid-template-columns: 82px 1fr; gap: 8px; font-size: 13px; }
+    .detail strong { color: var(--ink); }
+    .detail span { color: var(--muted); }
+    .support-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 16px; }
+    .bullets { display: grid; gap: 10px; }
+    .vetlife-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #edf6fe, #dcecff);
+      border: 1px solid rgba(14, 95, 151, 0.12);
+    }
+    .vetlife-mark img {
+      width: 84px;
+      height: auto;
+      display: block;
+    }
+    .vetlife-mark span {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--sea);
+      letter-spacing: 0.04em;
+    }
+    .bullet {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #f7faf8;
+      border: 1px solid rgba(22,49,59,0.06);
+      font-size: 13px;
+    }
+    .bullet strong { color: var(--forest); }
+    .footer {
+      margin-top: 30px;
+      padding-top: 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 980px) {
+      .hero-grid, .starter-grid, .quick-grid, .series-grid, .support-grid, .notice-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      .links { display: none; }
+      .wrap { padding: 20px 14px 64px; }
+      .hero { padding: 22px; border-radius: 28px; }
+      .hero-visual { grid-template-columns: 1fr; }
+      .section-title { font-size: 22px; }
+      .detail div { grid-template-columns: 1fr; gap: 3px; }
+      .brand-logo { width: 34px; height: 34px; }
+    }
+
+    /* ─── Wizard ─── */
+    .wiz-wrap {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+    }
+    .wiz-progress {
+      display: flex;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .wiz-dot {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      background: #e8f0f8;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: background .2s, color .2s, box-shadow .2s;
+    }
+    .wiz-dot.active {
+      background: var(--forest);
+      color: #fff;
+      box-shadow: 0 0 0 4px rgba(28,116,186,.16);
+    }
+    .wiz-dot.done { background: var(--forest); color: #fff; }
+    .wiz-line {
+      flex: 1;
+      height: 2px;
+      background: #e4edf6;
+      margin: 0 8px;
+      transition: background .35s;
+    }
+    .wiz-line.done { background: var(--forest); }
+    .wiz-q {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 18px;
+      color: var(--ink);
+    }
+    .wiz-opts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .wiz-opts.cols4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .wiz-opt {
+      border: 2px solid var(--line);
+      background: #f9fbfd;
+      border-radius: 16px;
+      padding: 16px 18px;
+      cursor: pointer;
+      text-align: left;
+      transition: border-color .15s, background .15s, transform .12s;
+      font-family: inherit;
+    }
+    .wiz-opt:hover {
+      border-color: var(--forest);
+      background: var(--forest-soft);
+      transform: translateY(-2px);
+    }
+    .wiz-opt-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      display: block;
+    }
+    .wiz-opt-sub {
+      font-size: 12px;
+      color: var(--muted);
+      display: block;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .wiz-back {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: inherit;
+    }
+    .wiz-back:hover { color: var(--ink); }
+    .wiz-result-box {
+      border-radius: 20px;
+      padding: 24px;
+      background: linear-gradient(135deg, var(--forest-soft), #fff);
+      border: 1.5px solid rgba(28,116,186,.2);
+    }
+    .wiz-rec-label {
+      display: inline-flex;
+      align-items: center;
+      background: var(--forest);
+      color: #fff;
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: .05em;
+    }
+    .wiz-result-box h3 { margin: 0 0 10px; font-size: 19px; }
+    .wiz-result-box p { margin: 0 0 16px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .wiz-result-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .wiz-reset {
+      background: none;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 22px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--muted);
+      transition: border-color .15s, color .15s;
+      font-family: inherit;
+    }
+    .wiz-reset:hover { border-color: var(--forest); color: var(--forest); }
+    @media (max-width: 900px) {
+      .wiz-opts.cols4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px) {
+      .wiz-wrap { padding: 20px 16px; }
+      .wiz-opts, .wiz-opts.cols4 { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="nav">
+      <div class="brand-wrap">
+        <img class="brand-logo" src="../../assets/images/brand/farmina_logo.png" alt="Farmina" loading="lazy">
+        <div class="brand">Farmina Buying Guide</div>
+      </div>
+      <nav class="links">
+        <a href="#wizard">30 秒推薦</a>
+        <a href="#start">先看需求</a>
+        <a href="#dog-cat">狗狗 / 貓咪</a>
+        <a href="#wet-prescription">主食罐 / 處方</a>
+        <a href="#tips">挑選提醒</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">FARMINA N&amp;D / VET LIFE / DOG &amp; CAT</div>
+          <h1>法米納 <em>飼料選購懶人包</em></h1>
+          <p>不知道該從無穀、低穀、南瓜、海洋、黎麥還是處方開始挑，就先從毛孩的生活型態與需求出發。這頁用最直覺的方式帶你認識法米納常見系列，幫你快速縮小範圍。</p>
+          <div class="pill-row">
+            <div class="pill">日常主食：無穀 / 低穀 / 水果系</div>
+            <div class="pill">功能導向：腸胃 / 皮毛 / 體重 / 泌尿</div>
+            <div class="pill">主食罐：提升進食意願與濕食比例</div>
+            <div class="pill">處方線：請依獸醫建議選擇</div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <strong>狗狗主力系列</strong>
+            <p>從天然無穀、低穀、南瓜、海洋到黎麥機能，先用日常主食、換口味或功能照護來判斷就夠快。</p>
+          </div>
+          <div class="hero-card">
+            <strong>貓咪選購重點</strong>
+            <p>幼貓、結紮、挑嘴、化毛、泌尿與主食罐搭配都可以從這頁直接找到相對應的系列方向。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="wizard" class="section">
+      <h2 class="section-title">30 秒找到適合系列</h2>
+      <p class="intro">回答 3 個問題，直接縮小選擇範圍，不用把所有系列看一遍。</p>
+      <div class="wiz-wrap">
+        <div class="wiz-progress">
+          <div class="wiz-dot active" id="wd1">1</div>
+          <div class="wiz-line" id="wl1"></div>
+          <div class="wiz-dot" id="wd2">2</div>
+          <div class="wiz-line" id="wl2"></div>
+          <div class="wiz-dot" id="wd3">3</div>
+        </div>
+
+        <div id="ws1">
+          <p class="wiz-q">你家毛孩是狗還是貓？</p>
+          <div class="wiz-opts">
+            <button class="wiz-opt" type="button" data-val="dog">
+              <span class="wiz-opt-label">狗狗</span>
+              <span class="wiz-opt-sub">FTD / GD / LD / PD / OD / SD / QD / HD / VD 等犬用系列</span>
+            </button>
+            <button class="wiz-opt" type="button" data-val="cat">
+              <span class="wiz-opt-label">貓咪</span>
+              <span class="wiz-opt-sub">FTC / GC / LC / PC / OC / SC / QC / VC / FC 等貓用系列</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="ws2" hidden>
+          <button class="wiz-back" type="button" id="wBack1">&#8592; 上一步</button>
+          <p class="wiz-q" id="ws2q"></p>
+          <div class="wiz-opts" id="ws2opts"></div>
+        </div>
+
+        <div id="ws3" hidden>
+          <button class="wiz-back" type="button" id="wBack2">&#8592; 上一步</button>
+          <p class="wiz-q">最想解決的是什麼？</p>
+          <div class="wiz-opts cols4">
+            <button class="wiz-opt" type="button" data-val="daily">
+              <span class="wiz-opt-label">找日常主食</span>
+              <span class="wiz-opt-sub">穩定長期吃的主糧</span>
+            </button>
+            <button class="wiz-opt" type="button" data-val="function">
+              <span class="wiz-opt-label">有功能需求</span>
+              <span class="wiz-opt-sub">腸胃、皮毛、體重、泌尿、化毛</span>
+            </button>
+            <button class="wiz-opt" type="button" data-val="taste">
+              <span class="wiz-opt-label">換食材概念</span>
+              <span class="wiz-opt-sub">想換底料或嘗試不同蛋白質來源</span>
+            </button>
+            <button class="wiz-opt" type="button" data-val="vet">
+              <span class="wiz-opt-label">獸醫有建議</span>
+              <span class="wiz-opt-sub">疾病照護或處方需求</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="wsResult" hidden></div>
+      </div>
+    </section>
+
+    <section id="start" class="section">
+      <h2 class="section-title">先看你家毛孩是哪一型</h2>
+      <p class="intro">如果你不想先研究系列名稱，直接從需求下手最快。先找到最接近的狀況，再往下看對應系列。</p>
+      <div class="starter-grid">
+        <article class="card">
+          <h3>穩健基礎型</h3>
+          <p>第一次買法米納，或想找長期主食不折騰的基本盤。GD/GC、LD/LC 成分設定保守，口味分類清楚，入門最安全。</p>
+          <div class="mini-tags"><span class="badge">GD / GC</span><span class="badge">LD / LC</span></div>
+        </article>
+        <article class="card">
+          <h3>食材概念型</h3>
+          <p>想換底料或蛋白質來源。南瓜底（PD/PC）、海洋魚類（OD/OC）、熱帶水果搭配（FTD/FTC）、螺旋藻枸杞（SD/SC），食材辨識度各自明確。</p>
+          <div class="mini-tags"><span class="badge">PD / PC</span><span class="badge">OD / OC</span><span class="badge">FTD / FTC</span><span class="badge">SD / SC</span></div>
+        </article>
+        <article class="card">
+          <h3>功能需求型</h3>
+          <p>品名直接標示照護方向。腸胃、皮毛、體重、泌尿、化毛或毛色保健，需求明確時直接看 QD/QC 或 HD 最省時間。</p>
+          <div class="mini-tags"><span class="badge">QD / QC</span><span class="badge">HD</span><span class="badge">FC 401+</span></div>
+        </article>
+        <article class="card">
+          <h3>醫療照護型</h3>
+          <p>毛孩正在接受疾病照護，或獸醫已有特別建議。Vet Life 處方線按照護方向選，不用一般口味邏輯。</p>
+          <div class="mini-tags"><span class="badge">VD / VC</span><span class="badge">FD / FC 901+</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="dog-cat" class="section">
+      <h2 class="section-title">照狗狗或貓咪直接挑</h2>
+      <p class="intro">這裡把最常見的消費者情境拆成狗狗與貓咪兩個分頁。先看需求卡，再往下看各系列重點。</p>
+      <div class="tabs">
+        <div class="tab-row">
+          <button class="tab-btn active" data-tab="dog" type="button">狗狗怎麼挑</button>
+          <button class="tab-btn" data-tab="cat" type="button">貓咪怎麼挑</button>
+        </div>
+
+        <div class="pane active" data-pane="dog">
+          <div class="quick-grid">
+            <article class="quick dog">
+              <div class="eyebrow">成長期</div>
+              <h3>幼犬或懷孕犬</h3>
+              <p>優先挑幼犬或懷孕犬專屬配方，先顧成長與體力需求。</p>
+              <div class="code-row"><span class="badge">GD</span><span class="badge">LD</span><span class="badge">FTD</span></div>
+            </article>
+            <article class="quick dog">
+              <div class="eyebrow">日常主食</div>
+              <h3>想先從最穩的基本盤開始</h3>
+              <p>沒有特殊需求時，天然無穀與天然低穀最適合當第一選擇。</p>
+              <div class="code-row"><span class="badge">GD</span><span class="badge">LD</span></div>
+            </article>
+            <article class="quick dog">
+              <div class="eyebrow">換食材概念</div>
+              <h3>想換底料或蛋白質來源</h3>
+              <p>OD 是海洋魚類（鯡魚 / 鱈魚），PD 是南瓜底料，FTD 搭配熱帶水果（鮭魚鳳梨、豬肉奇異果等），各有明確食材辨識點。</p>
+              <div class="code-row"><span class="badge">OD</span><span class="badge">PD</span><span class="badge">FTD</span></div>
+            </article>
+            <article class="quick dog">
+              <div class="eyebrow">功能照護</div>
+              <h3>腸胃、皮毛或體重管理</h3>
+              <p>機能需求明確時，直接從黎麥機能糧與毛髮保健系列下手。</p>
+              <div class="code-row"><span class="badge">QD</span><span class="badge">HD</span></div>
+            </article>
+            <article class="quick dog">
+              <div class="eyebrow">熟齡照護</div>
+              <h3>高齡犬或牙口退化</h3>
+              <p>可優先看老犬、體重管理或主食罐搭配，降低咀嚼負擔。</p>
+              <div class="code-row"><span class="badge">LD</span><span class="badge">QD</span><span class="badge">FD</span></div>
+            </article>
+            <article class="quick dog">
+              <div class="eyebrow">獸醫建議</div>
+              <h3>明確醫療照護需求</h3>
+              <p>若有腎臟、肝臟、血糖、泌尿或低敏需求，直接看 Vet Life 處方線。</p>
+              <div class="code-row"><span class="badge">VD</span><span class="badge">FD</span></div>
+            </article>
+          </div>
+
+          <div class="series-grid">
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>天然無穀犬糧</h3><div class="series-sub">GD 系列</div></div>
+                  <div class="tag green">日常主力</div>
+                </div>
+                <p>如果你只想先選一條最穩的日常主糧，這條通常是最容易入門的基本盤。</p>
+                <div class="detail">
+                  <div><strong>適合對象</strong><span>幼犬、全齡犬、一般家庭日常主食</span></div>
+                  <div><strong>特色</strong><span>98% 動物性蛋白、低 GI、充氮保鮮包裝</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>適用對象</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">GD_01</td><td>無穀雞肉石榴 小顆粒</td><td>幼犬 / 懷孕犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">GD_02</td><td>無穀雞肉石榴 小顆粒</td><td>全齡犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">GD_03</td><td>無穀羊肉藍莓 小顆粒</td><td>全齡犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">GD_05</td><td>無穀野豬蘋果 小顆粒</td><td>全齡犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">GD_06</td><td>無穀雞肉石榴 潔牙顆粒</td><td>全齡犬</td><td class="spec-col">2.5kg</td></tr>
+                    <tr><td class="tag-col">GD_07</td><td>無穀羊肉藍莓 潔牙顆粒</td><td>全齡犬</td><td class="spec-col">2.5kg</td></tr>
+                    <tr><td class="tag-col">GD_09</td><td>無穀野豬蘋果 潔牙顆粒</td><td>全齡犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>天然低穀犬糧</h3><div class="series-sub">LD 系列</div></div>
+                  <div class="tag gold">低穀日常</div>
+                </div>
+                <p>適合想找低穀路線、又希望保留比較清楚功能分類的飼主。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>FVR 獸醫研究團隊研發、保留低量穀物，幼犬至老犬分層完整</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>適用對象</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">LD_01</td><td>低穀雞肉石榴 小顆粒</td><td>幼犬 / 懷孕犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">LD_02</td><td>低穀雞肉石榴 小顆粒</td><td>全齡犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">LD_03</td><td>低穀羊肉藍莓 小顆粒</td><td>全齡犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">LD_05</td><td>低穀雞肉石榴 潔牙顆粒</td><td>老犬</td><td class="spec-col">2.5kg</td></tr>
+                    <tr><td class="tag-col">LD_06</td><td>低卡低穀雞肉石榴</td><td>低卡宅犬</td><td class="spec-col">2.5kg</td></tr>
+                    <tr><td class="tag-col">LD_08</td><td>低穀雞肉石榴 潔牙顆粒</td><td>全齡犬</td><td class="spec-col">2.5kg</td></tr>
+                    <tr><td class="tag-col">LD_09</td><td>低穀羊肉藍莓 潔牙顆粒</td><td>全齡犬</td><td class="spec-col">2.5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>南瓜犬糧</h3><div class="series-sub">PD 系列</div></div>
+                  <div class="tag red">人氣換口味</div>
+                </div>
+                <p>以南瓜為底料的無穀配方，口味選擇最豐富，常被想換底料概念或嘗試不同蛋白質的飼主選中。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>南瓜無穀底料、多蛋白質選項、小顆粒與潔牙顆粒雙劑型</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>適用對象</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">PD_02</td><td>南瓜無穀雞肉石榴 小顆粒</td><td>全齡犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">PD_03</td><td>南瓜無穀羊肉藍莓 小顆粒</td><td>全齡犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">PD_05</td><td>南瓜無穀野豬蘋果 小顆粒</td><td>全齡犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">PD_07</td><td>南瓜無穀雞肉石榴 潔牙顆粒</td><td>全齡犬</td><td class="spec-col">2.5kg</td></tr>
+                    <tr><td class="tag-col">PD_08</td><td>南瓜無穀羊肉藍莓 潔牙顆粒</td><td>全齡犬</td><td class="spec-col">2.5kg</td></tr>
+                    <tr><td class="tag-col">PD_10</td><td>南瓜無穀野豬蘋果 潔牙顆粒</td><td>全齡犬</td><td class="spec-col">2.5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>海洋犬糧</h3><div class="series-sub">OD 系列</div></div>
+                  <div class="tag blue">魚類首選</div>
+                </div>
+                <p>當飼主主動說想找魚類、海鮮風味或想避開常見肉源時，這條很好切入。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>98% 動物性原料、Omega-3、嚴選挪威鯡魚與北歐鱈魚，有無穀與低穀路線</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>適用對象</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">OD_01</td><td>無穀鯡魚甜橙 小顆粒</td><td>全齡犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">OD_02</td><td>南瓜無穀鱈魚甜橙 小顆粒</td><td>全齡犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">OD_03</td><td>低穀鱈魚甜橙 小顆粒</td><td>全齡犬</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">OD_04</td><td>無穀鯡魚甜橙 潔牙顆粒</td><td>全齡犬</td><td class="spec-col">2.5kg</td></tr>
+                    <tr><td class="tag-col">OD_06</td><td>低穀鱈魚甜橙 潔牙顆粒</td><td>全齡犬</td><td class="spec-col">2.5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>黎麥機能犬糧</h3><div class="series-sub">QD 系列</div></div>
+                  <div class="tag red">功能最完整</div>
+                </div>
+                <p>有明確需求時最實用，例如腸胃、皮毛、體重管理或絕育後體態照護。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>90%+ 動物性蛋白、藜麥超級食材、無穀、功能訴求分類最細</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>功能訴求</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">QD_01</td><td>羊肉茴香 小顆粒</td><td>腸胃道保健</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">QD_02</td><td>鴨肉椰子</td><td>皮毛保健</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">QD_03</td><td>鯡魚椰子</td><td>皮毛保健</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">QD_04</td><td>鵪鶉椰子</td><td>皮毛保健</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">QD_06</td><td>羊肉蘆筍</td><td>體重管理</td><td class="spec-col">800g / 2.5kg</td></tr>
+                    <tr><td class="tag-col">QD_07</td><td>鴨肉蘆筍</td><td>絕育後管理</td><td class="spec-col">800g / 2.5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>毛髮保健犬糧</h3><div class="series-sub">HD 系列</div></div>
+                  <div class="tag gold">毛色導向</div>
+                </div>
+                <p>這條很直觀，直接依毛色切入，特別適合在意毛色維持的飼主。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>Color Protection Formula，按淺色毛／深色毛分別配色保護</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>適用對象</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">HD_01</td><td>White 鱸魚茴香</td><td>淺色毛犬種</td><td class="spec-col">2kg / 5kg</td></tr>
+                    <tr><td class="tag-col">HD_11</td><td>Brown 羊肉胡蘿蔔</td><td>深色毛犬種</td><td class="spec-col">2kg / 5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>熱帶水果犬糧</h3><div class="series-sub">FTD 系列</div></div>
+                  <div class="tag gold">換食材概念</div>
+                </div>
+                <p>以熱帶水果為食材主題，採低升糖指數穀物（斯佩爾特小麥、燕麥），有幼犬款，口味多元。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>高比例動物性蛋白、低 GI 穀物、多種熱帶水果搭配</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>適用對象</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">FTD_01</td><td>羊肉木瓜</td><td>幼犬 / 懷孕犬</td><td class="spec-col">1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">FTD_02</td><td>雞肉芒果</td><td>全齡犬</td><td class="spec-col">1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">FTD_03</td><td>羊肉木瓜</td><td>全齡犬</td><td class="spec-col">1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">FTD_04</td><td>鮭魚鳳梨</td><td>全齡犬</td><td class="spec-col">1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">FTD_05</td><td>豬肉奇異果</td><td>全齡犬</td><td class="spec-col">1.5kg / 5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>螺旋藻犬糧</h3><div class="series-sub">SD 系列</div></div>
+                  <div class="tag green">抗氧化免疫</div>
+                </div>
+                <p>以螺旋藻為超級食材，主打 90%+ 動物性蛋白與抗氧化免疫力支持，有幼犬款。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>90%+ 動物性蛋白、螺旋藻抗氧化、免疫力支持、規格輕巧（2kg）</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>適用對象</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">SD_01</td><td>羊肉枸杞</td><td>幼犬</td><td class="spec-col">2kg</td></tr>
+                    <tr><td class="tag-col">SD_02</td><td>羊肉枸杞</td><td>全齡犬</td><td class="spec-col">2kg</td></tr>
+                    <tr><td class="tag-col">SD_03</td><td>鯡魚枸杞</td><td>全齡犬</td><td class="spec-col">2kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="pane" data-pane="cat">
+          <div class="quick-grid">
+            <article class="quick cat">
+              <div class="eyebrow">成長期</div>
+              <h3>幼貓或懷孕貓</h3>
+              <p>優先看幼貓或懷孕貓專屬設計，先滿足成長與體力需求。</p>
+              <div class="code-row"><span class="badge">GC</span><span class="badge">OC</span><span class="badge">SC</span></div>
+            </article>
+            <article class="quick cat">
+              <div class="eyebrow">日常主食</div>
+              <h3>先找穩定耐吃的基本盤</h3>
+              <p>沒有明顯特殊需求時，天然無穀與天然低穀仍是最穩的起點。</p>
+              <div class="code-row"><span class="badge">GC</span><span class="badge">LC</span></div>
+            </article>
+            <article class="quick cat">
+              <div class="eyebrow">結紮管理</div>
+              <h3>室內貓、結紮貓、低卡需求</h3>
+              <p>先看低卡結紮或室內貓導向的系列，分類會更清楚。</p>
+              <div class="code-row"><span class="badge">GC</span><span class="badge">LC</span><span class="badge">FTC</span><span class="badge">QC</span></div>
+            </article>
+            <article class="quick cat">
+              <div class="eyebrow">挑嘴換口味</div>
+              <h3>對新口味和香氣更有反應</h3>
+              <p>南瓜、海洋與熱帶水果系列最容易從口味概念切進去。</p>
+              <div class="code-row"><span class="badge">PC</span><span class="badge">OC</span><span class="badge">FTC</span></div>
+            </article>
+            <article class="quick cat">
+              <div class="eyebrow">功能照護</div>
+              <h3>化毛、泌尿、皮毛或體重</h3>
+              <p>需求明確時，黎麥機能糧與黎麥機能主食罐最好用。</p>
+              <div class="code-row"><span class="badge">QC</span><span class="badge">FC 401+</span></div>
+            </article>
+            <article class="quick cat">
+              <div class="eyebrow">獸醫建議</div>
+              <h3>疾病照護或處方需求</h3>
+              <p>腎臟、泌尿、血糖或低敏等情況，直接看 Vet Life 處方線。</p>
+              <div class="code-row"><span class="badge">VC</span><span class="badge">FC 901+</span></div>
+            </article>
+          </div>
+
+          <div class="series-grid">
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>天然無穀貓糧</h3><div class="series-sub">GC 系列</div></div>
+                  <div class="tag green">最穩基本盤</div>
+                </div>
+                <p>幼貓、全齡貓、結紮低卡都有，通常是貓咪乾糧最好起手的一條主力線。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>98% 動物性蛋白、低 GI、充氮保鮮包裝、分齡分需求覆蓋最廣</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>適用對象</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">GC_01</td><td>無穀雞肉石榴</td><td>幼貓 / 懷孕貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">GC_02</td><td>無穀雞肉石榴</td><td>全齡貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">GC_03</td><td>無穀羊肉藍莓</td><td>全齡貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">GC_05</td><td>無穀野豬蘋果</td><td>全齡貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">GC_06</td><td>低卡無穀雞肉石榴</td><td>低卡結紮貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>天然低穀貓糧</h3><div class="series-sub">LC 系列</div></div>
+                  <div class="tag gold">低穀路線</div>
+                </div>
+                <p>適合想從低穀切入的飼主，分類簡單，對結紮低卡需求也很直觀。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>FVR 獸醫研究團隊研發、保留低量穀物、結紮貓低卡款明確</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>適用對象</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">LC_01</td><td>低穀雞肉石榴</td><td>全齡貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">LC_02</td><td>低穀羊肉藍莓</td><td>全齡貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">LC_04</td><td>低卡低穀雞肉石榴</td><td>低卡結紮貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>南瓜貓糧</h3><div class="series-sub">PC 系列</div></div>
+                  <div class="tag red">挑嘴友善</div>
+                </div>
+                <p>以南瓜為底料的無穀配方，特別適合挑嘴或想換底料概念的成貓，含結紮款。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>南瓜無穀底料、定位為挑嘴成貓，分一般成貓與結紮成貓</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>適用對象</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">PC_01</td><td>南瓜無穀鵪鶉石榴</td><td>挑嘴成貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">PC_04</td><td>南瓜無穀鴨肉哈密瓜</td><td>挑嘴成貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">PC_05</td><td>南瓜無穀鵪鶉石榴</td><td>挑嘴結紮成貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">PC_06</td><td>南瓜無穀羊肉藍莓</td><td>挑嘴結紮成貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>海洋貓糧</h3><div class="series-sub">OC 系列</div></div>
+                  <div class="tag blue">魚系首選</div>
+                </div>
+                <p>若你家貓咪偏愛魚類香氣，或飼主就是想找海鮮口味，這條會很有吸引力。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>嚴選鯡魚、鱈魚，Omega-3，覆蓋幼貓、成貓、結紮貓</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>適用對象</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">OC_00</td><td>南瓜無穀鱈魚</td><td>幼貓（挑嘴）</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">OC_01</td><td>鯡魚甜橙</td><td>全齡貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">OC_02</td><td>南瓜無穀鯡魚甜橙</td><td>挑嘴成貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">OC_03</td><td>鱈魚甜橙</td><td>全齡貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">OC_04</td><td>鯡魚甜橙</td><td>結紮貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>黎麥機能貓糧</h3><div class="series-sub">QC 系列</div></div>
+                  <div class="tag red">功能導向</div>
+                </div>
+                <p>如果你家貓咪的需求很清楚，例如泌尿、化毛、皮毛或室內體態管理，先看這條最省時間。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>90%+ 動物性蛋白、藜麥超級食材、功能訴求分類貓用最細</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>功能訴求</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">QC_01</td><td>羊肉茴香</td><td>腸胃道保健</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">QC_02</td><td>鯡魚椰子</td><td>皮毛保健</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">QC_03</td><td>鵪鶉椰子</td><td>皮毛保健</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">QC_04</td><td>羊肉蘆筍</td><td>體重管理</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">QC_05</td><td>鴨肉蔓越莓</td><td>泌尿道保健</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">QC_06</td><td>鴨蘆筍</td><td>室內貓體態泌尿保健</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">QC_07</td><td>鴨肉蘋果</td><td>化毛保健</td><td class="spec-col">300g / 1.5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>熱帶水果貓糧</h3><div class="series-sub">FTC 系列</div></div>
+                  <div class="tag gold">概念鮮明</div>
+                </div>
+                <p>水果概念明確，常被喜歡特殊配方故事感的飼主選中，也有室內結紮貓款。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>高動物性蛋白、低 GI 穀物、熱帶水果食材，室內結紮款獨立分類</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>適用對象</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">FTC_01</td><td>雞肉芒果</td><td>全齡貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">FTC_02</td><td>室內結紮貓 雞肉芒果</td><td>室內結紮貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                    <tr><td class="tag-col">FTC_03</td><td>室內結紮貓 羊肉木瓜</td><td>室內結紮貓</td><td class="spec-col">300g / 1.5kg / 5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="series-card">
+              <div class="series-body">
+                <div class="series-top">
+                  <div><h3>螺旋藻貓糧</h3><div class="series-sub">SC 系列</div></div>
+                  <div class="tag green">抗氧化免疫</div>
+                </div>
+                <p>以螺旋藻為超級食材，主打 90%+ 動物性蛋白與抗氧化免疫力支持，有幼貓款。</p>
+                <div class="detail">
+                  <div><strong>特色</strong><span>90%+ 動物性蛋白、螺旋藻抗氧化、免疫力支持、規格輕巧（300g / 1.5kg）</span></div>
+                </div>
+                <table class="sku-table">
+                  <thead><tr><th>品項代碼</th><th>配方</th><th>適用對象</th><th>規格</th></tr></thead>
+                  <tbody>
+                    <tr><td class="tag-col">SC_01</td><td>鯡魚枸杞</td><td>幼貓</td><td class="spec-col">300g / 1.5kg</td></tr>
+                    <tr><td class="tag-col">SC_02</td><td>羊肉枸杞</td><td>全齡貓</td><td class="spec-col">300g / 1.5kg</td></tr>
+                    <tr><td class="tag-col">SC_03</td><td>鯡魚枸杞</td><td>全齡貓</td><td class="spec-col">300g / 1.5kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="wet-prescription" class="section">
+      <h2 class="section-title">主食罐與處方線怎麼看</h2>
+      <p class="intro">主食罐與處方線各有用途，選錯方向反而增加困擾。這兩類最好分開理解。</p>
+      <div class="support-grid">
+        <article class="support-card">
+          <div class="support-body">
+            <h3>貓咪主食罐（FC 系列）</h3>
+            <p>法米納主食罐目前僅有貓款，犬款濕食只有 FD 處方系列。FC 依功能分成兩條主軸：</p>
+            <div class="bullets">
+              <div class="bullet"><strong>FC 201~204 日常口味線</strong>：無榖配方，幼貓 / 全齡貓皆可。適合想增加濕食比例或提升進食意願的日常搭配。</div>
+              <div class="bullet"><strong>FC 401~409 功能主題線</strong>：藜麥配方，依需求分腸胃道、皮毛保健、體重管理、泌尿道等方向，功能定位比日常口味線更明確。</div>
+              <div class="bullet"><strong>使用建議</strong>：初次加入濕食建議從約 20% 比例混入乾糧，觀察 3~5 天排便狀況再調整。</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="support-card">
+          <div class="support-body">
+            <div class="vetlife-mark">
+              <img src="../../assets/images/icon/vet-life-brand.png" alt="Vet Life" loading="lazy">
+              <span>VETERINARY SUPPORT</span>
+            </div>
+            <h3>處方線：依照護方向選，不是依口味選</h3>
+            <p>Vet Life 處方系列由義大利費德里克二世大學獸醫研究團隊研發，選配邏輯是照護方向，不是肉源喜好。</p>
+            <div class="bullets">
+              <div class="bullet"><strong>VD / VC 處方乾糧</strong>：涵蓋腎臟、腸胃道、泌尿道（結石 / 復發管理）、血糖、體重控制、低敏（水解蛋白 / 魚肉）、心血管（VD 限定）等。</div>
+              <div class="bullet"><strong>FD / FC 901+ 處方主食罐</strong>：對應犬 / 貓各主要照護方向的濕食版本，適合需要增加濕食攝取的療護期毛孩。</div>
+              <div class="bullet"><strong>重要提醒</strong>：沒有明確照護需求，請勿自行長期使用處方配方；若獸醫已有建議，依對應配方選即可，不需再比口味。</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="tips" class="section">
+      <h2 class="section-title">挑選前的 4 個提醒</h2>
+      <div class="notice-grid">
+        <article class="notice">
+          <h4>年齡與生活型態比口味更優先</h4>
+          <p>幼齡 / 結紮 / 高齡的配方在蛋白質比例與熱量密度上都有差異。選對分期，比選對肉源影響更大。</p>
+        </article>
+        <article class="notice">
+          <h4>換糧在同底料內先換，7~10 天漸進</h4>
+          <p>建議先在同系列內換蛋白質（例如雞肉 → 羊肉），熟悉後再跨系列。每次換糧建議 7~10 天混食漸進，避免腸胃不適。</p>
+        </article>
+        <article class="notice">
+          <h4>處方線不是嘗鮮糧，需有照護依據</h4>
+          <p>VD / VC / FD / FC 901+ 設計目的是配合療程或照護方向，不建議沒有獸醫建議就自行長期使用。</p>
+        </article>
+        <article class="notice">
+          <h4>主食罐（貓款）從少量開始混入</h4>
+          <p>法米納日常主食罐僅有貓款（FC 系列）。初次增加濕食建議約 20% 比例混乾糧，觀察排便 3~5 天後再調整。</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>Copyright © 2026 Yi-Chai Pet Life Hall. All rights reserved.</div>
+      <div>Last updated: March 2026</div>
+    </footer>
+  </main>
+
+  <script>
+    // ── Wizard ──
+    const wizState = { pet: '', stage: '', need: '' };
+
+    const dogStages = [
+      { val: 'puppy',  label: '幼犬或懷孕犬', sub: '成長、妊娠期，需要專屬配方' },
+      { val: 'adult',  label: '一般成犬',      sub: '全齡、日常主食，無特殊狀況' },
+      { val: 'senior', label: '高齡犬（熟齡）', sub: '7 歲以上、活動力下降' },
+    ];
+    const catStages = [
+      { val: 'kitten',   label: '幼貓或懷孕貓',   sub: '成長、妊娠期，需要專屬配方' },
+      { val: 'adult',    label: '一般成貓',         sub: '全齡、日常主食，無特殊狀況' },
+      { val: 'neutered', label: '結紮 / 室內貓',   sub: '體態與泌尿保健是重點' },
+    ];
+
+    const recs = {
+      'dog-puppy-daily':    { code: 'GD / LD / FTD / SD', name: '幼犬 / 懷孕犬專屬款', why: '四條系列都有幼犬或懷孕犬專屬配方，確認品項標示「幼犬」或「懷孕犬」就對了。', tags: ['GD_01','LD_01','FTD_01','SD_01'] },
+      'dog-puppy-function': { code: 'GD / LD / SD', name: '天然無穀 / 低穀 / 螺旋藻犬糧（幼犬款）', why: '幼齡階段以成長為主，GD_01、LD_01、SD_01 都有幼犬 / 懷孕犬款，先打好成長基礎，功能需求等長大後再調整。', tags: ['GD_01','LD_01','SD_01'] },
+      'dog-puppy-taste':    { code: 'FTD / SD', name: '天然熱帶水果 / 螺旋藻犬糧（幼犬款）', why: 'FTD_01 幼犬款水果口味辨識度高；SD_01 螺旋藻枸杞食材概念明確，兩者都是有別於基本款的幼犬選項。', tags: ['FTD_01','SD_01','GD_01','LD_01'] },
+      'dog-puppy-vet':      { code: 'VD', name: 'Vet Life 處方犬糧', why: '若獸醫已有建議，直接依指示在 VD 系列選對應配方，不建議混用一般選糧邏輯。', tags: ['VD_02','VD_04','VD_05','VD_06','VD_07','VD_08','VD_09','VD_10','VD_11','VD_12','VD_13','VD_14','VD_15'] },
+
+      'dog-adult-daily':    { code: 'GD / LD', name: '天然無穀 / 天然低穀犬糧（全齡犬）', why: '法米納犬用最穩的主力線，雞肉石榴、羊肉藍莓最受歡迎，小顆粒與潔牙顆粒都有，適合長期主食。', tags: ['GD_02','GD_03','GD_05','GD_06','GD_07','GD_09','LD_02','LD_03','LD_08','LD_09'] },
+      'dog-adult-function': { code: 'QD / HD', name: '黎麥機能犬糧 / 毛髮保健犬糧', why: '功能分類最完整，腸胃、皮毛、體重管理與絕育後照護都在 QD；毛色保健（淺色毛 / 深色毛）看 HD。', tags: ['QD_01','QD_02','QD_03','QD_04','QD_06','QD_07','HD_01','HD_11'] },
+      'dog-adult-taste':    { code: 'OD / PD / FTD', name: '海洋 / 南瓜 / 熱帶水果犬糧', why: 'OD 是海洋魚類（鯡魚/鱈魚），PD 是南瓜底料，FTD 搭配熱帶水果（鮭魚鳳梨、豬肉奇異果等），各有明確食材概念。', tags: ['OD_01','OD_02','OD_03','OD_04','OD_06','PD_02','PD_03','PD_05','PD_07','PD_08','PD_10','FTD_02','FTD_03','FTD_04','FTD_05'] },
+      'dog-adult-vet':      { code: 'VD', name: 'Vet Life 處方犬糧', why: '腎臟、腸胃、關節、血糖、低敏等照護需求，依獸醫建議在 VD 系列選對應配方。', tags: ['VD_02','VD_04','VD_05','VD_06','VD_07','VD_08','VD_09','VD_10','VD_11','VD_12','VD_13','VD_14','VD_15'] },
+
+      'dog-senior-daily':    { code: 'LD', name: '天然低穀犬糧（老犬 / 低卡款）', why: 'LD_05 有老犬專屬設計，低穀配方適合熟齡消化；LD_06 低卡款適合活動量降低的老犬；QD_06 體重管理也是選項。', tags: ['LD_05','LD_06','QD_06'] },
+      'dog-senior-function': { code: 'QD / VD', name: '黎麥機能 / 處方犬糧', why: '高齡犬常同時有體重與關節需求，先看 QD 體重與絕育管理，或依獸醫建議對應 VD 關節、腎臟、心血管等配方。', tags: ['QD_06','QD_07','VD_02','VD_05','VD_09','VD_10','VD_11','VD_12'] },
+      'dog-senior-taste':    { code: 'LD / OD', name: '天然低穀 / 海洋犬糧', why: '高齡犬換食材概念建議在相近路線內轉換；OD 海洋魚類蛋白適合熟齡調整肉源，FD_901 高營養主食罐可搭配增加進食意願。', tags: ['LD_02','LD_03','LD_08','LD_09','OD_01','OD_02','OD_03','OD_04','OD_06','FD_901'] },
+      'dog-senior-vet':      { code: 'VD / FD', name: 'Vet Life 處方犬糧 / 處方主食罐', why: '高齡犬有照護需求時，VD 系列最完整；FD 處方主食罐適合搭配濕食照護，依獸醫建議選擇對應配方。', tags: ['VD_02','VD_04','VD_05','VD_09','VD_10','VD_11','VD_12','VD_13','VD_14','VD_15','FD_901','FD_902','FD_903','FD_907','FD_910'] },
+
+      'cat-kitten-daily':    { code: 'GC / OC / SC', name: '天然無穀 / 海洋 / 螺旋藻貓糧（幼貓款）', why: 'GC_01 幼貓/懷孕貓款是最好入門的選項；OC_00 挑嘴幼貓魚類款；SC_01 螺旋藻幼貓款。可搭配 FC_201 增加濕食比例。', tags: ['GC_01','OC_00','SC_01','FC_201'] },
+      'cat-kitten-function': { code: 'GC / SC', name: '天然無穀 / 螺旋藻貓糧（幼貓款）', why: '幼貓階段以成長為主，GC_01 是最穩的起點，SC_01 螺旋藻幼貓款也是不錯的選擇。', tags: ['GC_01','SC_01','OC_00'] },
+      'cat-kitten-taste':    { code: 'OC / SC', name: '海洋 / 螺旋藻貓糧（幼貓款）', why: 'OC_00 是海洋系列幼貓款，魚類香氣對幼貓吸引力高；SC_01 螺旋藻幼貓款也是魚類蛋白路線，食材概念明確。', tags: ['OC_00','SC_01','GC_01'] },
+      'cat-kitten-vet':      { code: 'VC', name: 'Vet Life 處方貓糧', why: '若獸醫有特別指示，直接依指示在 VC 系列選對應配方，優先遵從醫師建議。', tags: ['VC_01','VC_02','VC_03','VC_04','VC_05','VC_07','VC_08','VC_09','VC_13'] },
+
+      'cat-adult-daily':    { code: 'GC / LC', name: '天然無穀 / 天然低穀貓糧（全齡貓）', why: '法米納貓用最穩的主力線，幼貓、全齡、結紮低卡都在這條，第一次選法米納從這裡開始最穩。', tags: ['GC_02','GC_03','GC_05','LC_01','LC_02'] },
+      'cat-adult-function': { code: 'QC', name: '黎麥機能貓糧', why: '功能分類最完整，腸胃、皮毛、體重、泌尿、化毛全都有，需求明確時先看 QC 系列最省時間。', tags: ['QC_01','QC_02','QC_03','QC_04','QC_05','QC_07'] },
+      'cat-adult-taste':    { code: 'PC / OC / FTC / SC', name: '南瓜 / 海洋 / 熱帶水果 / 螺旋藻貓糧', why: 'PC 南瓜底鵪鶉石榴、鴨肉哈密瓜口味獨特；OC 海洋魚類香氣強；FTC 熱帶水果概念；SC 螺旋藻枸杞，各有明確食材辨識點。', tags: ['PC_01','PC_04','OC_01','OC_02','OC_03','FTC_01','SC_02','SC_03'] },
+      'cat-adult-vet':      { code: 'VC', name: 'Vet Life 處方貓糧', why: '腸胃、腎臟、泌尿、血糖、低敏等照護需求，依 VC 處方配方選擇，由獸醫指定對應配方。', tags: ['VC_01','VC_02','VC_03','VC_04','VC_05','VC_07','VC_08','VC_09','VC_13'] },
+
+      'cat-neutered-daily':    { code: 'GC / LC / FTC', name: '天然無穀 / 低穀 / 熱帶水果貓糧（結紮款）', why: 'GC_06 低卡結紮貓款和 LC_04 是結紮貓日常主食最常見的選擇；FTC_02、FTC_03 也有室內結紮款。', tags: ['GC_06','LC_04','FTC_02','FTC_03'] },
+      'cat-neutered-function': { code: 'QC', name: '黎麥機能貓糧（室內體態 / 泌尿）', why: 'QC_06 室內貓體態泌尿保健是針對結紮室內貓設計的；QC_04 體重管理、QC_05 泌尿道保健也都很常用。', tags: ['QC_06','QC_04','QC_05'] },
+      'cat-neutered-taste':    { code: 'FTC / PC / OC', name: '熱帶水果 / 南瓜 / 海洋貓糧（結紮款）', why: 'FTC_02 和 FTC_03 有室內結紮貓款；PC_05、PC_06 是挑嘴結紮成貓；OC_04 是結紮貓款，口味各有辨識點。', tags: ['FTC_02','FTC_03','PC_05','PC_06','OC_04'] },
+      'cat-neutered-vet':      { code: 'VC', name: 'Vet Life 處方貓糧', why: '結紮貓若有特定照護需求，VC 處方線涵蓋泌尿道、體重控制、腎臟、血糖等配方，依獸醫建議選擇。', tags: ['VC_01','VC_02','VC_03','VC_04','VC_05','VC_07','VC_08','VC_09','VC_13'] },
+    };
+
+    function setDot(id, cls) { document.getElementById(id).className = 'wiz-dot ' + cls; }
+    function setLine(id, cls) { document.getElementById(id).className = 'wiz-line ' + (cls || ''); }
+
+    function renderStageOpts(stages) {
+      const container = document.getElementById('ws2opts');
+      container.innerHTML = stages.map(s => `
+        <button class="wiz-opt" type="button" data-val="${s.val}">
+          <span class="wiz-opt-label">${s.label}</span>
+          <span class="wiz-opt-sub">${s.sub}</span>
+        </button>
+      `).join('');
+      container.querySelectorAll('.wiz-opt').forEach(btn => {
+        btn.addEventListener('click', () => {
+          wizState.stage = btn.dataset.val;
+          document.getElementById('ws2').hidden = true;
+          document.getElementById('ws3').hidden = false;
+          setDot('wd2', 'done');
+          setDot('wd3', 'active');
+          setLine('wl2', '');
+        });
+      });
+    }
+
+    // Step 1
+    document.getElementById('ws1').querySelectorAll('.wiz-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        wizState.pet = btn.dataset.val;
+        document.getElementById('ws1').hidden = true;
+        document.getElementById('ws2').hidden = false;
+        setDot('wd1', 'done');
+        setDot('wd2', 'active');
+        setLine('wl1', 'done');
+        const q = document.getElementById('ws2q');
+        if (wizState.pet === 'dog') {
+          q.textContent = '狗狗現在是哪個階段？';
+          renderStageOpts(dogStages);
+        } else {
+          q.textContent = '貓咪現在是哪個狀況？';
+          renderStageOpts(catStages);
+        }
+      });
+    });
+
+    document.getElementById('wBack1').addEventListener('click', () => {
+      document.getElementById('ws2').hidden = true;
+      document.getElementById('ws1').hidden = false;
+      setDot('wd1', 'active'); setDot('wd2', ''); setLine('wl1', '');
+    });
+
+    document.getElementById('wBack2').addEventListener('click', () => {
+      document.getElementById('ws3').hidden = true;
+      document.getElementById('ws2').hidden = false;
+      setDot('wd2', 'active'); setDot('wd3', ''); setLine('wl2', '');
+    });
+
+    // Step 3
+    document.getElementById('ws3').querySelectorAll('.wiz-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        wizState.need = btn.dataset.val;
+        document.getElementById('ws3').hidden = true;
+        setDot('wd3', 'done');
+        setLine('wl2', 'done');
+        const key = `${wizState.pet}-${wizState.stage}-${wizState.need}`;
+        const rec = recs[key];
+        const resultEl = document.getElementById('wsResult');
+        resultEl.hidden = false;
+        if (!rec) {
+          resultEl.innerHTML = '<p style="color:var(--muted)">找不到對應建議，請往下瀏覽各系列說明。</p>';
+          return;
+        }
+        const tagsHTML = rec.tags.map(t => `<span class="badge">${t}</span>`).join('');
+        resultEl.innerHTML = `
+          <div class="wiz-result-box">
+            <div class="wiz-rec-label">推薦方向</div>
+            <h3>${rec.code}・${rec.name}</h3>
+            <p>${rec.why}</p>
+            <div class="wiz-result-tags">${tagsHTML}</div>
+            <button class="wiz-reset" type="button" id="wReset">重新選擇</button>
+          </div>
+        `;
+        resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        document.getElementById('wReset').addEventListener('click', () => {
+          wizState.pet = ''; wizState.stage = ''; wizState.need = '';
+          resultEl.hidden = true;
+          document.getElementById('ws1').hidden = false;
+          document.getElementById('ws2').hidden = true;
+          document.getElementById('ws3').hidden = true;
+          setDot('wd1', 'active'); setDot('wd2', ''); setDot('wd3', '');
+          setLine('wl1', ''); setLine('wl2', '');
+        });
+      });
+    });
+
+    // ── Tabs ──
+    const buttons = document.querySelectorAll(".tab-btn");
+    const panes = document.querySelectorAll(".pane");
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.tab;
+        buttons.forEach((item) => item.classList.toggle("active", item === button));
+        panes.forEach((pane) => pane.classList.toggle("active", pane.dataset.pane === target));
+      });
+    });
+  </script>
+</body>
+</html>
