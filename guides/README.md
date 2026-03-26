@@ -6,6 +6,8 @@
 
 `https://goodneighborpet.github.io/pet-commerce-link-hub/`
 
+README 網址：<https://github.com/goodneighborpet/pet-commerce-link-hub/blob/main/guides/README.md>
+
 ## Public Pages
 
 ### 品牌懶人包
@@ -23,6 +25,13 @@
 - 正式網址：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/ngs_buying_guide.html>
 - 短網址：<https://lihi1.me/DdZ7U>
 - 備註：耐吉斯購買指南
+
+#### 法米納 Farmina
+
+- 檔案路徑：`guides/brands/farmina-buying-guide.html`
+- 正式網址：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/farmina-buying-guide.html>
+- 短網址：<https://lihi1.me/z3n77>
+- 備註：法米納飼料選購懶人包
 
 ## 建議新增規則
 
