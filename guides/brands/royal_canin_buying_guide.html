@@ -237,7 +237,26 @@
     .tab-pane.active { display: block; }
 
     /* ── Table ── */
-    .tbl-wrap { overflow-x: auto; margin-top: 10px; }
+    .tbl-wrap { overflow-x: auto; margin-top: 10px; -webkit-overflow-scrolling: touch; }
+    .tbl-wrap.table-scroll {
+      padding-bottom: 8px;
+      scrollbar-gutter: stable;
+    }
+    .tbl-wrap.table-scroll::-webkit-scrollbar {
+      height: 10px;
+    }
+    .tbl-wrap.table-scroll::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 999px;
+    }
+    .tbl-wrap.table-scroll::-webkit-scrollbar-thumb {
+      background: rgba(204,31,43,0.45);
+      border-radius: 999px;
+      border: 2px solid #f1f1f1;
+    }
+    .tbl-wrap.table-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(204,31,43,0.65);
+    }
     table {
       width: 100%; border-collapse: collapse; font-size: 14px;
       background: var(--card); border-radius: var(--radius); overflow: hidden;
@@ -278,6 +297,31 @@
     .summary-card h4 { margin: 0 0 8px; font-size: 15px; color: var(--rc-red); font-weight: 700; }
     .summary-card p { margin: 0; font-size: 13px; color: var(--muted); }
 
+    .dense-table {
+      min-width: 720px;
+    }
+    .dense-table th,
+    .dense-table td {
+      white-space: nowrap;
+    }
+    .dense-table th:last-child,
+    .dense-table td:last-child {
+      white-space: normal;
+      min-width: 260px;
+    }
+
+    .series-lookup-table {
+      min-width: 720px;
+    }
+    .series-lookup-table th:nth-child(-n+3),
+    .series-lookup-table td:nth-child(-n+3) {
+      white-space: nowrap;
+    }
+    .series-lookup-table th:last-child,
+    .series-lookup-table td:last-child {
+      min-width: 280px;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 800px) {
       .hero-grid { grid-template-columns: 1fr; }
@@ -289,6 +333,27 @@
       .card-grid, .card-grid-2, .card-grid-4 { grid-template-columns: 1fr; }
       .hero-top { padding: 24px 18px 20px; }
       .hero-bottom { padding: 14px 18px; }
+      .tbl-wrap.table-scroll::before {
+        content: "左右滑動查看完整表格";
+        display: block;
+        margin-bottom: 8px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .dense-table {
+        min-width: 760px;
+      }
+      .dense-table th,
+      .dense-table td {
+        padding: 10px 12px;
+      }
+      .series-lookup-table {
+        min-width: 680px;
+      }
+      .series-lookup-table th,
+      .series-lookup-table td {
+        padding: 10px 12px;
+      }
     }
   </style>
 </head>
@@ -489,8 +554,8 @@
 
       <!-- 生命階段 -->
       <div id="c-stage" class="tab-pane active">
-        <div class="tbl-wrap">
-          <table>
+        <div class="tbl-wrap table-scroll">
+          <table class="dense-table">
             <thead>
               <tr><th>代碼</th><th>商品</th><th>規格</th><th>適用對象</th><th>主要特色</th></tr>
             </thead>
@@ -581,8 +646,8 @@
 
       <!-- 功能配方 -->
       <div id="c-func" class="tab-pane">
-        <div class="tbl-wrap">
-          <table>
+        <div class="tbl-wrap table-scroll">
+          <table class="dense-table">
             <thead>
               <tr><th>代碼</th><th>商品</th><th>規格</th><th>解決問題</th><th>關鍵成分</th></tr>
             </thead>
@@ -635,8 +700,8 @@
             <p>MXP（幼犬）→ MXA（成犬），強調消化道健康與骨骼關節支持。</p>
           </div>
         </div>
-        <div class="tbl-wrap">
-          <table>
+        <div class="tbl-wrap table-scroll">
+          <table class="dense-table">
             <thead>
               <tr><th>代碼</th><th>商品</th><th>規格</th><th>體型</th><th>主要特色</th></tr>
             </thead>
@@ -712,8 +777,8 @@
 
       <!-- 功能配方 -->
       <div id="d-func" class="tab-pane">
-        <div class="tbl-wrap">
-          <table>
+        <div class="tbl-wrap table-scroll">
+          <table class="dense-table">
             <thead>
               <tr><th>代碼</th><th>商品</th><th>規格</th><th>適用體型</th><th>解決問題</th><th>關鍵成分</th></tr>
             </thead>
@@ -766,8 +831,8 @@
 
     <!-- Cat examples -->
     <h3 style="font-size:18px;margin:0 0 10px">🐱 貓咪多重需求範例</h3>
-    <div class="tbl-wrap" style="margin-bottom:20px">
-      <table>
+    <div class="tbl-wrap table-scroll" style="margin-bottom:20px">
+      <table class="dense-table">
         <thead>
           <tr><th>情境</th><th>乾糧主食</th><th>濕糧補充</th><th>解法說明</th></tr>
         </thead>
@@ -808,8 +873,8 @@
 
     <!-- Dog examples -->
     <h3 style="font-size:18px;margin:0 0 10px">🐶 狗狗多重需求範例</h3>
-    <div class="tbl-wrap" style="margin-bottom:20px">
-      <table>
+    <div class="tbl-wrap table-scroll" style="margin-bottom:20px">
+      <table class="dense-table">
         <thead>
           <tr><th>情境</th><th>乾糧主食</th><th>濕糧補充</th><th>解法說明</th></tr>
         </thead>
@@ -864,8 +929,8 @@
 
   <section class="section" id="series">
     <h2 class="section-title">📋 系列對照速查</h2>
-    <div class="tbl-wrap">
-      <table>
+    <div class="tbl-wrap table-scroll">
+      <table class="series-lookup-table">
         <thead>
           <tr><th>系列</th><th>形態</th><th>犬/貓</th><th>重點特色</th></tr>
         </thead>
