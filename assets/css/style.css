@@ -446,6 +446,10 @@ a.bento-card:hover {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(245, 249, 255, 0.92) 100%);
 }
 
+.brand-card.ciao {
+  display: none !important;
+}
+
 .brand-card.solution {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 250, 255, 0.92) 100%);
 }
@@ -547,6 +551,18 @@ a.bento-card:hover {
   margin-bottom: 12px;
 }
 
+.category-status {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--brand-orange-deep);
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 138, 29, 0.12);
+  border: 1px solid rgba(216, 90, 22, 0.16);
+  margin-bottom: 14px;
+}
+
 /* 分類卡片漸變背景 */
 .category-card.cat-dry {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(244, 251, 255, 0.92) 100%);
@@ -570,6 +586,50 @@ a.bento-card:hover {
 
 .category-card.health {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(238, 246, 255, 0.92) 100%);
+}
+
+.is-unavailable {
+  position: relative;
+  opacity: 0.88;
+}
+
+.is-unavailable::after {
+  content: 'COMING SOON';
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(23, 56, 74, 0.48);
+}
+
+.is-unavailable .category-icon {
+  opacity: 0.72;
+}
+
+.is-unavailable .category-name {
+  color: rgba(23, 56, 74, 0.82);
+}
+
+.is-unavailable .category-desc {
+  color: rgba(95, 123, 140, 0.84);
+}
+
+.unavailable-arrow {
+  width: auto;
+  min-width: 92px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: rgba(23, 56, 74, 0.7);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(240, 246, 249, 0.92) 100%);
+  box-shadow:
+    8px 8px 16px rgba(40, 117, 148, 0.08),
+    -4px -4px 10px rgba(255, 255, 255, 0.7);
 }
 
 /* ===== Site Footer - 網站頁尾 ===== */
