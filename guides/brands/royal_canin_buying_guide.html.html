@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>法國皇家 Royal Canin 飼料選購懶人包</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Royal Canin brand palette */
+      --rc-red: #CC1F2B;
+      --rc-red-dark: #A8141E;
+      --rc-red-soft: #FBEBEC;
+      --ink: #1D1D2C;
+      --muted: #6B7280;
+      --line: rgba(0,0,0,0.08);
+      --card: #FFFFFF;
+      --bg: #F4F4F4;
+      --shadow: 0 2px 14px rgba(0,0,0,0.07);
+      --radius: 14px;
+      /* Product-line accent colours (from packaging bands) */
+      --purple: #6B4FA0;
+      --purple-soft: #F1EDF9;
+      --navy: #1F3D7A;
+      --navy-soft: #EBF0FA;
+      --orange: #E07020;
+      --orange-soft: #FEF3E8;
+      --teal: #1A7A6E;
+      --teal-soft: #E5F5F3;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", sans-serif;
+      color: var(--ink);
+      line-height: 1.7;
+      background: var(--bg);
+    }
+    h1,h2,h3,h4,.brand,.kicker,.tab-btn,.badge { font-family: "Space Grotesk","Noto Sans TC",sans-serif; }
+
+    /* ── Header ── */
+    .header {
+      position: sticky; top: 0; z-index: 20;
+      background: #fff;
+      border-bottom: 3px solid var(--rc-red);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .nav, .wrap { max-width: 1160px; margin: 0 auto; }
+    .nav {
+      padding: 12px 20px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .brand { font-size: 17px; font-weight: 700; color: var(--rc-red); letter-spacing: -.01em; }
+    .brand-wrap { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand-icon {
+      width: 40px; height: 40px; border-radius: 8px;
+      background: var(--rc-red);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; color: #fff; font-weight: 900; flex-shrink: 0;
+      letter-spacing: -.02em;
+    }
+    .brand-sub { font-size: 11px; color: var(--muted); font-weight: 500; display: block; margin-top: -3px; letter-spacing: .04em; text-transform: uppercase; }
+    .links { display: flex; gap: 4px; flex-wrap: wrap; }
+    .links a {
+      color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600;
+      padding: 6px 11px; border-radius: 6px; transition: all .15s;
+    }
+    .links a:hover { background: var(--rc-red-soft); color: var(--rc-red); }
+
+    /* ── Layout ── */
+    .wrap { padding: 24px 20px 80px; }
+
+    /* ── Hero ── */
+    .hero {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    }
+    .hero-top {
+      padding: 36px 36px 28px;
+      background: var(--rc-red);
+      color: #fff;
+    }
+    .hero-bottom {
+      padding: 20px 36px;
+      background: #1D1D2C;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px; align-items: center; }
+    .kicker {
+      display: inline-block; padding: 5px 12px; border-radius: 4px;
+      font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      background: rgba(255,255,255,0.18); margin-bottom: 16px;
+    }
+    .hero h1 { margin: 0 0 14px; font-size: clamp(28px,4.5vw,52px); line-height: 1.08; font-weight: 900; }
+    .hero h1 em { color: #FFD166; font-style: normal; }
+    .hero p { margin: 0; color: rgba(255,255,255,0.85); font-size: 15px; }
+    .pill {
+      padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;
+      background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .hero-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .hero-card {
+      padding: 16px; border-radius: 10px;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+    }
+    .hero-card p { margin: 0; font-size: 13px; color: rgba(255,255,255,0.78); }
+    .hero-card strong { display: block; color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 5px; }
+
+    /* ── Section ── */
+    .section { margin-top: 32px; }
+    .section-title {
+      display: flex; align-items: center; gap: 12px;
+      margin: 0 0 16px; font-size: 22px; font-weight: 800; line-height: 1.2;
+    }
+    .section-title::before {
+      content: ""; width: 4px; height: 24px; border-radius: 2px;
+      background: var(--rc-red); flex-shrink: 0;
+    }
+    .section-title::after {
+      content: ""; flex: 1; height: 1px;
+      background: linear-gradient(90deg, rgba(204,31,43,0.18), transparent);
+    }
+    .intro { margin: 0 0 16px; color: var(--muted); font-size: 15px; }
+
+    /* ── Cards ── */
+    .card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .card-grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+    .card-grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+    .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .card h3 { margin: 0 0 7px; font-size: 15px; font-weight: 700; }
+    .card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .mini-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .badge {
+      display: inline-flex; align-items: center;
+      padding: 3px 9px; border-radius: 4px;
+      font-size: 11px; font-weight: 700; letter-spacing: .02em;
+    }
+    .badge-blue { background: var(--navy-soft); color: var(--navy); }
+    .badge-gold { background: var(--orange-soft); color: var(--orange); }
+    .badge-red { background: var(--rc-red-soft); color: var(--rc-red); }
+    .badge-teal { background: var(--teal-soft); color: var(--teal); }
+    .badge-gray { background: #EBEBEB; color: #555; }
+    .badge-purple { background: var(--purple-soft); color: var(--purple); }
+
+    /* ── Tabs ── */
+    .tabs {
+      background: #fff; border-radius: var(--radius);
+      border: 1px solid var(--line); padding: 12px; box-shadow: var(--shadow);
+    }
+    .tab-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+    .tab-btn {
+      padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; cursor: pointer;
+      font-size: 14px; font-weight: 700; background: transparent; color: var(--muted);
+      transition: all .15s; text-align: center;
+    }
+    .tab-btn.active { background: var(--rc-red); color: #fff; border-color: var(--rc-red); box-shadow: 0 3px 10px rgba(204,31,43,0.25); }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    /* ── Table ── */
+    .tbl-wrap { overflow-x: auto; margin-top: 10px; }
+    table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      background: var(--card); border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow); border: 1px solid var(--line);
+    }
+    thead { background: var(--rc-red); color: #fff; }
+    thead th { padding: 11px 14px; text-align: left; font-size: 13px; font-weight: 700; }
+    tbody td { padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: var(--rc-red-soft); }
+    .code { font-family: "Space Grotesk", monospace; font-size: 13px; color: var(--rc-red); font-weight: 700; }
+
+    /* ── Quick pick ── */
+    .qp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .qp-card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+    }
+    .qp-head {
+      padding: 11px 16px; font-weight: 700; font-size: 14px;
+      background: var(--rc-red); color: #fff; letter-spacing: .01em;
+    }
+    .qp-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      padding: 9px 16px; border-bottom: 1px solid var(--line); font-size: 13px;
+    }
+    .qp-row:last-child { border-bottom: none; }
+    .qp-row span:first-child { color: var(--muted); }
+    .qp-row span:last-child { font-weight: 700; color: var(--rc-red); }
+
+    /* ── Summary box ── */
+    .summary-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .summary-card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow);
+      border-top: 3px solid var(--rc-red);
+    }
+    .summary-card h4 { margin: 0 0 8px; font-size: 15px; color: var(--rc-red); font-weight: 700; }
+    .summary-card p { margin: 0; font-size: 13px; color: var(--muted); }
+
+    /* ── Responsive ── */
+    @media (max-width: 800px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .card-grid, .card-grid-4 { grid-template-columns: 1fr 1fr; }
+      .qp-grid, .summary-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .card-grid, .card-grid-2, .card-grid-4 { grid-template-columns: 1fr; }
+      .hero-top { padding: 24px 18px 20px; }
+      .hero-bottom { padding: 14px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="header">
+  <nav class="nav">
+    <div class="brand-wrap">
+      <div class="brand-icon">RC</div>
+      <div>
+        <span class="brand">ROYAL CANIN®</span>
+        <span class="brand-sub">飼料選購懶人包</span>
+      </div>
+    </div>
+    <div class="links">
+      <a href="#cat">貓咪</a>
+      <a href="#dog">狗狗</a>
+      <a href="#multi">多重需求</a>
+      <a href="#wetdry">換餵方式</a>
+      <a href="#series">系列說明</a>
+      <a href="#pick">怎麼選</a>
+      <a href="#summary">結論</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ── Main ── -->
+<div class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-top">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">SIZE HEALTH NUTRITION · 精準營養選購指南</div>
+          <h1>找到你家毛孩<br>的<em>精準配方</em></h1>
+          <p>法國皇家以科學研究為基礎，依體型、品種、年齡、體況細分配方。這份懶人包讓你 3 分鐘選到對的那一款。</p>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <strong>貓用系列</strong>
+            <p>生命階段 · 挑嘴 · 品種 · 功能四條線，含濕糧對應款</p>
+          </div>
+          <div class="hero-card">
+            <strong>犬用系列</strong>
+            <p>迷你 / 小型 / 中型 / 大型 · 品種 · 功能，從幼犬到老犬</p>
+          </div>
+          <div class="hero-card">
+            <strong>乾濕搭配</strong>
+            <p>大多數乾糧都有對應濕糧，乾濕換餵增加水分攝取</p>
+          </div>
+          <div class="hero-card">
+            <strong>品種顆粒</strong>
+            <p>依品種下顎量身訂製顆粒形狀、大小與質地</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <span class="pill">📐 體型專屬顆粒</span>
+      <span class="pill">🧬 科學實證配方</span>
+      <span class="pill">🐱 貓犬雙線</span>
+      <span class="pill">💧 乾濕換餵</span>
+      <span class="pill">🏷️ 品種專屬</span>
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div style="margin-top:20px;padding:14px 20px;border-radius:16px;background:#fff8e8;border:1px solid #f0c060;font-size:13px;color:#6b4a00;line-height:1.7">
+    ⚠️ <strong>注意事項：</strong>本指南僅供選購參考，不構成醫療或診斷建議。若毛孩出現異常症狀（持續嘔吐、血尿、明顯消瘦、食慾驟降等），請<strong>優先諮詢獸醫師</strong>，由獸醫師評估後再決定飲食方向。功能型配方適合日常預防或輔助調理；若已確診特定疾病，請依獸醫師建議選用處方食品。
+  </div>
+
+  <!-- Quick Pick -->
+  <section class="section" id="pick">
+    <h2 class="section-title">⚡ 快速挑選</h2>
+    <p class="intro">從需求直接對應推薦商品。</p>
+
+    <div class="tabs">
+      <div class="tab-row">
+        <button class="tab-btn active" onclick="switchTab(this,'cat-qp')">🐱 貓咪</button>
+        <button class="tab-btn" onclick="switchTab(this,'dog-qp')">🐶 狗狗</button>
+      </div>
+
+      <div id="cat-qp" class="tab-pane active">
+        <div class="qp-grid">
+          <div class="qp-card">
+            <div class="qp-head">幼貓 / 母貓</div>
+            <div class="qp-row"><span>剛離乳幼貓、哺乳母貓</span><span>BC34 乾糧 + BC34W 濕糧</span></div>
+            <div class="qp-row"><span>4個月以上幼貓、母貓</span><span>K36 乾糧 + K36W 濕糧</span></div>
+          </div>
+          <div class="qp-card">
+            <div class="qp-head">成貓日常</div>
+            <div class="qp-row"><span>正常體態、室外活動型</span><span>F32 理想體態</span></div>
+            <div class="qp-row"><span>室內貓、活動量少</span><span>IN27 室內成貓</span></div>
+            <div class="qp-row"><span>已絕育、怕胖</span><span>S37 絕育成貓</span></div>
+            <div class="qp-row"><span>腸胃敏感、常軟便</span><span>S33 腸胃敏感</span></div>
+          </div>
+          <div class="qp-card">
+            <div class="qp-head">挑嘴貓</div>
+            <div class="qp-row"><span>靠香氣吸引</span><span>E33 濃郁香味</span></div>
+            <div class="qp-row"><span>偏好高蛋白</span><span>E42 營養滿分</span></div>
+            <div class="qp-row"><span>對口感挑剔</span><span>E35 絕佳口感</span></div>
+            <div class="qp-row"><span>食慾差、需刺激</span><span>SSW / STW / SFW 感官饗宴濕糧</span></div>
+          </div>
+          <div class="qp-card">
+            <div class="qp-head">熟齡 / 高齡貓</div>
+            <div class="qp-row"><span>7歲以上室內/絕育熟齡</span><span>IN+7 或 S36+7</span></div>
+            <div class="qp-row"><span>7歲以上，加濕食</span><span>IN+7W 或 F+7W</span></div>
+            <div class="qp-row"><span>11歲以上高齡貓</span><span>A30+11 乾糧 + A30+11W / A30+12W</span></div>
+            <div class="qp-row"><span>15歲以上超高齡</span><span>A30+15W 濕糧</span></div>
+          </div>
+          <div class="qp-card">
+            <div class="qp-head">健康問題</div>
+            <div class="qp-row"><span>毛球問題</span><span>IH34 乾糧 + IH34W 濕糧</span></div>
+            <div class="qp-row"><span>皮膚毛髮暗沉</span><span>HS33 乾糧 + HS33W 濕糧</span></div>
+            <div class="qp-row"><span>體重過重</span><span>L40 乾糧 + L40W 濕糧</span></div>
+            <div class="qp-row"><span>泌尿道問題</span><span>UC33 乾糧 + UC33W 濕糧</span></div>
+            <div class="qp-row"><span>牙垢、口臭</span><span>O30 強效潔牙</span></div>
+          </div>
+          <div class="qp-card">
+            <div class="qp-head">品種配方</div>
+            <div class="qp-row"><span>英國短毛幼貓</span><span>BSK38</span></div>
+            <div class="qp-row"><span>英國短毛成貓</span><span>BS34</span></div>
+            <div class="qp-row"><span>波斯貓</span><span>P30</span></div>
+            <div class="qp-row"><span>豹貓</span><span>BG40</span></div>
+            <div class="qp-row"><span>布偶貓</span><span>RD32</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="dog-qp" class="tab-pane">
+        <div class="qp-grid">
+          <div class="qp-card">
+            <div class="qp-head">幼犬 / 母犬</div>
+            <div class="qp-row"><span>哺乳母犬、斷奶幼犬</span><span>MNS 乾糧 + STM 慕斯濕糧</span></div>
+            <div class="qp-row"><span>迷你型幼犬（成犬&lt;4kg）</span><span>XSP</span></div>
+            <div class="qp-row"><span>小型犬幼犬（戶外型）</span><span>MNP</span></div>
+            <div class="qp-row"><span>小型犬幼犬（室內型）</span><span>MNINP</span></div>
+            <div class="qp-row"><span>中型犬幼犬</span><span>MP</span></div>
+            <div class="qp-row"><span>大型犬幼犬</span><span>MXP</span></div>
+          </div>
+          <div class="qp-card">
+            <div class="qp-head">成犬日常</div>
+            <div class="qp-row"><span>迷你型成犬（成犬&lt;4kg）</span><span>XSA 迷你型成犬</span></div>
+            <div class="qp-row"><span>小型犬成犬（戶外型）</span><span>MNA 小型成犬</span></div>
+            <div class="qp-row"><span>小型犬成犬（室內型）</span><span>MNINA 小型室內成犬</span></div>
+            <div class="qp-row"><span>中型犬成犬</span><span>MA 中型成犬</span></div>
+            <div class="qp-row"><span>大型犬成犬</span><span>MXA 大型成犬</span></div>
+          </div>
+          <div class="qp-card">
+            <div class="qp-head">熟齡 / 老犬</div>
+            <div class="qp-row"><span>迷你型犬 8+歲</span><span>XSA+8</span></div>
+            <div class="qp-row"><span>迷你型犬 12+歲</span><span>XSA+12</span></div>
+            <div class="qp-row"><span>小型犬 8+歲（戶外型）</span><span>MNA+8</span></div>
+            <div class="qp-row"><span>小型犬 8+歲（室內型）</span><span>MNINA+8</span></div>
+            <div class="qp-row"><span>小型犬 12+歲</span><span>MNA+12 小型老犬12+歲</span></div>
+            <div class="qp-row"><span>中型犬 7+歲</span><span>M+7</span></div>
+            <div class="qp-row"><span>中型犬 10+歲</span><span>M+10</span></div>
+          </div>
+          <div class="qp-card">
+            <div class="qp-head">健康問題</div>
+            <div class="qp-row"><span>泌尿道（小型犬）</span><span>UMN + UW 濕糧</span></div>
+            <div class="qp-row"><span>皮膚過敏（小型犬）</span><span>DMMN + DMW 濕糧</span></div>
+            <div class="qp-row"><span>皮膚過敏（中型犬）</span><span>DMM + DMW 濕糧</span></div>
+            <div class="qp-row"><span>皮膚過敏（大型犬）</span><span>DMMX + DMW 濕糧</span></div>
+            <div class="qp-row"><span>腸胃敏感（小型犬）</span><span>DGMN + DGW 濕糧</span></div>
+            <div class="qp-row"><span>體重管理（小型犬）</span><span>LWMN + LWW 濕糧</span></div>
+          </div>
+          <div class="qp-card">
+            <div class="qp-head">品種配方</div>
+            <div class="qp-row"><span>吉娃娃</span><span>CHA + CHW 濕糧</span></div>
+            <div class="qp-row"><span>臘腸犬</span><span>DSA + DSW 濕糧</span></div>
+            <div class="qp-row"><span>瑪爾濟斯</span><span>MTA</span></div>
+            <div class="qp-row"><span>貴賓幼犬</span><span>PDP</span></div>
+            <div class="qp-row"><span>貴賓成犬</span><span>PDA + PDW 濕糧</span></div>
+            <div class="qp-row"><span>博美犬</span><span>PA + PAW 濕糧</span></div>
+            <div class="qp-row"><span>柴犬</span><span>S26</span></div>
+            <div class="qp-row"><span>比熊犬</span><span>BCA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cat Section -->
+  <section class="section" id="cat">
+    <h2 class="section-title">🐱 貓咪系列詳解</h2>
+
+    <div class="tabs">
+      <div class="tab-row" style="grid-template-columns:repeat(4,1fr)">
+        <button class="tab-btn active" onclick="switchTab(this,'c-stage')">生命階段</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-picky')">挑嘴系列</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-breed')">品種配方</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-func')">功能配方</button>
+      </div>
+
+      <!-- 生命階段 -->
+      <div id="c-stage" class="tab-pane active">
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr><th>代碼</th><th>商品</th><th>規格</th><th>適用對象</th><th>主要特色</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="code">BC34</td><td>離乳貓/母貓</td><td>800g（分裝） / 2kg / 4kg / 10kg（繁殖包）</td><td>幼貓、哺乳母貓</td><td>維生素E/C/DHA，免疫力+大腦發育，哺乳到離乳全覆蓋</td></tr>
+              <tr><td class="code">K36</td><td>幼母貓</td><td>800g（分裝） / 2kg / 4kg / 10kg / 13kg（繁殖包）</td><td>離乳後幼貓、母貓</td><td>骨骼、消化、免疫力同步照護</td></tr>
+              <tr><td class="code">F32</td><td>理想體態成貓</td><td>2kg / 4kg / 10kg / 15kg</td><td>1歲以上成貓，正常體態</td><td>均衡熱量控制+泌尿+化毛，最平衡的成貓主食</td></tr>
+              <tr><td class="code">S33</td><td>腸胃敏感成貓</td><td>2kg / 4kg / 10kg / 15kg</td><td>1歲以上、軟便/腸胃脆弱</td><td>三種顆粒型態，高單位能量，針對敏感腸胃</td></tr>
+              <tr><td class="code">IN27</td><td>室內成貓</td><td>2kg / 4kg / 10kg</td><td>室內低活動量成貓</td><td>泌尿+化毛+纖維管理糞便，室內貓入門首選</td></tr>
+              <tr><td class="code">S37</td><td>絕育成貓</td><td>2kg / 4kg</td><td>1歲以上絕育貓</td><td>左旋肉鹼加速脂肪代謝，高蛋白維持肌肉，泌尿保健</td></tr>
+              <tr><td class="code">IN+7</td><td>室內熟齡貓7+歲</td><td>1.5kg / 3.5kg</td><td>7歲以上室內/絕育熟齡貓</td><td>精準磷含量護腎，泌尿保健，纖維支持消化</td></tr>
+              <tr><td class="code">S36+7</td><td>絕育熟齡貓7+歲</td><td>1.5kg</td><td>7歲以上絕育熟齡貓</td><td>泌尿+腎臟+腸胃三合一，低熱量控制體重</td></tr>
+              <tr><td class="code">A30+11</td><td>老貓11+歲齡</td><td>2kg</td><td>11歲以上高齡貓</td><td>高齡乾糧選項，可搭配 A30+11W / A30+12W / A30+15W 濕糧換餵</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:12px;font-size:13px;color:var(--muted);">💧 大多數款式都有對應濕糧（85g）可搭配，乾濕換餵效果更好。幼貓/母貓另有 BC34W 大容量 195g 慕斯罐頭。</p>
+      </div>
+
+      <!-- 挑嘴系列 -->
+      <div id="c-picky" class="tab-pane">
+        <div class="card-grid" style="margin-bottom:16px">
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-gold">E33</span><span class="badge badge-gray">香氣型</span></div>
+            <h3 style="margin-top:10px">挑嘴貓 濃郁香味成貓</h3>
+            <p>魚肉配方，濃郁香氣吸引嗅覺型挑嘴貓，維持泌尿健康與理想體重。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-blue">E42</span><span class="badge badge-gray">蛋白質型</span></div>
+            <h3 style="margin-top:10px">挑嘴貓 營養滿分成貓</h3>
+            <p>高蛋白均衡配方，滿足對蛋白質挑剔的成貓，維持泌尿健康與理想體重。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-teal">E35</span><span class="badge badge-gray">口感型</span></div>
+            <h3 style="margin-top:10px">挑嘴貓 絕佳口感成貓</h3>
+            <p>雙質地雙配方，兼顧口感多樣性，滿足對質地挑剔的成貓，泌尿保健。</p>
+          </div>
+        </div>
+        <div class="card-grid">
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-gold">SSW</span><span class="badge badge-gray">嗅覺刺激</span></div>
+            <h3 style="margin-top:10px">感官饗宴 濃郁香氣濕糧</h3>
+            <p>獨特香氣刺激貓咪嗅覺，提升食慾，適合食慾不振的成貓。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-blue">STW</span><span class="badge badge-gray">味覺刺激</span></div>
+            <h3 style="margin-top:10px">感官饗宴 豐富鮮味濕糧</h3>
+            <p>鮮味配方刺激貓咪味覺，高品質蛋白質，適合偏好鮮味的成貓。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-teal">SFW</span><span class="badge badge-gray">口感刺激</span></div>
+            <h3 style="margin-top:10px">感官饗宴 多元口感濕糧</h3>
+            <p>多元質地滿足挑剔味蕾，激發食慾，支持泌尿系統健康。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 品種配方 -->
+      <div id="c-breed" class="tab-pane">
+          <div class="card-grid-2">
+            <div class="card">
+              <div class="mini-tags"><span class="badge badge-blue">BSK38</span><span class="badge badge-gray">幼貓</span></div>
+              <h3 style="margin-top:10px">英國短毛幼貓</h3>
+              <p>半月形顆粒，幫助英短幼貓咀嚼，肌肉骨骼成長，維持免疫力。12個月以下適用。</p>
+            </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-blue">BS34</span><span class="badge badge-gray">成貓</span></div>
+            <h3 style="margin-top:10px">英國短毛成貓</h3>
+            <p>品種專屬顆粒大小與質地，牛磺酸+EPA+DHA護心臟、骨骼、關節。1歲以上適用。</p>
+          </div>
+            <div class="card">
+              <div class="mini-tags"><span class="badge badge-teal">P30</span><span class="badge badge-gray">波斯貓</span></div>
+              <h3 style="margin-top:10px">波斯成貓</h3>
+              <p>杏仁11專屬顆粒，幫助扁臉波斯貓更容易拾取與咬合，並兼顧長毛皮膚保養。</p>
+            </div>
+            <div class="card">
+              <div class="mini-tags"><span class="badge badge-red">BG40</span><span class="badge badge-gray">豹貓</span></div>
+              <h3 style="margin-top:10px">豹貓成貓</h3>
+              <p>依豹貓高活動與肌肉需求設計，高蛋白支持精實體態，兼顧消化與日常活力。</p>
+            </div>
+            <div class="card">
+              <div class="mini-tags"><span class="badge badge-gold">RD32</span><span class="badge badge-gray">布偶貓</span></div>
+              <h3 style="margin-top:10px">布偶成貓</h3>
+              <p>金字塔形顆粒適合布偶貓寬顎咀嚼，牛磺酸護心臟，Omega-3/6護皮毛光澤。</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- 功能配方 -->
+      <div id="c-func" class="tab-pane">
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr><th>代碼</th><th>商品</th><th>規格</th><th>解決問題</th><th>關鍵成分</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="code">HS33</td><td>亮毛膚質成貓</td><td>2kg / 4kg</td><td>皮膚暗沉、毛髮乾燥</td><td>Omega-6 / Omega-3 強效滋養，維持皮膚屏障</td></tr>
+              <tr><td class="code">IH34</td><td>加強化毛成貓</td><td>2kg / 4kg / 10kg</td><td>毛球頻繁、常嘔吐毛球</td><td>天然膳食纖維促腸道蠕動，毛髮隨糞便排出</td></tr>
+              <tr><td class="code">L40</td><td>體重控制成貓</td><td>1.5kg / 3kg / 8kg</td><td>體重超標、需要減重</td><td>左旋肉鹼促脂肪代謝，適量蛋白質維持肌肉量</td></tr>
+              <tr><td class="code">O30</td><td>強效潔牙成貓</td><td>1.5kg / 3.5kg</td><td>牙垢堆積、口氣不佳</td><td>獨特顆粒咀嚼時產生刷牙效果，活性護齒成分</td></tr>
+              <tr><td class="code">UC33</td><td>泌尿道保健成貓</td><td>2kg / 4kg / 10kg</td><td>泌尿道問題、需日常預防</td><td>連續10天可見效，精準礦物質控制</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:12px;font-size:13px;color:var(--muted);">💧 HS33、IH34、L40、UC33 各有對應的 85g 濕糧版本（HS33W / IH34W / L40W / UC33W），建議乾濕搭配效果更佳。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dog Section -->
+  <section class="section" id="dog">
+    <h2 class="section-title">🐶 狗狗系列詳解</h2>
+
+    <div class="tabs">
+      <div class="tab-row" style="grid-template-columns:repeat(3,1fr)">
+        <button class="tab-btn active" onclick="switchTab(this,'d-size')">體型系列</button>
+        <button class="tab-btn" onclick="switchTab(this,'d-breed')">品種配方</button>
+        <button class="tab-btn" onclick="switchTab(this,'d-func')">功能配方</button>
+      </div>
+
+      <!-- 體型系列 -->
+      <div id="d-size" class="tab-pane active">
+        <div class="card-grid-4" style="margin-bottom:14px">
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-blue">迷你型</span><span class="badge badge-gray">≤4kg</span></div>
+            <h3 style="margin-top:10px">迷你型犬</h3>
+            <p>XSP（幼犬）→ XSA（成犬）→ XSA+8（8+歲）→ XSA+12（12+歲）<br>三角形顆粒設計，易咀嚼。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-teal">小型犬</span><span class="badge badge-gray">≤10kg</span></div>
+            <h3 style="margin-top:10px">小型犬</h3>
+            <p>品項最齊：幼犬→成犬→熟齡→老犬，一般/室內兩版本。MN 系列開頭。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-gold">中型犬</span><span class="badge badge-gray">11-25kg</span></div>
+            <h3 style="margin-top:10px">中型犬</h3>
+            <p>MP（幼犬）→ MA（成犬）→ M+7（7+歲）→ M+10（10+歲）四個生命階段。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-red">大型犬</span><span class="badge badge-gray">26-44kg</span></div>
+            <h3 style="margin-top:10px">大型犬</h3>
+            <p>MXP（幼犬）→ MXA（成犬），強調消化道健康與骨骼關節支持。</p>
+          </div>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr><th>代碼</th><th>商品</th><th>規格</th><th>體型</th><th>主要特色</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="code">XSP</td><td>迷你型幼犬</td><td>1.5kg</td><td>迷你型幼犬</td><td>三角形顆粒、免疫力維護、大腦發育、腸道菌叢</td></tr>
+              <tr><td class="code">XSA</td><td>迷你型成犬</td><td>1.5kg</td><td>迷你型成犬</td><td>迷你成犬日常主食，顆粒設計適合小嘴咀嚼</td></tr>
+              <tr><td class="code">XSA+8</td><td>迷你型熟齡犬8+</td><td>1.5kg</td><td>8+歲迷你犬</td><td>易消化蛋白，維他命複合物，促進消化吸收</td></tr>
+              <tr><td class="code">XSA+12</td><td>迷你型老齡犬12+</td><td>1.5kg</td><td>12+歲迷你犬</td><td>EPA/DHA 護免疫，鈣離子螯合物維持齒齦健康</td></tr>
+              <tr><td class="code">MNS</td><td>小型離乳犬/母犬</td><td>1kg / 3kg</td><td>小型幼犬/母犬</td><td>哺乳母犬及斷奶幼犬，免疫系統+腸道健康</td></tr>
+              <tr><td class="code">MNP</td><td>小型幼犬</td><td>2kg / 4kg / 8kg</td><td>小型幼犬</td><td>免疫系統+腸道健康+大腦發育</td></tr>
+              <tr><td class="code">MNINP</td><td>小型室內幼犬</td><td>1.5kg / 3kg</td><td>室內小型幼犬</td><td>益生元+消化健康，合宜能量設計</td></tr>
+              <tr><td class="code">MNA</td><td>小型成犬</td><td>2kg / 8kg</td><td>小型成犬</td><td>調整熱量符合小型犬高代謝，骨骼健康</td></tr>
+              <tr><td class="code">MNINA</td><td>小型室內成犬</td><td>1.5kg / 3kg / 7.5kg</td><td>室內小型成犬</td><td>益生元+易消化蛋白+纖維，減少糞便體積與異味</td></tr>
+              <tr><td class="code">MNA+8</td><td>小型熟齡犬8歲齡</td><td>2kg / 8kg</td><td>8+歲小型犬（戶外型）</td><td>綜合維生素，骨骼健康，適口性佳</td></tr>
+              <tr><td class="code">MNINA+8</td><td>小型室內熟齡犬8+</td><td>1.5kg</td><td>8+歲室內小型犬</td><td>精準調整熱量，益生元，消化健康</td></tr>
+              <tr><td class="code">MNA+12</td><td>小型老犬12+歲</td><td>1.5kg</td><td>12+歲小型老犬</td><td>EPA/DHA+綜合維生素，骨骼強健</td></tr>
+              <tr><td class="code">MP</td><td>中型幼犬</td><td>4kg / 10kg / 15kg</td><td>中型幼犬</td><td>免疫力+骨骼+腸道健康，顆粒大小合宜</td></tr>
+              <tr><td class="code">MA</td><td>中型成犬</td><td>4kg / 10kg / 15kg</td><td>中型成犬</td><td>高消化蛋白+均衡纖維，益生元支持免疫</td></tr>
+              <tr><td class="code">M+7</td><td>中型熟齡犬7+</td><td>4kg / 10kg / 15kg</td><td>7+歲中型犬</td><td>維生素C/E+益生元護免疫，維持肌肉體態</td></tr>
+              <tr><td class="code">M+10</td><td>中型熟齡犬10+</td><td>3kg</td><td>10+歲中型犬</td><td>強化免疫，優質蛋白維持肌肉量</td></tr>
+              <tr><td class="code">MXP</td><td>大型幼犬</td><td>4kg / 10kg / 15kg</td><td>大型幼犬</td><td>易消化蛋白+DHA+益生元，骨骼肌肉健康發育</td></tr>
+              <tr><td class="code">MXA</td><td>大型成犬</td><td>4kg / 10kg / 15kg</td><td>大型成犬</td><td>高消化蛋白+均衡纖維，骨骼關節支持</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 品種配方 -->
+      <div id="d-breed" class="tab-pane">
+        <div class="card-grid-4" style="margin-bottom:14px">
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-blue">CHA</span><span class="badge badge-gray">CHW濕糧</span></div>
+            <h3 style="margin-top:10px">吉娃娃成犬</h3>
+            <p>小嘴訂製顆粒，牙垢管理，消化健康，減少糞便體積與異味。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-teal">DSA</span><span class="badge badge-gray">DSW濕糧</span></div>
+            <h3 style="margin-top:10px">臘腸成犬</h3>
+            <p>LIP高消化蛋白，鈣磷平衡護骨骼關節，維持長背型脊椎健康。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-gold">MTA</span></div>
+            <h3 style="margin-top:10px">瑪爾濟斯成犬</h3>
+            <p>訂製顆粒護口腔，Omega-3/6維持白色絲狀毛髮光澤亮麗。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-blue">PDP</span><span class="badge badge-gray">幼犬</span></div>
+            <h3 style="margin-top:10px">貴賓幼犬</h3>
+            <p>顆粒適合幼犬咀嚼，EPA/DHA護毛髮，益生元維護腸胃健康。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-blue">PDA</span><span class="badge badge-gray">PDW濕糧</span></div>
+            <h3 style="margin-top:10px">貴賓成犬</h3>
+            <p>EPA/DHA護毛髮亮麗，鈣離子螯合物管理牙垢，口腔健康。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-red">S26</span></div>
+            <h3 style="margin-top:10px">柴犬成犬</h3>
+            <p>顆粒大小質地符合柴犬咀嚼習慣，腸胃保健，EPA/DHA護皮毛。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-gold">PA</span><span class="badge badge-gray">PAW濕糧</span></div>
+            <h3 style="margin-top:10px">博美成犬</h3>
+            <p>訂製顆粒護口腔，EPA/DHA+礦物質護關節，皮毛滋養雙層毛髮。</p>
+          </div>
+          <div class="card">
+            <div class="mini-tags"><span class="badge badge-teal">BCA</span></div>
+            <h3 style="margin-top:10px">比熊成犬</h3>
+            <p>潔牙因子護口腔，礦物質比例平衡護泌尿，Omega+維生素護皮毛。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 功能配方 -->
+      <div id="d-func" class="tab-pane">
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr><th>代碼</th><th>商品</th><th>規格</th><th>適用體型</th><th>解決問題</th><th>關鍵成分</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="code">UMN</td><td>泌尿保健小型成犬</td><td>3kg / 8kg</td><td>≤10kg</td><td>泌尿道問題、預防結石</td><td>稀釋尿液+礦物質平衡，建立不利結石環境</td></tr>
+              <tr><td class="code">DMMN</td><td>皮膚保健小型成犬</td><td>3kg / 8kg</td><td>≤10kg</td><td>皮膚過敏、異位性皮膚炎</td><td>水解蛋白低敏，Omega-3/6，91%飼主2個月後滿意</td></tr>
+              <tr><td class="code">DGMN</td><td>腸胃保健小型成犬</td><td>3kg / 8kg</td><td>≤10kg</td><td>消化敏感、腸胃脆弱</td><td>高消化蛋白+益生元+植物纖維，平衡腸道菌叢</td></tr>
+              <tr><td class="code">LWMN</td><td>體重控制小型成犬</td><td>3kg / 8kg</td><td>≤10kg</td><td>體重過重、需減重</td><td>高蛋白低脂+左旋肉鹼+纖維，88%犬隻2個月改善</td></tr>
+              <tr><td class="code">DMM</td><td>皮膚保健中型成犬</td><td>3kg / 12kg</td><td>11-25kg</td><td>皮膚過敏、異位性皮膚炎</td><td>水解蛋白低敏+Omega-3/6</td></tr>
+              <tr><td class="code">DGM</td><td>腸胃保健中型成犬</td><td>12kg</td><td>11-25kg</td><td>消化敏感、腸胃脆弱</td><td>高消化蛋白+益生元+植物纖維，中型犬版</td></tr>
+              <tr><td class="code">DMMX</td><td>皮膚保健大型成犬</td><td>3kg / 12kg</td><td>26-44kg</td><td>皮膚過敏、異位性皮膚炎</td><td>水解蛋白低敏+Omega-3/6，皮膚屏障</td></tr>
+              <tr><td class="code">DGMX</td><td>腸胃保健大型成犬</td><td>12kg</td><td>26-44kg</td><td>消化敏感、腸胃脆弱</td><td>高消化蛋白+益生元+植物纖維，大型犬版</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:12px;font-size:13px;color:var(--muted);">💧 功能型乾糧建議搭配對應濕糧：UMN→UW、DMMN/DMM/DMMX→DMW、DGMN/DGM/DGMX→DGW、LWMN→LWW，乾濕換餵效果更佳。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Series Overview -->
+  <!-- Multi-need section -->
+  <section class="section" id="multi">
+    <h2 class="section-title">🎯 多重需求怎麼辦</h2>
+    <p class="intro">大多數毛孩不只一個需求。法國皇家的解法是：<strong>乾糧選最優先的那個需求，濕糧補其他需求</strong>。一餐不能同時吃多款乾糧，但可以乾濕搭配。</p>
+
+    <!-- Priority -->
+    <div class="card-grid-4" style="margin-bottom:20px">
+      <div class="card" style="border-top:3px solid var(--rc-red)">
+        <div class="mini-tags"><span class="badge badge-red">第一優先</span></div>
+        <h3 style="margin-top:8px">生命階段</h3>
+        <p>幼 / 成 / 熟齡 / 高齡。選錯階段，其他都是空談。永遠先確認這個。</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--orange)">
+        <div class="mini-tags"><span class="badge badge-gold">第二優先</span></div>
+        <h3 style="margin-top:8px">嚴重健康需求</h3>
+        <p>已有症狀、獸醫建議的：泌尿問題、嚴重皮膚過敏、腸胃疾病等。</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--navy)">
+        <div class="mini-tags"><span class="badge badge-blue">第三優先</span></div>
+        <h3 style="margin-top:8px">體況管理</h3>
+        <p>室內 / 絕育 / 過重。影響日常代謝，長期才有風險，但不如症狀緊急。</p>
+      </div>
+      <div class="card" style="border-top:3px solid #0e7d6e">
+        <div class="mini-tags"><span class="badge badge-teal">濕糧補充</span></div>
+        <h3 style="margin-top:8px">次要功能需求</h3>
+        <p>毛髮、化毛、潔牙等。用濕糧、食品補充，不必佔用乾糧名額。</p>
+      </div>
+    </div>
+
+    <!-- Cat examples -->
+    <h3 style="font-size:18px;margin:0 0 10px">🐱 貓咪多重需求範例</h3>
+    <div class="tbl-wrap" style="margin-bottom:20px">
+      <table>
+        <thead>
+          <tr><th>情境</th><th>乾糧主食</th><th>濕糧補充</th><th>解法說明</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>高齡貓 + 泌尿 + 室內 + 牙垢</strong></td>
+            <td class="code">IN+7<br><small>室內熟齡貓7+</small></td>
+            <td class="code">UC33W<br><small>泌尿保健濕糧</small></td>
+            <td>IN+7 已覆蓋熟齡、室內、精準磷護腎與泌尿；UC33W 加強泌尿保護並補水分。牙垢靠刷牙或定期潔牙處理，O30 可偶爾輪換但不作唯一主食。</td>
+          </tr>
+          <tr>
+            <td><strong>絕育成貓 + 過重 + 毛球</strong></td>
+            <td class="code">S37<br><small>絕育成貓</small></td>
+            <td class="code">IH34W<br><small>化毛濕糧</small></td>
+            <td>S37 含左旋肉鹼管理體重、泌尿保健；IH34W 補充膳食纖維助排毛球。</td>
+          </tr>
+          <tr>
+            <td><strong>挑嘴 + 泌尿問題</strong></td>
+            <td class="code">UC33<br><small>泌尿道保健成貓</small></td>
+            <td class="code">SSW / STW / SFW<br><small>感官饗宴濕糧</small></td>
+            <td>泌尿問題較嚴重，乾糧選泌尿保健；挑嘴靠感官饗宴濕糧拉高適口性。</td>
+          </tr>
+          <tr>
+            <td><strong>高齡貓 + 過重 + 皮膚差</strong></td>
+            <td class="code">IN+7 或 S36+7<br><small>依室內/絕育選</small></td>
+            <td class="code">HS33W<br><small>亮毛成貓濕糧</small></td>
+            <td>先依室內/絕育狀況選熟齡主糧；其中 S36+7 明確強調低熱量控制體重，皮膚問題再用亮毛濕糧補充 Omega。</td>
+          </tr>
+          <tr>
+            <td><strong>室內幼貓 + 腸胃敏感</strong></td>
+            <td class="code">K36 → 成貓後換 S33</td>
+            <td class="code">K36W / S33W</td>
+            <td>幼貓階段優先選幼貓款；長大到成貓再轉腸胃敏感款。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Dog examples -->
+    <h3 style="font-size:18px;margin:0 0 10px">🐶 狗狗多重需求範例</h3>
+    <div class="tbl-wrap" style="margin-bottom:20px">
+      <table>
+        <thead>
+          <tr><th>情境</th><th>乾糧主食</th><th>濕糧補充</th><th>解法說明</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>小型犬 + 泌尿 + 體重管理</strong></td>
+            <td class="code">UMN<br><small>泌尿保健小型成犬</small></td>
+            <td class="code">LWW<br><small>體重控制濕糧</small></td>
+            <td>泌尿問題較明確，乾糧選泌尿；體重管理靠低脂濕糧輔助，減少總熱量。</td>
+          </tr>
+          <tr>
+            <td><strong>小型犬 + 皮膚過敏 + 腸胃敏感</strong></td>
+            <td class="code">DMMN 或 DGMN<br><small>依哪個更嚴重</small></td>
+            <td class="code">DMW 或 DGW</td>
+            <td>症狀較嚴重的那個選乾糧，另一個用濕糧補充。若都一樣嚴重，先問獸醫。</td>
+          </tr>
+          <tr>
+            <td><strong>貴賓犬 + 皮膚過敏</strong></td>
+            <td class="code">DMMN<br><small>皮膚保健小型成犬</small></td>
+            <td class="code">DMW</td>
+            <td>皮膚過敏症狀優先；此時品種配方 PDA 退居其次。症狀解除後可考慮換回 PDA。</td>
+          </tr>
+          <tr>
+            <td><strong>熟齡小型犬 + 腸胃敏感</strong></td>
+            <td class="code">MNA+8 或 MNINA+8</td>
+            <td class="code">DGW<br><small>腸胃保健濕糧</small></td>
+            <td>熟齡款為主糧（生命階段優先）；腸胃保健需求靠濕糧補充。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Rules -->
+    <div class="summary-grid">
+      <div class="summary-card">
+        <h4>⚖️ 已有症狀 > 預防保健</h4>
+        <p>確診問題選功能款，預防保健才選日常款。不要把預防等級的商品用來治症狀。</p>
+      </div>
+      <div class="summary-card">
+        <h4>🥣 乾糧只選「最重要那一個」</h4>
+        <p>不要企圖找一款解決所有問題，找不到。一款乾糧 + 一款濕糧 = 照顧兩個需求。</p>
+      </div>
+      <div class="summary-card">
+        <h4>🦷 潔牙靠外部處理</h4>
+        <p>O30 潔牙乾糧優先級低於生命階段和健康問題。刷牙、潔牙零食可同步進行。</p>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding:12px 18px;border-radius:14px;background:#fff8e8;border:1px solid #f0c060;font-size:13px;color:#6b4a00">
+      🩺 <strong>症狀明顯請先諮詢獸醫師。</strong>本表格的「嚴重健康需求」是指日常調理範圍（皮膚乾燥、偶爾軟便、體重偏重等）。若毛孩有確診疾病、症狀持續或加重，飲食方向應由獸醫師評估決定，不適合自行從市售商品中選配。
+    </div>
+  </section>
+
+  <section class="section" id="series">
+    <h2 class="section-title">📋 系列對照速查</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>系列</th><th>形態</th><th>犬/貓</th><th>重點特色</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>生命階段（BC34/K36/F32等）</td><td>乾糧</td><td>貓</td><td>依幼/成/熟齡/老貓及體況（室內/絕育/敏感）細分，泌尿保健幾乎全系列都有</td></tr>
+          <tr><td>挑嘴系列（E33/E42/E35）</td><td>乾糧</td><td>貓</td><td>三款差在「香氣/蛋白質/口感」偏好，皆兼顧泌尿保健與理想體態維持</td></tr>
+          <tr><td>感官饗宴（SSW/STW/SFW）</td><td>濕糧</td><td>貓</td><td>三款差在「嗅覺/味覺/口感」刺激方向，適合食慾不振或挑嘴成貓</td></tr>
+          <tr><td>品種配方（BS34/BSK38/RD32/P30/BG40）</td><td>乾糧</td><td>貓</td><td>顆粒形狀、大小依品種下顎量身設計（英短/布偶/波斯/豹貓）</td></tr>
+          <tr><td>功能配方（HS33/IH34/L40/O30/UC33）</td><td>乾糧</td><td>貓</td><td>皮毛、化毛、體重、潔牙、泌尿各獨立配方</td></tr>
+          <tr><td>體型別（XS/MN/M/MX系列）</td><td>乾糧</td><td>犬</td><td>依成犬體重分四個體型，各體型有幼/成/熟齡/老犬版本</td></tr>
+          <tr><td>品種配方（CHA/DSA/MTA/PDA等）</td><td>乾糧</td><td>犬</td><td>顆粒依品種下顎客製，功能針對該品種弱點設計</td></tr>
+          <tr><td>功能配方（UMN/DMMN/DGMN/LWMN/DMM/DGM/DMMX/DGMX）</td><td>乾糧</td><td>犬</td><td>泌尿/皮膚/腸胃/體重，依體型細分（小型/中型/大型）</td></tr>
+          <tr><td>對應濕糧（*W）</td><td>濕糧 85g/140g/195g</td><td>犬、貓</td><td>多數乾糧系列都有對應濕糧，可單獨食用或搭配乾糧乾濕換餵</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Wet-dry feeding -->
+  <section class="section" id="wetdry">
+    <h2 class="section-title">💧 乾濕換餵怎麼做</h2>
+    <p class="intro">沒有固定比例——每款濕糧熱量不同，不能套同一個數字。核心原則只有一個：<strong>濕糧不是加菜，是替換部分熱量，乾糧份量要對應減少。</strong></p>
+
+    <div class="card-grid-4" style="margin-bottom:18px">
+      <div class="card">
+        <div class="mini-tags"><span class="badge badge-gray">每天一餐</span></div>
+        <h3 style="margin-top:10px">日常保健型</h3>
+        <p>1餐濕糧 + 1–2餐乾糧（乾糧減量）。一般健康成貓／成犬的基本配法。</p>
+      </div>
+      <div class="card">
+        <div class="mini-tags"><span class="badge badge-blue">一乾一濕</span></div>
+        <h3 style="margin-top:10px">泌尿保健型</h3>
+        <p>早乾晚濕輪流，最大化每日水分攝取。適合泌尿問題、室內貓。</p>
+      </div>
+      <div class="card">
+        <div class="mini-tags"><span class="badge badge-gold">全濕糧</span></div>
+        <h3 style="margin-top:10px">高齡／食慾差</h3>
+        <p>每餐濕糧。適合高齡貓咀嚼退化、食慾不振或需大量補水的情況。</p>
+      </div>
+      <div class="card">
+        <div class="mini-tags"><span class="badge badge-gray">每週 1–2 次</span></div>
+        <h3 style="margin-top:10px">預算有限型</h3>
+        <p>偶爾給一餐，主要效果是換口味、刺激食慾。補水效果有限，以乾糧選對款為主。</p>
+      </div>
+    </div>
+
+    <!-- Weekly once callout -->
+    <div style="margin-bottom:18px;padding:16px 20px;border-radius:12px;background:#fafafa;border:1px solid var(--line);font-size:14px;line-height:1.8">
+      <strong>一週一次夠嗎？視目的而定。</strong><br>
+      <span style="color:var(--muted)">
+        ✗ <b>補水、泌尿保健</b>：效果很有限，水分是每日需求，建議搭配飲水機或多放水碗補足。<br>
+        ✓ <b>換口味、增加食慾</b>：足夠，偶爾換一餐對挑嘴或胃口不穩定的貓狗有幫助。<br>
+        △ <b>皮毛、化毛等功能需求</b>：若希望穩定補充，建議以日常主糧先選對配方，濕糧作為輔助，不建議只靠偶爾加一餐。<br>
+        💡 <b>預算有限時</b>：把重點放在「乾糧選對款」更划算——功能需求靠乾糧天天在作用，濕糧偶爾給作為補充即可。
+      </span>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <h4>🔢 熱量總量不變</h4>
+        <p>換入濕糧的當天，乾糧份量就要依該款濕糧熱量對應減少，不是直接「加」進去。</p>
+      </div>
+      <div class="summary-card">
+        <h4>💦 水分是目的</h4>
+        <p>濕糧含水量明顯高於乾糧，適合拿來增加日常水分攝取，特別是平常喝水較少的貓。</p>
+      </div>
+      <div class="summary-card">
+        <h4>⏱️ 頻率不是重點</h4>
+        <p>關鍵在於長期總熱量是否有控制好，以及主糧是否選到符合毛孩目前需求的系列。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Summary -->
+  <section class="section" id="summary">
+    <h2 class="section-title">💡 簡單結論</h2>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <h4>🐱 貓咪安全牌</h4>
+        <p>F32（成貓理想體態）或 IN27（室內成貓），搭配一款對應濕糧，涵蓋大多數健康成貓需求。</p>
+      </div>
+      <div class="summary-card">
+        <h4>✂️ 絕育貓必看</h4>
+        <p>S37（成貓）或 S36+7（熟齡），左旋肉鹼防肥，泌尿保護一次到位，勿繼續用一般成貓款。</p>
+      </div>
+      <div class="summary-card">
+        <h4>😼 挑嘴貓三選一</h4>
+        <p>E33 偏香氣、E42 偏蛋白質、E35 偏口感。不確定可先從最接近毛孩平常偏好的方向試起。</p>
+      </div>
+      <div class="summary-card">
+        <h4>🐾 毛球困擾</h4>
+        <p>IH34 乾糧＋IH34W 濕糧雙管齊下，天然膳食纖維幫助毛髮隨糞便自然排出。</p>
+      </div>
+      <div class="summary-card">
+        <h4>🐶 狗狗安全牌</h4>
+        <p>依體型選 MNA（小型）/ MA（中型）/ MXA（大型）；室內飼養改選 MNINA（小型室內）。</p>
+      </div>
+      <div class="summary-card">
+        <h4>🏷️ 品種犬首選品種配方</h4>
+        <p>顆粒依該品種下顎客製，適口性與進食效率比一般款好，且功能針對品種弱點設計。</p>
+      </div>
+      <div class="summary-card">
+        <h4>💊 功能型配方搭濕糧</h4>
+        <p>皮膚/腸胃/泌尿/體重功能型乾糧，可搭配對應濕糧做乾濕換餵，同時增加水分攝取；主糧仍以最主要需求為優先。</p>
+      </div>
+      <div class="summary-card">
+        <h4>👴 依門檻換熟齡款</h4>
+        <p>貓多從 7 歲開始進入熟齡配方；狗則要依體型與系列門檻切換，不同系列可能是 7+、8+、10+ 或 12+。</p>
+      </div>
+      <div class="summary-card">
+        <h4>💧 乾濕換餵更全面</h4>
+        <p>濕糧可單獨作主食，也可搭配乾糧換餵。增加水分攝取對泌尿道保健特別有益。</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function switchTab(btn, paneId) {
+    const tabs = btn.closest('.tabs');
+    tabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    tabs.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    tabs.querySelector('#' + paneId).classList.add('active');
+  }
+</script>
+</body>
+</html>
