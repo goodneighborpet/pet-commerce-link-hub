@@ -7,6 +7,16 @@
 
 線上預覽: <https://goodneighborpet.github.io/pet-commerce-link-hub/>
 
+## 品牌指南前端網址
+
+- 柏萊富：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/blackwood_buying_guide.html>
+- 法米納：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/farmina-buying-guide.html>
+- 活力零食：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/gootoe.html>
+- 瑪恩吉：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/monge_buying_guide.html>
+- 耐吉斯：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/ngs_buying_guide.html>
+- 法國皇家：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/royal_canin_buying_guide.html>
+- 優格：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/toma_pro_buying_guide.html>
+
 ## 專案特色
 
 - 單頁靜態網站，無後端、無建置流程
