@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natural Balance 自然平衡選購懶人包</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #556B2F;
+      --brand-dark: #3E4D22;
+      --brand-soft: #EEF3E4;
+      --accent: #D87B28;
+      --accent-soft: #FFF1E4;
+      --ink: #1D1D2C;
+      --muted: #667085;
+      --line: rgba(0,0,0,0.08);
+      --card: #FFFFFF;
+      --bg: #F6F4EF;
+      --shadow: 0 2px 16px rgba(0,0,0,0.08);
+      --radius: 16px;
+      --navy: #1F3D7A;
+      --navy-soft: #EBF0FA;
+      --teal: #1B7F6B;
+      --teal-soft: #E8F7F3;
+      --gold: #B7791F;
+      --gold-soft: #FFF7E8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(216,123,40,0.08), transparent 28%),
+        radial-gradient(circle at left 20%, rgba(85,107,47,0.10), transparent 32%),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.72;
+    }
+    h1, h2, h3, h4, .brand, .kicker, .tab-btn, .badge {
+      font-family: "Space Grotesk", "Noto Sans TC", sans-serif;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(85,107,47,0.14);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .nav, .wrap { max-width: 1180px; margin: 0 auto; }
+    .nav {
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      flex-shrink: 0;
+    }
+    .brand {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--brand-dark);
+      letter-spacing: -0.02em;
+    }
+    .brand-sub {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: -2px;
+    }
+    .links {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 11px;
+      border-radius: 999px;
+      transition: all .16s ease;
+    }
+    .links a:hover {
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+    }
+    .wrap { padding: 24px 20px 80px; }
+    .hero {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 36px rgba(45,53,28,0.16);
+      background: linear-gradient(135deg, #5A6F33 0%, #415123 55%, #2F3C1A 100%);
+      color: #fff;
+    }
+    .hero-top {
+      padding: 40px 38px 28px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .kicker {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.14);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(30px, 4.7vw, 56px);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+    .hero h1 em {
+      color: #FFD27F;
+      font-style: normal;
+    }
+    .hero p {
+      margin: 0;
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+    }
+    .hero-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .hero-card {
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+    .hero-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #fff;
+    }
+    .hero-card p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.78);
+    }
+    .hero-bottom {
+      padding: 18px 38px 24px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .notice {
+      margin-top: 18px;
+      padding: 15px 18px;
+      border-radius: 16px;
+      background: #FFF8E8;
+      border: 1px solid #F0CF8E;
+      color: #704F16;
+      font-size: 13px;
+      box-shadow: var(--shadow);
+    }
+    .section { margin-top: 34px; }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 16px;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+    .section-title::before {
+      content: "";
+      width: 5px;
+      height: 24px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--brand), var(--accent));
+      flex-shrink: 0;
+    }
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(85,107,47,0.18), transparent);
+    }
+    .intro {
+      margin: 0 0 16px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .card-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .card {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .mini-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .badge-green { background: var(--brand-soft); color: var(--brand-dark); }
+    .badge-orange { background: var(--accent-soft); color: var(--accent); }
+    .badge-blue { background: var(--navy-soft); color: var(--navy); }
+    .badge-teal { background: var(--teal-soft); color: var(--teal); }
+    .badge-gold { background: var(--gold-soft); color: var(--gold); }
+    .tabs {
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+    .tab-row {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .tab-row-2 { grid-template-columns: repeat(2, 1fr); }
+    .tab-row-3 { grid-template-columns: repeat(3, 1fr); }
+    .tab-btn {
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(85,107,47,0.14);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all .16s ease;
+      text-align: center;
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 6px 18px rgba(85,107,47,0.20);
+    }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+    .qp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .qp-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .qp-head {
+      padding: 12px 16px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+    .qp-row {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 12px;
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+    .qp-row:last-child { border-bottom: none; }
+    .qp-row span:first-child { color: var(--muted); }
+    .qp-row span:last-child { color: var(--brand-dark); font-weight: 700; }
+    .tbl-wrap {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: rgba(255,255,255,0.96);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    thead {
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: #fff;
+    }
+    thead th {
+      padding: 12px 14px;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: var(--brand-soft); }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .summary-card {
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--accent);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .summary-card h4 {
+      margin: 0 0 8px;
+      font-size: 15px;
+      color: var(--brand-dark);
+      font-weight: 800;
+    }
+    .summary-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+    .faq-item {
+      background: rgba(255,255,255,0.96);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: "+";
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+      font-size: 18px;
+      font-weight: 900;
+    }
+    .faq-item[open] summary::after { content: "-"; }
+    .faq-body {
+      padding: 0 20px 18px;
+      color: #4F5968;
+      font-size: 14px;
+    }
+    .faq-body p { margin: 0; }
+    .faq-body p + p { margin-top: 10px; }
+    @media (max-width: 920px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); }
+      .card-grid, .card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 760px) {
+      .hero-visual { display: none; }
+      .qp-grid, .card-grid-2, .summary-grid { grid-template-columns: 1fr; }
+      .tab-row-3 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .links { display: none; }
+      .card-grid, .card-grid-4 { grid-template-columns: 1fr; }
+      .hero-top { padding: 28px 20px 22px; }
+      .hero-bottom { padding: 16px 20px 22px; }
+      .qp-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <div class="brand-wrap">
+      <div class="brand-icon">NB</div>
+      <div>
+        <span class="brand">Natural Balance</span>
+        <span class="brand-sub">自然平衡選購懶人包</span>
+      </div>
+    </div>
+    <div class="links">
+      <a href="#pick">快速挑選</a>
+      <a href="#logic">怎麼分</a>
+      <a href="#dog">狗狗</a>
+      <a href="#cat">貓咪</a>
+      <a href="#matrix">完整品項</a>
+      <a href="#faq">FAQ</a>
+      <a href="#summary">結論</a>
+    </div>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-top">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">Natural Balance · Low Ingredient · Buying Guide</div>
+          <h1>把低敏主食<br>選到<em>剛剛好</em></h1>
+          <p>這批自然平衡商品的邏輯很清楚。狗糧主打低敏與體重控制，貓糧則分成日常特級與單一肉源機能型。比起花很多時間猜系列名，先看需求方向會更快。</p>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <strong>狗用主線</strong>
+            <p>低敏是主軸，再往下分羊肉、鴨肉、鮭魚、雞肉、鹿肉與全素。</p>
+          </div>
+          <div class="hero-card">
+            <strong>雙顆粒設計</strong>
+            <p>多款犬糧同時提供原顆粒與小顆粒，可直接依嘴型與咀嚼習慣挑。</p>
+          </div>
+          <div class="hero-card">
+            <strong>貓用兩條線</strong>
+            <p>特級偏日常穩定，單一肉源偏功能與低敏管理。</p>
+          </div>
+          <div class="hero-card">
+            <strong>挑法很直接</strong>
+            <p>先分需求，再分蛋白，最後再看顆粒與規格，不需要在太多系列裡繞路。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <span class="pill">犬貓雙線挑選</span>
+      <span class="pill">狗 11 款 / 貓 6 款</span>
+      <span class="pill">低敏與單一肉源為核心</span>
+      <span class="pill">犬糧多款原顆粒 / 小顆粒</span>
+    </div>
+  </div>
+
+  <div class="notice">
+    本指南只作選購參考。若毛孩有持續軟便、反覆嘔吐、泌尿異常、異常搔癢或快速消瘦等情況，請先由獸醫師評估。
+  </div>
+
+  <section class="section" id="pick">
+    <h2 class="section-title">快速挑選</h2>
+    <p class="intro">先從需求對應商品，不需要一開始就把全部 SKU 看完。</p>
+    <div class="tabs">
+      <div class="tab-row tab-row-2">
+        <button class="tab-btn active" onclick="switchTab(this,'pick-dog')">狗狗</button>
+        <button class="tab-btn" onclick="switchTab(this,'pick-cat')">貓咪</button>
+      </div>
+
+      <div id="pick-dog" class="tab-pane active">
+        <div class="qp-grid">
+          <div class="qp-card">
+            <div class="qp-head">狗狗先看需求</div>
+            <div class="qp-row"><span>腸胃敏感，但不一定要無穀</span><span>低敏羊肉糙米成犬配方</span></div>
+            <div class="qp-row"><span>想避開穀類</span><span>低敏無穀馬鈴薯鴨肉 / 地瓜鮭魚 / 地瓜雞肉</span></div>
+            <div class="qp-row"><span>想避開更常見肉源</span><span>低敏無穀地瓜鹿肉成犬配方</span></div>
+            <div class="qp-row"><span>想先排除動物性蛋白</span><span>低敏全素蔬菜成犬犬糧</span></div>
+            <div class="qp-row"><span>已偏胖，需要管理熱量</span><span>體重控制配方 雞肉鮭魚低脂高纖</span></div>
+          </div>
+          <div class="qp-card">
+            <div class="qp-head">犬糧再看顆粒大小</div>
+            <div class="qp-row"><span>小型犬、小嘴型</span><span>選小顆粒版</span></div>
+            <div class="qp-row"><span>中大型犬、想保留咀嚼感</span><span>選原顆粒版</span></div>
+            <div class="qp-row"><span>有雙版本的口味</span><span>羊肉、鴨肉、鮭魚、雞肉</span></div>
+            <div class="qp-row"><span>目前沒有分顆粒的款式</span><span>鹿肉、全素、體重控制</span></div>
+            <div class="qp-row"><span>想快速入門</span><span>先從羊肉糙米或地瓜鮭魚開始</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pick-cat" class="tab-pane">
+        <div class="qp-grid">
+          <div class="qp-card">
+            <div class="qp-head">貓咪先分主線</div>
+            <div class="qp-row"><span>想找穩定日常主食</span><span>特級田園全貓配方</span></div>
+            <div class="qp-row"><span>室內成貓、活動量較低</span><span>特級室內貓調理配方</span></div>
+            <div class="qp-row"><span>敏感體質、想走單一蛋白</span><span>單一肉源系列</span></div>
+            <div class="qp-row"><span>想加強皮膚毛髮</span><span>單一肉源 無穀鮭魚皮膚保健</span></div>
+            <div class="qp-row"><span>想避開常見肉源</span><span>單一肉源 無穀鹿肉關節保健</span></div>
+          </div>
+          <div class="qp-card">
+            <div class="qp-head">單一肉源怎麼分</div>
+            <div class="qp-row"><span>腸胃保健</span><span>雞肉</span></div>
+            <div class="qp-row"><span>心血管保健</span><span>鴨肉</span></div>
+            <div class="qp-row"><span>皮膚保健</span><span>鮭魚</span></div>
+            <div class="qp-row"><span>關節保健</span><span>鹿肉</span></div>
+            <div class="qp-row"><span>想先安全起手</span><span>先從特級田園全貓或特級室內貓開始</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="logic">
+    <h2 class="section-title">這個品牌怎麼分</h2>
+    <p class="intro">自然平衡的產品線不是多線混戰，而是圍繞低敏、單一肉源和功能導向展開。</p>
+    <div class="card-grid-2">
+      <div class="card">
+        <h3>狗用主線</h3>
+        <p>先分成「低敏日常」和「體重控制」兩條路。低敏線再往下分羊肉、鴨肉、鮭魚、雞肉、鹿肉與全素，很多口味還再細分原顆粒和小顆粒。</p>
+        <div class="mini-tags">
+          <span class="badge badge-green">低敏主軸</span>
+          <span class="badge badge-orange">原顆粒 / 小顆粒</span>
+          <span class="badge badge-blue">無穀可選</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>貓用主線</h3>
+        <p>先分成「特級」和「單一肉源」。特級適合日常穩定，單一肉源則是依雞、鴨、鮭魚、鹿肉搭配不同機能訴求，讓挑選邏輯更直接。</p>
+        <div class="mini-tags">
+          <span class="badge badge-green">日常型</span>
+          <span class="badge badge-teal">單一蛋白</span>
+          <span class="badge badge-gold">機能導向</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="dog">
+    <h2 class="section-title">狗狗怎麼挑</h2>
+    <div class="tabs">
+      <div class="tab-row tab-row-3">
+        <button class="tab-btn active" onclick="switchTab(this,'dog-step1')">先看配方方向</button>
+        <button class="tab-btn" onclick="switchTab(this,'dog-step2')">再看蛋白來源</button>
+        <button class="tab-btn" onclick="switchTab(this,'dog-step3')">最後看顆粒大小</button>
+      </div>
+
+      <div id="dog-step1" class="tab-pane active">
+        <div class="card-grid-4">
+          <div class="card">
+            <h3>羊肉糙米</h3>
+            <p>適合想從相對經典、溫和的低敏配方入手，不一定需要完全無穀的犬隻。</p>
+          </div>
+          <div class="card">
+            <h3>無穀低敏</h3>
+            <p>想避開白米、小麥、玉米等穀類時，優先看鴨肉、鮭魚、雞肉、鹿肉這幾條線。</p>
+          </div>
+          <div class="card">
+            <h3>全素低敏</h3>
+            <p>不含肉類與乳製品，屬於較特殊的排除型選擇，適合需求很明確的情況。</p>
+          </div>
+          <div class="card">
+            <h3>體重控制</h3>
+            <p>如果主問題是偏胖或需要降熱量，體態管理優先度會高於單純換口味。</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="dog-step2" class="tab-pane">
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>蛋白主軸</th>
+                <th>對應商品</th>
+                <th>適合先看的人</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>羊肉</td>
+                <td>低敏羊肉糙米成犬配方</td>
+                <td>想從經典低敏路線開始</td>
+              </tr>
+              <tr>
+                <td>鴨肉</td>
+                <td>低敏無穀馬鈴薯鴨肉成犬配方</td>
+                <td>想走無穀低敏、蛋白來源明確</td>
+              </tr>
+              <tr>
+                <td>鮭魚</td>
+                <td>低敏無穀地瓜鮭魚成犬配方</td>
+                <td>想兼顧低敏與皮毛保養方向</td>
+              </tr>
+              <tr>
+                <td>雞肉</td>
+                <td>低敏無穀地瓜雞肉成犬配方</td>
+                <td>想找無穀日常主食，但不特別追求稀有肉源</td>
+              </tr>
+              <tr>
+                <td>鹿肉</td>
+                <td>低敏無穀地瓜鹿肉成犬配方</td>
+                <td>想避開更常見的肉類蛋白</td>
+              </tr>
+              <tr>
+                <td>全素</td>
+                <td>低敏全素蔬菜成犬犬糧</td>
+                <td>想先排除動物性蛋白與乳製品</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="dog-step3" class="tab-pane">
+        <div class="card-grid-2">
+          <div class="card">
+            <h3>原顆粒</h3>
+            <p>較適合中大型犬，或喜歡保留咀嚼感的狗，顆粒大小約為 12mm 左右。</p>
+            <div class="mini-tags">
+              <span class="badge badge-green">中大型犬</span>
+              <span class="badge badge-orange">咀嚼感較強</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>小顆粒</h3>
+            <p>較適合小型犬、嘴巴較小，或本來就偏好小顆粒的犬隻，顆粒大小約為 6–7mm 左右。</p>
+            <div class="mini-tags">
+              <span class="badge badge-green">小型犬</span>
+              <span class="badge badge-blue">入口更輕鬆</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-top:14px;">
+      <table>
+        <thead>
+          <tr>
+            <th>體型</th>
+            <th>熱門品種</th>
+            <th>挑選提醒</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>超小型犬</td>
+            <td>吉娃娃、約克夏、博美、瑪爾濟斯、玩具貴賓</td>
+            <td>多數可優先看小顆粒，重點在入口與咀嚼方便</td>
+          </tr>
+          <tr>
+            <td>小型犬</td>
+            <td>臘腸、巴哥、西施、迷你雪納瑞、比熊</td>
+            <td>若平常吃大顆粒容易掉屑或吞嚥急，可優先選小顆粒</td>
+          </tr>
+          <tr>
+            <td>中型犬</td>
+            <td>柴犬、柯基、米格魯、邊境牧羊犬、可卡</td>
+            <td>多數可依咀嚼習慣在原顆粒與小顆粒間選擇</td>
+          </tr>
+          <tr>
+            <td>大型犬</td>
+            <td>拉布拉多、黃金獵犬、哈士奇、德國牧羊犬、羅威納</td>
+            <td>通常先看原顆粒，較符合嘴型與咀嚼感</td>
+          </tr>
+          <tr>
+            <td>米克斯</td>
+            <td>先看父母體型、骨架、腳掌與成長速度</td>
+            <td>若還在發育期，不要只看目前體重，應先估成犬體型</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="cat">
+    <h2 class="section-title">貓咪怎麼挑</h2>
+    <div class="card-grid-2">
+      <div class="card">
+        <h3>特級系列</h3>
+        <p>適合把「日常穩定」放在第一順位的人。特級田園全貓配方偏全齡日常，特級室內貓調理則更靠近室內管理、毛球與體態方向。</p>
+        <div class="mini-tags">
+          <span class="badge badge-green">日常主食</span>
+          <span class="badge badge-orange">全齡 / 室內兩方向</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>單一肉源系列</h3>
+        <p>適合已經有明確需求的人。每一款都先把蛋白來源切乾淨，再搭配腸胃、心血管、皮膚或關節的方向去選。</p>
+        <div class="mini-tags">
+          <span class="badge badge-teal">單一蛋白</span>
+          <span class="badge badge-gold">功能導向</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-top:14px;">
+      <table>
+        <thead>
+          <tr>
+            <th>商品</th>
+            <th>系列</th>
+            <th>定位</th>
+            <th>適合誰</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>特級田園全貓配方</td>
+            <td>特級</td>
+            <td>全齡日常主線</td>
+            <td>想找穩定入門款的飼主</td>
+          </tr>
+          <tr>
+            <td>特級室內貓調理配方</td>
+            <td>特級</td>
+            <td>室內管理</td>
+            <td>室內成貓、活動量較低、想顧毛球與體態</td>
+          </tr>
+          <tr>
+            <td>單一肉源 無穀雞肉腸胃保健</td>
+            <td>單一肉源</td>
+            <td>腸胃保健</td>
+            <td>想從腸胃方向調整的成貓</td>
+          </tr>
+          <tr>
+            <td>單一肉源 無穀鴨肉心血管保健</td>
+            <td>單一肉源</td>
+            <td>心血管保健</td>
+            <td>想把心血管方向列為優先需求的人</td>
+          </tr>
+          <tr>
+            <td>單一肉源 無穀鮭魚皮膚保健</td>
+            <td>單一肉源</td>
+            <td>皮膚保健</td>
+            <td>皮膚與毛髮狀態想加強的人</td>
+          </tr>
+          <tr>
+            <td>單一肉源 無穀鹿肉關節保健</td>
+            <td>單一肉源</td>
+            <td>關節保健</td>
+            <td>想避開常見肉源，並把關節列為重點的人</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">多重需求怎麼判斷</h2>
+    <p class="intro">自然平衡比較像一款配方對應一個主要方向，所以有多重需求時，先排優先順序會比一次想兼顧全部更有效。</p>
+    <div class="card-grid-4">
+      <div class="card">
+        <h3>1. 先看主要困擾</h3>
+        <p>像是軟便、敏感、發胖、皮膚毛髮差，先決定哪個才是當下最重要的問題。</p>
+      </div>
+      <div class="card">
+        <h3>2. 再決定避開什麼</h3>
+        <p>是想避穀，還是想避開某些常見蛋白，這會直接縮小選項。</p>
+      </div>
+      <div class="card">
+        <h3>3. 生活型態放第三</h3>
+        <p>例如室內貓、活動量低，或小型犬對顆粒大小較敏感。</p>
+      </div>
+      <div class="card">
+        <h3>4. 最後才看口味偏好</h3>
+        <p>先把方向選對，再讓毛孩在合理範圍內挑喜歡的肉源與顆粒。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="matrix">
+    <h2 class="section-title">完整品項矩陣</h2>
+    <div class="tabs">
+      <div class="tab-row tab-row-2">
+        <button class="tab-btn active" onclick="switchTab(this,'matrix-dog')">狗用商品</button>
+        <button class="tab-btn" onclick="switchTab(this,'matrix-cat')">貓用商品</button>
+      </div>
+
+      <div id="matrix-dog" class="tab-pane active">
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>系列</th>
+                <th>商品</th>
+                <th>規格</th>
+                <th>重點</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>低敏</td><td>低敏羊肉糙米成犬配方 原顆粒</td><td>4.5lb（約2kg）</td><td>經典低敏路線，中大型犬較合適</td></tr>
+              <tr><td>低敏</td><td>低敏羊肉糙米成犬配方 小顆粒</td><td>4.5lb（約2kg）</td><td>羊肉低敏，小型犬更友善</td></tr>
+              <tr><td>低敏</td><td>低敏無穀馬鈴薯鴨肉成犬配方 原顆粒</td><td>4.5lb（約2kg）</td><td>無穀＋鴨肉，中大型犬</td></tr>
+              <tr><td>低敏</td><td>低敏無穀馬鈴薯鴨肉成犬配方 小顆粒</td><td>4.5lb（約2kg）</td><td>無穀＋鴨肉，小型犬</td></tr>
+              <tr><td>低敏</td><td>低敏無穀地瓜鮭魚成犬配方 原顆粒</td><td>4.5lb（約2kg）</td><td>無穀＋鮭魚，中大型犬</td></tr>
+              <tr><td>低敏</td><td>低敏無穀地瓜鮭魚成犬配方 小顆粒</td><td>4.5lb（約2kg）</td><td>無穀＋鮭魚，小型犬</td></tr>
+              <tr><td>低敏</td><td>低敏無穀地瓜雞肉成犬配方 原顆粒</td><td>4.5lb（約2kg）</td><td>無穀＋雞肉，中大型犬</td></tr>
+              <tr><td>低敏</td><td>低敏無穀地瓜雞肉成犬配方 小顆粒</td><td>4.5lb（約2kg）</td><td>無穀＋雞肉，小型犬</td></tr>
+              <tr><td>低敏</td><td>低敏無穀地瓜鹿肉成犬配方 原顆粒</td><td>4.5lb（約2kg）</td><td>稀有肉源鹿肉</td></tr>
+              <tr><td>低敏</td><td>低敏全素蔬菜成犬犬糧</td><td>4lb（約1.8kg）</td><td>不含肉類與乳製品</td></tr>
+              <tr><td>體重控制</td><td>體重控制配方 雞肉鮭魚低脂高纖</td><td>4lb（約1.8kg）</td><td>低脂高纖，偏體態管理</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="matrix-cat" class="tab-pane">
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>系列</th>
+                <th>商品</th>
+                <th>規格</th>
+                <th>重點</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>特級</td><td>特級田園全貓配方</td><td>6lb（約2.7kg）</td><td>全齡日常主線</td></tr>
+              <tr><td>特級</td><td>特級室內貓調理配方</td><td>6lb（約2.7kg）</td><td>室內管理、毛球與體態方向</td></tr>
+              <tr><td>單一肉源</td><td>單一肉源 無穀雞肉腸胃保健成貓配方</td><td>4lb（約1.8kg）</td><td>雞肉單一蛋白，腸胃方向</td></tr>
+              <tr><td>單一肉源</td><td>單一肉源 無穀鴨肉心血管保健成貓配方</td><td>4lb（約1.8kg）</td><td>鴨肉單一蛋白，心血管方向</td></tr>
+              <tr><td>單一肉源</td><td>單一肉源 無穀鮭魚皮膚保健成貓配方</td><td>4lb（約1.8kg）</td><td>鮭魚單一蛋白，皮膚方向</td></tr>
+              <tr><td>單一肉源</td><td>單一肉源 無穀鹿肉關節保健成貓配方</td><td>4lb（約1.8kg）</td><td>鹿肉單一蛋白，關節方向</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="summary">
+    <h2 class="section-title">重點總結</h2>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <h4>狗糧核心</h4>
+        <p>重點不是品牌裡哪條線最花俏，而是先判斷你家狗是低敏需求還是體重控制需求。</p>
+      </div>
+      <div class="summary-card">
+        <h4>貓糧核心</h4>
+        <p>先決定要走特級日常，還是單一肉源機能型，這一步做對，後面就很好挑。</p>
+      </div>
+      <div class="summary-card">
+        <h4>蛋白選擇</h4>
+        <p>羊、鴨、鮭魚、雞肉是主流；鹿肉與全素屬於更偏排除法的特殊選擇。</p>
+      </div>
+      <div class="summary-card">
+        <h4>犬糧顆粒</h4>
+        <p>同口味常有原顆粒與小顆粒版本，對小型犬來說這個差異非常實際。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Natural Balance 最適合哪種飼主？</summary>
+        <div class="faq-body">
+          <p>最適合已經知道毛孩需求方向的人，例如狗狗要低敏、要控體重，或貓咪想走單一蛋白與功能導向。這個品牌的分類很直接，不需要在太多系列名之間來回比較。</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>狗糧原顆粒和小顆粒，營養內容有差嗎？</summary>
+        <div class="faq-body">
+          <p>差異重點主要在顆粒大小，營養主軸相同。挑選時先決定口味與配方方向，再依嘴型、體型與進食習慣選原顆粒或小顆粒就可以。</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>狗狗選糧時，體型、年紀、體重最常見的迷思是什麼？</summary>
+        <div class="faq-body">
+          <p>最常見的迷思是把三件事混在一起看。年紀決定的是幼犬、成犬或熟齡的營養方向；體型決定的常常是顆粒大小與進食便利性；體重則比較像你現在要不要優先做體態管理。</p>
+          <p>例如幼犬現在只有幾公斤，不代表未來就該用小型犬邏輯思考。如果是拉布拉多、黃金、哈士奇這類會長大的犬種，應先看成犬預期體型，而不是只看目前體重。反過來，如果狗狗已偏胖，優先要處理的是熱量和脂肪管理，不是先改小顆粒或只換口味。</p>
+          <p>簡單記法是：先看年紀與主要需求，再看成犬體型，最後才看顆粒大小。</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>貓咪第一次買，應該先選特級還是單一肉源？</summary>
+        <div class="faq-body">
+          <p>如果只是想找穩定日常主食，先從特級田園全貓或特級室內貓開始。若你已經知道要往腸胃、心血管、皮膚或關節方向選，再切到單一肉源會更有效率。</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>全素犬糧是不是每隻狗都能當日常主食？</summary>
+        <div class="faq-body">
+          <p>它屬於比較特殊的低敏排除型選項，適合需求很明確時使用。若要長期作為主食，尤其是幼犬、特殊體況犬或有疾病史的犬隻，仍建議先和獸醫師確認。</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>如果我完全不知道從哪款開始，最穩的起手式是什麼？</summary>
+        <div class="faq-body">
+          <p>狗狗可以先從低敏羊肉糙米或低敏無穀地瓜鮭魚開始；貓咪可以先從特級田園全貓或特級室內貓調理開始。這幾款最容易理解，也最能快速觀察毛孩對方向的接受度。</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function switchTab(btn, paneId) {
+    const tabs = btn.closest('.tabs');
+    tabs.querySelectorAll('.tab-btn').forEach((item) => item.classList.remove('active'));
+    tabs.querySelectorAll('.tab-pane').forEach((pane) => pane.classList.remove('active'));
+    btn.classList.add('active');
+    tabs.querySelector('#' + paneId).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
