@@ -13,6 +13,7 @@
 - 法米納：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/farmina-buying-guide.html>
 - 活力零食：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/gootoe.html>
 - 瑪恩吉：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/monge_buying_guide.html>
+- 自然平衡：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/natural_balance_buying_guide.html>
 - 耐吉斯：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/ngs_buying_guide.html>
 - 法國皇家：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/royal_canin_buying_guide.html>
 - 優格：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/toma_pro_buying_guide.html>
