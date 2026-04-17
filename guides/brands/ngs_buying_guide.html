@@ -3,78 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>耐吉斯 Solution 飼料選購指南｜狗糧貓糧系列比較、E P V 差異一次看</title>
-<meta name="description" content="耐吉斯 Solution 飼料選購指南，整理 E、P、V 系列差異、狗狗貓咪快速配對、主食罐與呼嚕凍乾選法，幫你更快找到適合的主糧。">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Yi-Chai Pet Life Hall">
-<meta name="theme-color" content="#009aaa">
-<link rel="canonical" href="https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/ngs_buying_guide.html">
-<meta property="og:type" content="article">
-<meta property="og:site_name" content="Pet Commerce Link Hub">
-<meta property="og:locale" content="zh_TW">
-<meta property="og:title" content="耐吉斯 Solution 飼料選購指南｜狗糧貓糧系列比較、E P V 差異一次看">
-<meta property="og:description" content="看懂耐吉斯 E、P、V 系列、主食罐與狗貓快速配對邏輯，幫你更快挑到合適配方。">
-<meta property="og:url" content="https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/ngs_buying_guide.html">
-<meta property="article:modified_time" content="2026-04-16">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="耐吉斯 Solution 飼料選購指南">
-<meta name="twitter:description" content="整理耐吉斯 E、P、V 系列差異與狗貓配對建議，幫你快速選糧。">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "name": "耐吉斯 Solution 飼料選購指南",
-      "url": "https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/ngs_buying_guide.html",
-      "description": "耐吉斯 Solution 飼料選購指南，整理 E、P、V 系列差異、狗狗貓咪快速配對、主食罐與呼嚕凍乾選法，幫你更快找到適合的主糧。",
-      "inLanguage": "zh-TW",
-      "dateModified": "2026-04-16",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Yi-Chai Pet Life Hall"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "耐吉斯 E、P、V 系列差在哪裡？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "E 系列是基礎主力無穀配方，P 系列是在相近主糧上再加入獵物凍乾提升適口性，V 系列則是純素需求的特殊選項。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "第一次買耐吉斯狗糧，從哪款開始最穩？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "幼犬先看 E1，成犬可依體型先從 E2 或 E3 開始；若對常見肉源敏感或想換口味，再看鹿肉或鮭魚路線。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "貓咪第一次吃耐吉斯，哪幾款最常作為入門？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "多數成貓可先看 E12 或 E13；室內貓或容易變胖、需要注意泌尿狀況時，可優先看 E10。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "好腸胃主食罐適合拿來做什麼？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "好腸胃主食罐適合做濕食補充、提升進食意願，或與乾糧搭配增加日常水分攝取，但換入時仍要同步調整總熱量。"
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
+<title>耐吉斯 Solution 飼料選購懶人包</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -458,6 +387,57 @@ h1, h2, h3 { line-height: 1.2; }
 }
 .conc-card p { font-size: 13px; color: #555; line-height: 1.6; }
 
+/* ── FAQ ── */
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+.faq-item {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-light);
+  color: var(--accent-dark);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+}
+.faq-item[open] summary {
+  background: #fcfaf8;
+  color: var(--accent-dark);
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-body {
+  padding: 0 18px 18px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.75;
+}
+
 /* ── Footer ── */
 .site-footer {
   margin-top: 60px; padding: 28px 24px;
@@ -491,6 +471,8 @@ h1, h2, h3 { line-height: 1.2; }
   .series-grid { grid-template-columns: 1fr 1fr; }
   .guide-grid { grid-template-columns: 1fr; }
   .conclusion-grid { grid-template-columns: 1fr; }
+  .faq-item summary { padding: 14px 16px; font-size: 13px; }
+  .faq-body { padding: 0 16px 16px; }
 }
 </style>
 </head>
@@ -502,12 +484,11 @@ h1, h2, h3 { line-height: 1.2; }
   <div class="bc30 en"><span class="bc-num">BC<span class="bc-thirty">30</span></span><span class="bc-sub">PROBIOTIC</span></div>
 </header>
 
-<main>
 <!-- Hero -->
 <section class="hero">
   <div class="hero-banner">
     <div class="hero-label en">BUYING GUIDE 2026</div>
-    <h1>耐吉斯 Solution <em>飼料選購指南</em></h1>
+    <h1>耐吉斯 Solution <em>飼料選購懶人包</em></h1>
     <p>系列總覽、快速配對、商品比較一次看完，幫毛孩找到最合適的那一款。</p>
   </div>
   <div class="hero-pills">
@@ -521,7 +502,7 @@ h1, h2, h3 { line-height: 1.2; }
 <div class="container">
 
   <!-- ══ 系列總覽 ══ -->
-  <section class="section" id="series">
+  <section class="section">
     <h2 class="section-title">系列是什麼意思？</h2>
     <div class="series-grid">
 
@@ -604,7 +585,7 @@ h1, h2, h3 { line-height: 1.2; }
   </section>
 
   <!-- ══ 快速挑選 + 商品矩陣 (分 dog/cat Tab) ══ -->
-  <section class="section" id="pick">
+  <section class="section">
     <h2 class="section-title">怎麼挑？</h2>
 
     <div class="species-tabs">
@@ -1040,7 +1021,7 @@ h1, h2, h3 { line-height: 1.2; }
   </section>
 
   <!-- ══ 怎麼幫毛孩選 ══ -->
-  <section class="section" id="match">
+  <section class="section">
     <h2 class="section-title">對照狀況快速配對</h2>
     <div class="guide-grid">
       <div class="guide-panel">
@@ -1071,7 +1052,7 @@ h1, h2, h3 { line-height: 1.2; }
   </section>
 
   <!-- ══ 簡單結論 ══ -->
-  <section class="section" id="summary" style="padding-bottom: 20px;">
+  <section class="section" style="padding-bottom: 20px;">
     <h2 class="section-title">不知道怎麼選？從這裡開始</h2>
     <div class="conclusion-grid">
       <div class="conc-card">
@@ -1101,56 +1082,54 @@ h1, h2, h3 { line-height: 1.2; }
     </div>
   </section>
 
-  <section class="section" id="faq" style="padding-bottom: 20px;">
-    <h2 class="section-title">耐吉斯常見問題</h2>
-    <div class="conclusion-grid">
-      <div class="conc-card">
-        <div class="ctitle">E、P、V 系列怎麼分？</div>
-        <p>E 系列是多數毛孩最常接觸的主力配方；P 系列是在相近底料上加入凍乾提升適口性；V 系列則是針對純素需求設計。</p>
-      </div>
-      <div class="conc-card">
-        <div class="ctitle">狗狗第一次吃耐吉斯先看哪款？</div>
-        <p>幼犬先看 E1；成犬依體型先從 E2 或 E3 縮小範圍。如果對雞肉或羊肉敏感，改看 E7 或 P1 的鹿肉路線會更快。</p>
-      </div>
-      <div class="conc-card">
-        <div class="ctitle">貓咪入門最常從哪幾款開始？</div>
-        <p>多數成貓可先看 E12 或 E13；室內貓、容易變胖或需注意泌尿時，E10 會是更常見的起點。</p>
-      </div>
-      <div class="conc-card">
-        <div class="ctitle">好腸胃主食罐適合怎麼搭？</div>
-        <p>可單吃，也可與乾糧搭配增加水分和進食意願；但加入濕糧時，乾糧份量要同步減量，避免總熱量超出。</p>
-      </div>
-    </div>
-  </section>
-
+  <!-- ══ FAQ ══ -->
   <section class="section" style="padding-bottom: 20px;">
-    <h2 class="section-title">狗狗常見選購問題</h2>
-    <div class="conclusion-grid">
-      <div class="conc-card">
-        <div class="ctitle">大型犬現在 5kg，仍看大型犬配方</div>
-        <p>如果品種是黃金、拉布拉多、德牧這類大型犬，幼犬現在只有 5kg 也很正常；選糧還是要依成犬預期體型，不是依當下體重改看小型犬。</p>
-      </div>
-      <div class="conc-card">
-        <div class="ctitle">常見品種可先這樣分大小</div>
-        <p>小型犬如吉娃娃、博美、貴賓、臘腸；中型犬如柴犬、柯基、米格魯；大型犬如黃金、拉布拉多、哈士奇、薩摩耶。先看品種成犬大小最不容易選錯。</p>
-      </div>
-      <div class="conc-card">
-        <div class="ctitle">米克斯先估未來體型</div>
-        <p>不確定品種時，可先看腳掌與骨量，再用 4 個月體重大致推估成犬大小；若 4 個月已接近 10kg，通常就不建議再走小型犬邏輯。</p>
-      </div>
-      <div class="conc-card">
-        <div class="ctitle">零食最後再看咬力與熱量</div>
-        <p>主糧先把體型、生命階段與功能需求選對；零食再依年齡與咬力補上。6 個月以下幼犬不建議耐咬零食，零食熱量也建議控制在全天 10% 內。</p>
-      </div>
+    <h2 class="section-title">常見問題 FAQ</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>E 系列和 P 系列差在哪裡？</summary>
+        <div class="faq-body">
+          E 系列是日常主食乾糧，重點在無穀、低敏與功能訴求；P 系列則是在相近肉源邏輯上，再加入凍乾元素提升適口性。若毛孩平常吃乾糧很穩定，先從 E 系列開始通常最安全；如果挑嘴、想提高進食意願，或你想要乾糧加一點凍乾口感，再往 P 系列升級會更合適。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>狗狗第一次接觸耐吉斯 Solution，通常先從哪款開始？</summary>
+        <div class="faq-body">
+          多數情況可以先看體型與年齡。幼犬先選 E1；小型成犬多半從 E2 開始；大型成犬以 E3 為主。如果你家狗狗對常見肉源較敏感，或想試低脂、稀有蛋白，可以直接看 E7 或 P1 的鹿肉配方。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>貓咪要選 E10、E11、E12 還是 E13？</summary>
+        <div class="faq-body">
+          這四款可以用需求來分。E10 比較適合室內貓、體重管理與泌尿保健；E11 偏向熟齡與低磷需求；E12 適合想補充魚類蛋白、DHA 與 EPA 的全齡貓；E13 則更適合想吃多元蛋白、海陸雙配方的全齡貓。若沒有明確保健方向，E12 或 E13 往往是比較穩的起點。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>好腸胃主食罐可以和乾糧一起搭配嗎？</summary>
+        <div class="faq-body">
+          可以，這頁整理的好腸胃系列很適合作為乾糧拌食、補水或單餐替換。實際餵食時，建議從小比例混入開始，讓毛孩腸胃慢慢適應，並把主食罐熱量一起算進每日總量，避免因為適口性提升而不小心吃過頭。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>呼嚕凍乾是主食嗎？可以每天吃嗎？</summary>
+        <div class="faq-body">
+          呼嚕凍乾在這份整理裡定位是零食與互動獎勵，不是主食主餐。它的優點是高適口性，加上茶胺酸與貓薄荷或木天蓼的舒緩互動設計，適合訓練、誘食或日常獎勵。每天吃可以，但份量要控制，避免擠壓到正餐比例。
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>換糧時需要注意什麼？</summary>
+        <div class="faq-body">
+          建議用 5 到 7 天循序換糧，把新舊飼料逐步混合，觀察便便、食慾、抓癢和精神狀況。如果毛孩本身就容易軟便、挑食或有過敏史，換糧速度可以再放慢一點，並優先選單一肉源、訴求比較明確的款式，例如狗狗的 E2、E3、E7，或貓咪的 E10、E11。
+        </div>
+      </details>
     </div>
   </section>
 
 </div><!-- /container -->
-</main>
 
 <footer class="site-footer">
-  <p class="en">Holistic Recipe® SOLUTION · 耐吉斯 · 選購懶人包</p>
-  <p>Last updated: April 2026</p>
+  <p>Copyright © 2026 Yi-Chai Pet Life Hall. All rights reserved.</p>
+  <p>Last updated: March 2026</p>
 </footer>
 
 <script>

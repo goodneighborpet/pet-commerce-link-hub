@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>優格 TOMA-PRO 飼料選購懶人包</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #c56a1c;
+      --brand-dark: #9b5012;
+      --brand-soft: #fff4e7;
+      --olive: #6d7b3e;
+      --olive-soft: #eef2e2;
+      --berry: #a53c52;
+      --berry-soft: #f9e8ec;
+      --ink: #1d1f24;
+      --muted: #667085;
+      --line: rgba(20, 20, 20, 0.08);
+      --card: #ffffff;
+      --bg: #f6f4ef;
+      --shadow: 0 10px 28px rgba(25, 25, 25, 0.08);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, rgba(197,106,28,0.08), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(109,123,62,0.08), transparent 24%),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Noto Sans TC", sans-serif;
+      line-height: 1.75;
+    }
+    h1, h2, h3, h4, .brand, .kicker, .tab-btn, .badge {
+      font-family: "Manrope", "Noto Sans TC", sans-serif;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav, .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .nav {
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      box-shadow: var(--shadow);
+      flex-shrink: 0;
+    }
+    .brand {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      color: var(--brand-dark);
+    }
+    .brand-sub {
+      display: block;
+      margin-top: -2px;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 11px;
+      border-radius: 999px;
+      transition: all .18s ease;
+    }
+    .links a:hover {
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+    }
+    .wrap {
+      padding: 26px 20px 80px;
+    }
+    .hero {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 18px 42px rgba(40, 30, 20, 0.12);
+      background: linear-gradient(135deg, #fff2df, #fff9f2);
+      border: 1px solid rgba(197,106,28,0.16);
+    }
+    .hero-top {
+      padding: 40px 40px 30px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 26px;
+      align-items: center;
+    }
+    .kicker {
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(197,106,28,0.1);
+      color: var(--brand-dark);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(30px, 5vw, 56px);
+      line-height: 1.06;
+      letter-spacing: -.03em;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--brand);
+    }
+    .hero p {
+      margin: 0;
+      font-size: 15px;
+      color: #4f5561;
+    }
+    .hero-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .hero-card {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(197,106,28,0.12);
+    }
+    .hero-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: var(--brand-dark);
+    }
+    .hero-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .hero-bottom {
+      padding: 18px 40px 24px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: linear-gradient(180deg, rgba(197,106,28,0.05), rgba(197,106,28,0));
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(197,106,28,0.15);
+      color: #5a4331;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .notice {
+      margin-top: 18px;
+      padding: 14px 18px;
+      border-radius: 18px;
+      background: #fff8e8;
+      border: 1px solid #efcc78;
+      color: #6b4a00;
+      font-size: 13px;
+    }
+    .section {
+      margin-top: 34px;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 14px;
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -.02em;
+    }
+    .section-title::before {
+      content: "";
+      width: 6px;
+      height: 26px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--brand), var(--olive));
+      flex-shrink: 0;
+    }
+    .intro {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .tabs {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+    .tab-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .tab-btn {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all .16s ease;
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 8px 18px rgba(197,106,28,0.24);
+    }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+    .qp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .qp-card, .card, .summary-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+    .qp-card {
+      overflow: hidden;
+    }
+    .qp-head {
+      padding: 12px 16px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+    .qp-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+    .qp-row:last-child { border-bottom: none; }
+    .qp-row span:first-child { color: var(--muted); }
+    .qp-row span:last-child { color: var(--brand-dark); font-weight: 800; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .card-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .card-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .card, .summary-card {
+      padding: 18px;
+    }
+    .card h3, .summary-card h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .card p, .summary-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .mini-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+    .badge-brand { background: var(--brand-soft); color: var(--brand-dark); }
+    .badge-olive { background: var(--olive-soft); color: var(--olive); }
+    .badge-berry { background: var(--berry-soft); color: var(--berry); }
+    .badge-gray { background: #efefef; color: #555; }
+    .tbl-wrap {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      font-size: 14px;
+    }
+    thead {
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: #fff;
+    }
+    thead th {
+      padding: 12px 14px;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: #fffaf4; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .summary-card {
+      border-top: 4px solid var(--brand);
+    }
+    .summary-card h4 {
+      color: var(--brand-dark);
+    }
+    .sop-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .sop-path {
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .sop-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .sop-head h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--brand-dark);
+    }
+    .sop-step {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(20,20,20,0.06);
+    }
+    .sop-step + .sop-step {
+      margin-top: 12px;
+    }
+    .sop-kicker {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+    .sop-step strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+      color: var(--ink);
+    }
+    .sop-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .sop-arrow {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--brand);
+      padding: 6px 0;
+      line-height: 1;
+    }
+    .sop-final {
+      margin-top: 16px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #fff3e2, #fffdf9);
+      border: 1px solid rgba(197,106,28,0.16);
+      box-shadow: var(--shadow);
+    }
+    .sop-final strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--brand-dark);
+      font-size: 15px;
+    }
+    .sop-final p {
+      margin: 0;
+      color: #5e5146;
+      font-size: 14px;
+    }
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+    .faq-item {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      font-family: "Manrope", "Noto Sans TC", sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.45;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-item summary::after {
+      content: "+";
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .faq-item[open] summary::after {
+      content: "-";
+    }
+    .faq-body {
+      padding: 0 20px 18px;
+      color: #495060;
+      font-size: 15px;
+    }
+    .faq-body p {
+      margin: 0;
+    }
+    .footer-note {
+      margin-top: 14px;
+      padding: 14px 18px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px dashed rgba(109,123,62,0.35);
+      color: #58604d;
+      font-size: 13px;
+    }
+    @media (max-width: 960px) {
+      .hero-grid, .qp-grid, .summary-grid, .card-grid-4, .sop-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-grid, .card-grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .hero-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 620px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-top, .hero-bottom, .wrap {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+      .hero-cards {
+        grid-template-columns: 1fr;
+      }
+      .qp-row {
+        grid-template-columns: 1fr;
+      }
+      .tab-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <div class="brand-wrap">
+        <div class="brand-icon">YG</div>
+        <div>
+          <span class="brand">TOMA-PRO 優格</span>
+          <span class="brand-sub">選購懶人包</span>
+        </div>
+      </div>
+      <div class="links">
+        <a href="#sop">選購SOP</a>
+        <a href="#pick">快速挑選</a>
+        <a href="#format">主食形式</a>
+        <a href="#series">系列說明</a>
+        <a href="#multi">多重需求</a>
+        <a href="#choose">怎麼選</a>
+        <a href="#faq">FAQ</a>
+        <a href="#summary">結論</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-top">
+        <div class="hero-grid">
+          <div>
+            <div class="kicker">TOMA-PRO · DAILY TO FUNCTIONAL FEEDING GUIDE</div>
+            <h1>先選對<em>主食路線</em><br>再決定要不要加料</h1>
+            <p>從日常主食、低敏機能、高肉量濕食到凍乾加料，這份懶人包幫你一次看懂優格五大系列該怎麼選。</p>
+          </div>
+          <div class="hero-cards">
+            <div class="hero-card">
+              <strong>經典</strong>
+              <p>藜麥、腸益菌、茄紅素，偏分齡與日常穩定主食。</p>
+            </div>
+            <div class="hero-card">
+              <strong>零穀</strong>
+              <p>100% 零穀、低敏與低負擔方向，適合想避穀的日常主食。</p>
+            </div>
+            <div class="hero-card">
+              <strong>親親</strong>
+              <p>機能型更明確，集中在敏感腸胃、泌尿、護膚與高肉量。</p>
+            </div>
+            <div class="hero-card">
+              <strong>吃貨拼盤 / 鮮肉佐餐</strong>
+              <p>前者偏高肉量主食與濕食，後者偏凍乾拌糧與加料。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <span class="pill">乾糧主食 4 條線</span>
+        <span class="pill">主食罐 / 犬餐盒</span>
+        <span class="pill">凍乾拌糧加料</span>
+        <span class="pill">低敏零穀路線</span>
+        <span class="pill">高肉量適口性</span>
+      </div>
+    </section>
+
+    <div class="notice">
+      <strong>注意事項：</strong>本指南僅作選購參考。若毛孩已經出現持續軟便、反覆嘔吐、泌尿異常、明顯掉毛或體重快速下降，請先諮詢獸醫師。
+    </div>
+
+    <section class="section" id="sop">
+      <h2 class="section-title">飼主選購 SOP 決策樹</h2>
+      <p class="intro">面對眾多 SKU，先照這 4 步驟看就夠了；如果毛孩有特殊體況，仍建議先請獸醫師評估。</p>
+
+      <div class="sop-path">
+        <div class="sop-step">
+          <span class="sop-kicker">步驟 1</span>
+          <strong>先分貓咪或狗狗</strong>
+          <p>先把物種分清楚，不要一開始就直接看口味或系列名。</p>
+        </div>
+        <div class="sop-arrow">↓</div>
+        <div class="sop-step">
+          <span class="sop-kicker">步驟 2</span>
+          <strong>再看生命階段</strong>
+          <p>貓咪看幼貓 / 成貓 / 高齡貓；狗狗看幼犬 / 成犬 / 高齡犬。</p>
+        </div>
+        <div class="sop-arrow">↓</div>
+        <div class="sop-step">
+          <span class="sop-kicker">步驟 3</span>
+          <strong>再看主需求</strong>
+          <p>一般日常穩定先看經典；想避穀低敏看零穀；有明確機能需求看親親；挑嘴或想吃高肉量看吃貨拼盤；只是想拌糧加香再看鮮肉佐餐。</p>
+        </div>
+        <div class="sop-arrow">↓</div>
+        <div class="sop-step">
+          <span class="sop-kicker">步驟 4</span>
+          <strong>最後決定搭配方式</strong>
+          <p>先固定一款乾糧主食，想增加水分與適口性再搭主食罐或犬餐盒；想再加香氣與原肉風味，最後少量加入鮮肉佐餐。</p>
+        </div>
+      </div>
+
+      <div class="sop-final">
+        <strong>最終組合</strong>
+        <p>優格狗糧主線不是先用迷你犬 / 中型犬 / 大型犬切系列，而是先看年齡與需求。若特別在意顆粒大小，可再回頭比較部分成犬配方的小顆粒 / 大顆粒版本。</p>
+      </div>
+    </section>
+
+    <section class="section" id="breed-size">
+      <h2 class="section-title">常見品種體型對照</h2>
+      <p class="intro">如果你在幫狗狗判斷預期體型，可以先用這張表抓大方向；若是米克斯，仍建議優先看父母體型與未來成犬骨架。</p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>體型</th><th>常見品種</th><th>挑選提醒</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>迷你犬</td><td>吉娃娃、博美、馬爾濟斯、約克夏、玩具貴賓</td><td>先看迷你犬或超小型犬的日常需求，若特別在意顆粒大小，可優先留意小顆粒設計。</td></tr>
+            <tr><td>小型犬</td><td>臘腸、西施、迷你雪納瑞、巴哥、傑克羅素梗</td><td>通常先看小型犬日常需求，再依挑嘴、敏感或皮毛需求往下細分。</td></tr>
+            <tr><td>中型犬</td><td>柴犬、米格魯、柯基、邊境牧羊犬、可卡</td><td>先抓成犬後的日常體型，再看是否有避穀、體態或皮毛保養需求。</td></tr>
+            <tr><td>大型犬</td><td>拉布拉多、黃金獵犬、德國狼犬、哈士奇、羅威納</td><td>即使幼犬現在體重還不重，也要以未來成犬預期體型判斷，不要因目前體重低就改看小型犬。</td></tr>
+            <tr><td>米克斯</td><td>先看父母體型；若不清楚，再看腳掌、骨架、四肢比例、生長速度</td><td>若很難判斷未來會長多大，建議請獸醫師協助估算成犬體型。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="pick">
+      <h2 class="section-title">快速挑選</h2>
+      <p class="intro">先用需求對系列，不必一開始就把所有品項都看完。</p>
+
+      <div class="tabs">
+        <div class="tab-row">
+          <button class="tab-btn active" onclick="switchTab(this,'cat-pick')">貓咪</button>
+          <button class="tab-btn" onclick="switchTab(this,'dog-pick')">狗狗</button>
+        </div>
+
+        <div id="cat-pick" class="tab-pane active">
+          <div class="qp-grid">
+            <div class="qp-card">
+              <div class="qp-head">成長 / 日常</div>
+              <div class="qp-row"><span>幼貓、想先顧腸道成長</span><span>親親 幼貓益菌成長</span></div>
+              <div class="qp-row"><span>室內成貓、活動量低</span><span>經典 室內貓 / 零穀 成貓低活動量</span></div>
+              <div class="qp-row"><span>高齡熟齡貓</span><span>經典 高齡貓 高纖低脂</span></div>
+            </div>
+            <div class="qp-card">
+              <div class="qp-head">功能方向</div>
+              <div class="qp-row"><span>毛球管理</span><span>經典化毛高纖 / 零穀五種魚化毛</span></div>
+              <div class="qp-row"><span>腸胃敏感、想避穀</span><span>零穀鮭魚敏感 / 親親敏感腸胃</span></div>
+              <div class="qp-row"><span>泌尿保養</span><span>親親 成貓泌尿保健</span></div>
+            </div>
+            <div class="qp-card">
+              <div class="qp-head">吃法偏好</div>
+              <div class="qp-row"><span>想吃高肉量、挑嘴</span><span>親親三種肉 / 四種肉</span></div>
+              <div class="qp-row"><span>想吃濕食主食</span><span>吃貨拼盤 貓主食罐</span></div>
+              <div class="qp-row"><span>想幫乾糧加香</span><span>鮮肉佐餐 貓凍乾</span></div>
+            </div>
+            <div class="qp-card">
+              <div class="qp-head">高適口性</div>
+              <div class="qp-row"><span>高肉量乾糧</span><span>吃貨拼盤 貓乾糧</span></div>
+              <div class="qp-row"><span>亮毛路線</span><span>吃貨拼盤 鮭魚佐嫩雞拼盤</span></div>
+              <div class="qp-row"><span>化毛又想吃肉</span><span>吃貨拼盤 老饕海陸拼盤</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="dog-pick" class="tab-pane">
+          <div class="qp-grid">
+            <div class="qp-card">
+              <div class="qp-head">成長 / 日常</div>
+              <div class="qp-row"><span>幼犬</span><span>經典 幼犬羊肉+米</span></div>
+              <div class="qp-row"><span>成長期又想顧敏感膚質</span><span>經典 成幼犬鮭魚+馬鈴薯</span></div>
+              <div class="qp-row"><span>成犬日常主食</span><span>經典 成犬羊肉 / 雞肉</span></div>
+              <div class="qp-row"><span>高齡熟齡犬</span><span>經典 高齡犬 羊肉 / 鮭魚</span></div>
+            </div>
+            <div class="qp-card">
+              <div class="qp-head">功能方向</div>
+              <div class="qp-row"><span>敏感腸胃、低脂需求</span><span>親親 敏感腸胃低脂</span></div>
+              <div class="qp-row"><span>想避穀、走低敏</span><span>零穀 羊肉+鮭魚</span></div>
+              <div class="qp-row"><span>亮毛 / 護膚</span><span>親親 野牛護膚美毛 / 零穀五種魚</span></div>
+              <div class="qp-row"><span>體態控制</span><span>零穀 成犬體重控制</span></div>
+            </div>
+            <div class="qp-card">
+              <div class="qp-head">吃法偏好</div>
+              <div class="qp-row"><span>挑嘴、想吃得更香</span><span>吃貨拼盤 海陸蘋果</span></div>
+              <div class="qp-row"><span>想加濕食</span><span>吃貨拼盤 犬餐盒</span></div>
+              <div class="qp-row"><span>想幫乾糧拌料</span><span>鮮肉佐餐 犬凍乾</span></div>
+            </div>
+            <div class="qp-card">
+              <div class="qp-head">高肉量</div>
+              <div class="qp-row"><span>亮毛方向</span><span>吃貨拼盤 成犬羊肉佐蘋果</span></div>
+              <div class="qp-row"><span>小顆粒方向</span><span>吃貨拼盤 成犬烤嫩雞佐蘋果</span></div>
+              <div class="qp-row"><span>高適口性方向</span><span>吃貨拼盤 全齡犬老饕海陸佐蘋果</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="format">
+      <h2 class="section-title">先分清楚主食形式</h2>
+      <p class="intro">優格同時有乾糧主食、主食罐 / 犬餐盒、凍乾佐餐。先分對形式，選購會快很多。</p>
+
+      <div class="card-grid-4">
+        <div class="card">
+          <div class="mini-tags">
+            <span class="badge badge-brand">乾糧主食</span>
+          </div>
+          <h3>經典 / 零穀 / 親親 / 吃貨拼盤乾糧</h3>
+          <p>最適合當日常主線。先把生命階段、敏感方向或體態需求決定好，再看口味與規格。</p>
+        </div>
+        <div class="card">
+          <div class="mini-tags">
+            <span class="badge badge-olive">濕食主食</span>
+          </div>
+          <h3>吃貨拼盤貓主食罐 / 犬餐盒</h3>
+          <p>CSV 描述中都有主食級定位。適合補水、換口味、提高進食意願，也能做主食輪替。</p>
+        </div>
+        <div class="card">
+          <div class="mini-tags">
+            <span class="badge badge-berry">凍乾加料</span>
+          </div>
+          <h3>鮮肉佐餐</h3>
+          <p>核心是凍乾原肉、可直接餵食或拌糧。更適合當加料工具，不是優先拿來當唯一主食。</p>
+        </div>
+        <div class="card">
+          <div class="mini-tags">
+            <span class="badge badge-gray">挑法</span>
+          </div>
+          <h3>先主食，後加料</h3>
+          <p>主線先從乾糧或主食罐選對，再決定要不要用凍乾補香氣與適口性，邏輯會最清楚。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="series">
+      <h2 class="section-title">系列說明</h2>
+      <p class="intro">優格的核心不是品種，而是「你想走哪一條主食路線」。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="mini-tags">
+            <span class="badge badge-brand">經典</span>
+            <span class="badge badge-gray">分齡日常</span>
+          </div>
+          <h3>穩定主食線</h3>
+          <p>共同核心是藜麥、腸益菌、天然茄紅素。貓走室內 / 化毛 / 高齡，狗走幼犬 / 成犬 / 高齡犬，適合當基礎日常主食。</p>
+        </div>
+        <div class="card">
+          <div class="mini-tags">
+            <span class="badge badge-olive">零穀</span>
+            <span class="badge badge-gray">低敏日常</span>
+          </div>
+          <h3>避穀低負擔線</h3>
+          <p>100% 零穀、低過敏碳水、益生支持。適合想避穀、走低敏方向，同時還想保有日常主食完整度的人。</p>
+        </div>
+        <div class="card">
+          <div class="mini-tags">
+            <span class="badge badge-berry">親親</span>
+            <span class="badge badge-gray">機能明確</span>
+          </div>
+          <h3>功能需求線</h3>
+          <p>比起經典更偏特殊訴求。貓用有幼貓益菌、敏感腸胃、泌尿與高肉量；狗用有敏感腸胃低脂與護膚美毛。</p>
+        </div>
+        <div class="card">
+          <div class="mini-tags">
+            <span class="badge badge-brand">吃貨拼盤</span>
+            <span class="badge badge-gray">高肉量</span>
+          </div>
+          <h3>高適口主食線</h3>
+          <p>乾糧、貓主食罐、犬餐盒都在同一條線。高肉量、零穀與高適口性是核心，特別適合挑嘴或想增加濕食比例時使用。</p>
+        </div>
+        <div class="card">
+          <div class="mini-tags">
+            <span class="badge badge-olive">鮮肉佐餐</span>
+            <span class="badge badge-gray">凍乾拌糧</span>
+          </div>
+          <h3>加料工具線</h3>
+          <p>凍乾原肉、可拌糧或直接餵食。適合補香氣、原肉風味與拌糧便利性，常拿來幫乾糧升級。</p>
+        </div>
+      </div>
+
+      <div class="tabs" style="margin-top:16px;">
+        <div class="tab-row">
+          <button class="tab-btn active" onclick="switchTab(this,'cat-series')">貓用</button>
+          <button class="tab-btn" onclick="switchTab(this,'dog-series')">狗用</button>
+        </div>
+
+        <div id="cat-series" class="tab-pane active">
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr><th>系列</th><th>適合誰</th><th>代表商品</th><th>重點特色</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>經典</td><td>室內貓、化毛、高齡</td><td>室內貓雞肉+米、成幼貓化毛高纖、高齡貓高纖低脂</td><td>藜麥、腸益菌、天然茄紅素、分齡設計</td></tr>
+                <tr><td>零穀</td><td>敏感、化毛、低活動量</td><td>鮭魚敏感、五種魚化毛、低活動量體重管理</td><td>100%零穀、低過敏碳水、益生支持</td></tr>
+                <tr><td>親親</td><td>幼貓、敏感腸胃、泌尿、高肉量</td><td>幼貓益菌成長、成貓敏感腸胃、成貓泌尿、三種肉 / 四種肉</td><td>無穀低敏、機能指向更明確</td></tr>
+                <tr><td>吃貨拼盤</td><td>挑嘴、高肉量、想吃濕食</td><td>火鴨雞蘋果、鮭魚嫩雞拼盤、老饕海陸、5 款主食罐</td><td>高肉量、零穀、高適口性</td></tr>
+                <tr><td>鮮肉佐餐</td><td>想幫乾糧加香、拌糧</td><td>雞肉、雞肉+鮭魚、雞鮭酥鬆、零穀鮭魚</td><td>凍乾原肉、可直接餵食或拌糧</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="dog-series" class="tab-pane">
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr><th>系列</th><th>適合誰</th><th>代表商品</th><th>重點特色</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>經典</td><td>幼犬、成犬、高齡犬</td><td>幼犬羊肉、成幼犬鮭魚馬鈴薯、成犬羊肉 / 雞肉、高齡犬羊肉 / 鮭魚</td><td>藜麥、腸益菌、天然茄紅素、日常穩定主食</td></tr>
+                <tr><td>零穀</td><td>避穀低敏、亮毛、體態控制</td><td>羊肉+鮭魚、五種魚、成犬體重控制</td><td>100%零穀、低過敏碳水、益生支持</td></tr>
+                <tr><td>親親</td><td>敏感腸胃低脂、護膚美毛</td><td>成犬敏感腸胃低脂、全齡犬野牛護膚美毛</td><td>機能型最明確、無穀低敏</td></tr>
+                <tr><td>吃貨拼盤</td><td>挑嘴、高肉量、想吃濕食</td><td>羊肉蘋果、嫩雞蘋果、海陸蘋果、4 款犬餐盒</td><td>高肉量、零穀、高適口性</td></tr>
+                <tr><td>鮮肉佐餐</td><td>想拌糧加香、補原肉風味</td><td>羊肉、雞肉、鮭魚、零穀羊+鮭</td><td>凍乾原肉、可單餵或拌糧</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="multi">
+      <h2 class="section-title">多重需求怎麼辦</h2>
+      <p class="intro">先決定主食路線，再用濕食或凍乾補第二需求，是優格這套產品線最好用的方式。</p>
+
+      <div class="card-grid-4" style="margin-bottom:16px;">
+        <div class="card">
+          <div class="mini-tags"><span class="badge badge-brand">第一步</span></div>
+          <h3>先看生命階段</h3>
+          <p>幼貓 / 幼犬、高齡貓 / 高齡犬要先選對，別直接跳去高肉量或加料產品。</p>
+        </div>
+        <div class="card">
+          <div class="mini-tags"><span class="badge badge-olive">第二步</span></div>
+          <h3>再看主需求</h3>
+          <p>敏感腸胃、泌尿、毛球、皮毛、體態控制，先抓出目前最優先的一個方向。</p>
+        </div>
+        <div class="card">
+          <div class="mini-tags"><span class="badge badge-berry">第三步</span></div>
+          <h3>最後看吃法偏好</h3>
+          <p>主食先決定，再選要不要搭主食罐 / 犬餐盒，或用凍乾拌糧增香。</p>
+        </div>
+        <div class="card">
+          <div class="mini-tags"><span class="badge badge-gray">提醒</span></div>
+          <h3>別一次換太多線</h3>
+          <p>如果同時把主食、濕食、凍乾全部換掉，反而很難判斷哪個產品真的適合。</p>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab-row">
+          <button class="tab-btn active" onclick="switchTab(this,'cat-multi')">貓咪範例</button>
+          <button class="tab-btn" onclick="switchTab(this,'dog-multi')">狗狗範例</button>
+        </div>
+
+        <div id="cat-multi" class="tab-pane active">
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr><th>情境</th><th>乾糧主食</th><th>加強補充</th><th>解法說明</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>室內貓 + 體重管理</td><td>經典 室內貓 或 零穀 成貓低活動量</td><td>鮮肉佐餐少量拌糧</td><td>先決定要走經典分齡，還是零穀低敏；體態控制比口味更優先。</td></tr>
+                <tr><td>敏感 + 化毛</td><td>零穀 五種魚化毛 或 經典 化毛高纖</td><td>視適口性再加貓凍乾</td><td>想避穀就走零穀；想留在經典日常線就選化毛高纖。</td></tr>
+                <tr><td>挑嘴 + 想吃高肉量</td><td>親親高肉量 或 吃貨拼盤乾糧</td><td>吃貨拼盤貓主食罐</td><td>主食先選高肉量路線，濕罐負責提高進食意願與補水。</td></tr>
+                <tr><td>高齡 + 想控體態</td><td>經典 高齡貓 高纖低脂</td><td>視食慾搭主食罐</td><td>高齡主線優先，不先跳去高肉量或化毛路線。</td></tr>
+                <tr><td>泌尿保養 + 想避穀</td><td>親親 成貓泌尿保健</td><td>主食罐補水</td><td>這條線的泌尿指向最明確，若想增加水分可再加濕食主食。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="dog-multi" class="tab-pane">
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr><th>情境</th><th>乾糧主食</th><th>加強補充</th><th>解法說明</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>敏感腸胃 + 低脂</td><td>親親 成犬敏感腸胃低脂</td><td>犬餐盒少量換口味</td><td>這是犬用最明確的機能組合，優先順序很高。</td></tr>
+                <tr><td>皮毛保養 + 想吃香一點</td><td>親親 野牛護膚美毛 或 零穀 五種魚</td><td>鮮肉佐餐鮭魚或零穀羊+鮭</td><td>主食先選皮毛方向，凍乾只做加香與加料。</td></tr>
+                <tr><td>高齡 + 日常穩定</td><td>經典 高齡犬羊肉 或 鮭魚+馬鈴薯</td><td>視食慾加犬餐盒</td><td>高齡先於亮毛、零穀、高肉量等次需求。</td></tr>
+                <tr><td>挑嘴 + 高適口性</td><td>吃貨拼盤 海陸蘋果</td><td>犬餐盒 4 種口味輪替</td><td>吃貨拼盤是優格體系裡最明顯的高適口路線。</td></tr>
+                <tr><td>想避穀 + 控體態</td><td>零穀 成犬體重控制低活動量</td><td>少量凍乾拌糧</td><td>想同時兼顧零穀與體態時，這款方向最直接。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="choose">
+      <h2 class="section-title">怎麼幫毛孩選</h2>
+      <p class="intro">不確定時，先用這張對照表找入口，再回頭看系列說明與矩陣規格。</p>
+
+      <div class="tabs">
+        <div class="tab-row">
+          <button class="tab-btn active" onclick="switchTab(this,'cat-choose')">貓咪</button>
+          <button class="tab-btn" onclick="switchTab(this,'dog-choose')">狗狗</button>
+        </div>
+
+        <div id="cat-choose" class="tab-pane active">
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr><th>貓咪狀況</th><th>建議先看</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>幼貓、成長期想先顧腸道</td><td>親親 幼貓益菌成長配方</td></tr>
+                <tr><td>室內成貓、活動量較低</td><td>經典 室內貓 雞肉+米</td></tr>
+                <tr><td>成貓、想避穀又怕敏感</td><td>零穀 全齡貓 鮭魚敏感配方</td></tr>
+                <tr><td>化毛需求明確</td><td>經典 成幼貓化毛高纖、零穀 五種魚化毛、吃貨拼盤 老饕海陸拼盤</td></tr>
+                <tr><td>體態偏重、低活動量</td><td>零穀 成貓低活動量體重管理</td></tr>
+                <tr><td>高齡熟齡貓</td><td>經典 高齡貓 雞肉+米 高纖低脂</td></tr>
+                <tr><td>想強調泌尿保養</td><td>親親 成貓泌尿保健配方</td></tr>
+                <tr><td>想吃高肉量</td><td>親親 三種肉 / 四種肉、吃貨拼盤貓乾糧</td></tr>
+                <tr><td>想增加水分或做濕食主食</td><td>吃貨拼盤貓主食罐</td></tr>
+                <tr><td>想幫乾糧加料、提高適口性</td><td>鮮肉佐餐 貓凍乾</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="dog-choose" class="tab-pane">
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr><th>狗狗狀況</th><th>建議先看</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>幼犬</td><td>經典 幼犬羊肉+米</td></tr>
+                <tr><td>成長期、又想兼顧敏感膚質</td><td>經典 成幼犬鮭魚+馬鈴薯</td></tr>
+                <tr><td>成犬日常、小顆粒</td><td>經典 成犬羊肉+米（小顆粒）</td></tr>
+                <tr><td>成犬日常、想控體態</td><td>經典 成犬雞肉+米 或 零穀 成犬體重控制</td></tr>
+                <tr><td>敏感腸胃、又想低脂</td><td>親親 成犬敏感腸胃低脂配方</td></tr>
+                <tr><td>想避穀、走低敏路線</td><td>零穀 全齡犬羊肉+鮭魚</td></tr>
+                <tr><td>想加強毛髮與皮膚保養</td><td>親親 全齡犬野牛護膚美毛、零穀 全齡犬五種魚</td></tr>
+                <tr><td>高齡熟齡犬</td><td>經典 高齡犬羊肉+米 或 高齡犬鮭魚+馬鈴薯</td></tr>
+                <tr><td>挑嘴、想吃得更香</td><td>吃貨拼盤 全齡犬老饕海陸佐蘋果、犬餐盒</td></tr>
+                <tr><td>想拌糧加料</td><td>鮮肉佐餐 犬凍乾</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-note">
+        吃貨拼盤同一系列內同時有乾糧、主食罐 / 犬餐盒、贈品與周邊；鮮肉佐餐則明顯偏加料用途。若是為了建立穩定日常主食，仍建議先從乾糧主線挑一款作基底。
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <h2 class="section-title">FAQ｜貓狗常見選購問題</h2>
+      <p class="intro">把飼主最常卡住的幾個問題整理在這裡，先快速看方向，再回頭對照系列與需求會更清楚。</p>
+
+      <div class="tabs">
+        <div class="tab-row">
+          <button class="tab-btn active" onclick="switchTab(this,'cat-faq')">貓咪 FAQ</button>
+          <button class="tab-btn" onclick="switchTab(this,'dog-faq')">狗狗 FAQ</button>
+        </div>
+
+        <div id="cat-faq" class="tab-pane active">
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary>貓咪第一次買優格，應該先從哪一個系列開始？</summary>
+              <div class="faq-body">
+                <p>如果是一般健康成貓、沒有很明確的敏感或泌尿需求，通常可以先從經典開始。這條線比較接近日常穩定主食，室內貓、化毛、高齡等方向也比較好對應。</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>室內貓活動量低，應該先看哪一條線？</summary>
+              <div class="faq-body">
+                <p>可以先看經典室內貓；如果同時想走避穀或體態管理方向，也可以看零穀成貓低活動量體重管理。先分清楚你要的是日常室內線，還是低敏零穀線，挑選會更快。</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>貓咪腸胃敏感，該選零穀還是親親？</summary>
+              <div class="faq-body">
+                <p>如果你的重點是想避穀、走低敏路線，先看零穀；如果你要找的是更明確的敏感腸胃機能方向，先看親親成貓敏感腸胃配方。前者偏低敏日常線，後者偏功能更聚焦的機能線。</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>貓咪挑嘴，應該先換乾糧、主食罐，還是凍乾？</summary>
+              <div class="faq-body">
+                <p>通常先選對主食路線，再加濕食或凍乾。若挑嘴很明顯，可先看吃貨拼盤乾糧或主食罐；如果原本主食其實還算合適，只是偶爾想提高香氣與進食意願，再少量搭配鮮肉佐餐就好。</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>鮮肉佐餐可以直接拿來當貓咪主食嗎？</summary>
+              <div class="faq-body">
+                <p>比較不建議把鮮肉佐餐當成唯一主食。它更適合做拌糧、加香氣、補原肉風味或當獎勵。若要建立穩定的日常主食，還是應先從經典、零穀、親親或吃貨拼盤的主食線挑一款。</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>貓咪可以乾糧、主食罐、凍乾一起吃嗎？</summary>
+              <div class="faq-body">
+                <p>可以，但建議有順序。先固定一款乾糧主食，再視需要加吃貨拼盤主食罐增加水分與適口性，最後再少量加入鮮肉佐餐。不要一次把三條線都換掉，會比較容易判斷哪一種搭法真的適合貓咪。</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div id="dog-faq" class="tab-pane">
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary>狗狗第一次買優格，應該先從哪一個系列開始？</summary>
+              <div class="faq-body">
+                <p>如果狗狗目前沒有特別明顯的敏感、皮膚或體態需求，通常可以先從經典開始。這條線最接近日常穩定主食的概念，也比較容易觀察狗狗吃了之後是否適應。</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>狗狗腸胃比較敏感，該選零穀還是親親？</summary>
+              <div class="faq-body">
+                <p>如果你的重點是想避穀、走低敏路線，先看零穀；如果重點已經很明確是敏感腸胃，而且希望低脂，先看親親成犬敏感腸胃低脂配方。前者偏低敏日常線，後者偏功能更明確的機能線。</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>狗狗挑嘴、不太愛吃乾糧，該先換哪一條線？</summary>
+              <div class="faq-body">
+                <p>可以先看吃貨拼盤。這條線主打高肉量與高適口性，對挑嘴狗通常比較有吸引力。若只是想把原本乾糧吃得更香，也可以先維持主食，再少量搭配犬餐盒或鮮肉佐餐。</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>狗狗想控制體重，優先看哪一款？</summary>
+              <div class="faq-body">
+                <p>如果體態控制是目前最重要的需求，先看零穀成犬體重控制低活動量。若只是想吃得相對清爽、還沒有到很明確的控制階段，也可以先從經典成犬雞肉線開始評估。</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>高齡犬應該選高肉量，還是先選熟齡配方？</summary>
+              <div class="faq-body">
+                <p>通常先選熟齡配方，也就是經典高齡犬羊肉或高齡犬鮭魚。高齡犬的主線應該先放在年齡與日常穩定，再依食慾與適口性需求補濕食或加料，不建議一開始就把高肉量當第一優先。</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>大型犬現在只有 5kg，選糧要看小型犬還是大型犬？</summary>
+              <div class="faq-body">
+                <p>仍要看成犬預期體型，不是只看現在幾公斤。大型犬幼犬在成長前期體重還不重很正常，但如果未來預期會長成大型犬，選糧判斷仍應以大型犬邏輯思考，而不是因為目前只有 5kg 就改看小型犬。判斷基準是未來會長多大，不是現在多重。</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>常見品種可以怎麼先抓體型？米克斯又該怎麼估？</summary>
+              <div class="faq-body">
+                <p>可以先用常見品種抓大方向：迷你犬像吉娃娃、博美、馬爾濟斯、約克夏、玩具貴賓；小型犬像臘腸、西施、迷你雪納瑞、巴哥、傑克羅素梗；中型犬像柴犬、米格魯、柯基、邊境牧羊犬、可卡；大型犬像拉布拉多、黃金獵犬、德國狼犬、哈士奇、羅威納。若是米克斯，先看父母體型；若不清楚，再看骨架、腳掌大小、四肢比例與目前生長速度，必要時請獸醫師協助估算未來成犬體型。</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>鮮肉佐餐可以直接拿來當狗狗主食嗎？</summary>
+              <div class="faq-body">
+                <p>比較不建議把鮮肉佐餐當成唯一主食。它更適合做拌糧、加料、加香氣或訓練獎勵使用。若你要建立穩定的日常主食，還是應該先從經典、零穀、親親或吃貨拼盤的主食線挑一款。</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>狗狗可以乾糧、犬餐盒、凍乾一起吃嗎？</summary>
+              <div class="faq-body">
+                <p>可以，但建議有順序。先固定一款乾糧主食，再視需要加犬餐盒補水分與適口性，最後才加鮮肉佐餐做風味加強。不要一次把三條線都換掉，才比較容易看出哪一種搭法真正適合狗狗。</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="summary">
+      <h2 class="section-title">簡單結論</h2>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <h4>想穩穩吃日常主食</h4>
+          <p>先看經典。這條線最適合拿來做分齡與日常穩定主食。</p>
+        </div>
+        <div class="summary-card">
+          <h4>想避穀、走低敏</h4>
+          <p>先看零穀。貓狗都能在這條線找到敏感、亮毛 / 化毛或體態方向。</p>
+        </div>
+        <div class="summary-card">
+          <h4>有明確功能需求</h4>
+          <p>先看親親。敏感腸胃、泌尿、護膚美毛與高肉量訴求最集中。</p>
+        </div>
+        <div class="summary-card">
+          <h4>毛孩挑嘴、愛吃肉</h4>
+          <p>先看吃貨拼盤。高肉量、高適口性，乾糧和濕食都集中在這條線。</p>
+        </div>
+        <div class="summary-card">
+          <h4>只是想讓乾糧更香</h4>
+          <p>看鮮肉佐餐。它更像拌糧加料工具，而不是優先拿來當唯一主食。</p>
+        </div>
+        <div class="summary-card">
+          <h4>先主食、後加料</h4>
+          <p>主食先選對，再決定要不要加主食罐、犬餐盒或凍乾，選購會更準。</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function switchTab(btn, paneId) {
+      const tabs = btn.closest('.tabs');
+      tabs.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
+      tabs.querySelectorAll('.tab-pane').forEach((p) => p.classList.remove('active'));
+      btn.classList.add('active');
+      tabs.querySelector('#' + paneId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
