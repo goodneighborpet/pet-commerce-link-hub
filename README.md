@@ -17,6 +17,7 @@
 - 耐吉斯：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/ngs_buying_guide.html>
 - 法國皇家：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/royal_canin_buying_guide.html>
 - 優格：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/toma_pro_buying_guide.html>
+- 愛喜雅：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/aixia_buying_guide.html>
 
 ## 專案特色
 
