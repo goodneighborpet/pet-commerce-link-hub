@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://goodneighborpet.github.io/pet-commerce-link-hub/sitemap.xml
