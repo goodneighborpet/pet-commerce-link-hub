@@ -16,7 +16,7 @@ README 網址：<https://github.com/goodneighborpet/pet-commerce-link-hub/blob/m
 
 - 檔案路徑：`guides/brands/aixia_buying_guide.html`
 - 正式網址：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/aixia_buying_guide.html>
-- 短網址：尚未設定
+- 短網址：<https://lihi1.me/WuTP4>
 - 備註：AIXIA 愛喜雅貓咪濕食選購懶人包
 
 #### 柏萊富 BLACKWOOD
