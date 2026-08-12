@@ -23,7 +23,7 @@ README 網址：<https://github.com/goodneighborpet/pet-commerce-link-hub/blob/m
 
 - 檔案路徑：`guides/brands/blackwood_buying_guide.html`
 - 正式網址：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/blackwood_buying_guide.html>
-- 短網址：尚未設定
+- 短網址：<https://lihi1.me/24NQX>
 - 備註：柏萊富犬貓配方與系列選購指南
 
 #### 法米納 Farmina
@@ -51,7 +51,7 @@ README 網址：<https://github.com/goodneighborpet/pet-commerce-link-hub/blob/m
 
 - 檔案路徑：`guides/brands/natural_balance_buying_guide.html`
 - 正式網址：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/natural_balance_buying_guide.html>
-- 短網址：尚未設定
+- 短網址：<https://lihi1.me/9cz6R>
 - 備註：Natural Balance 自然平衡犬貓低敏配方選購指南
 
 #### 耐吉斯 Solution
@@ -65,21 +65,21 @@ README 網址：<https://github.com/goodneighborpet/pet-commerce-link-hub/blob/m
 
 - 檔案路徑：`guides/brands/real_power_buying_guide.html`
 - 正式網址：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/real_power_buying_guide.html>
-- 短網址：尚未設定
+- 短網址：<https://lihi1.me/xNRgm>
 - 備註：瑞威犬貓號數、配方與規格選購指南
 
 #### 法國皇家 Royal Canin
 
 - 檔案路徑：`guides/brands/royal_canin_buying_guide.html`
 - 正式網址：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/royal_canin_buying_guide.html>
-- 短網址：尚未設定
+- 短網址：<https://lihi1.me/7z7qh>
 - 備註：法國皇家犬貓系列、乾濕搭配與功能配方選購指南
 
 #### 優格 TOMA-PRO
 
 - 檔案路徑：`guides/brands/toma_pro_buying_guide.html`
 - 正式網址：<https://goodneighborpet.github.io/pet-commerce-link-hub/guides/brands/toma_pro_buying_guide.html>
-- 短網址：尚未設定
+- 短網址：<https://lihi1.me/tL8EI>
 - 備註：優格犬貓經典、零穀與機能配方選購指南
 
 ## 建議新增規則
