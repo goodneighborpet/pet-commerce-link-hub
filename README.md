@@ -49,12 +49,16 @@
 
 ## Banner 設定與圖片尺寸
 
-- `index.html` 已啟用 3 張 Banner 輪播，位置在網站標題卡下方
-- 桌面版建議圖片：`1200 x 700 px`（比例約 `1.71:1`；最大顯示區域約 `587 x 341 px`）
-- 手機版建議圖片：`750 x 420 px`（比例約 `1.79:1`；常見顯示區域約 `343-398 x 200 px`）
-- 檔名格式：`banner-{編號}-desktop.png`、`banner-{編號}-mobile.png`
+`index.html` 已啟用 3 張 Banner 輪播，位置在網站標題卡下方。
+
+| 裝置 | 切換點 | 建議圖片尺寸 | 比例 | 顯示區域 |
+| --- | --- | --- | --- | --- |
+| 桌面版 | `> 1024 px` | `1200 x 700 px` | 約 `1.71:1` | 最大約 `587 x 341 px` |
+| 平板版 | `769 - 1024 px` | `1200 x 570 px`（無此檔案時自動 fallback 為桌面版圖片） | 固定 `2.1:1`（`aspect-ratio` 鎖定） | 容器全寬 x 依寬度等比縮放 |
+| 手機版 | `<= 768 px` | `750 x 420 px` | 約 `1.79:1` | 常見約 `343-398 x 200 px` |
+
+- 檔名格式：`banner-{編號}-desktop.png`、`banner-{編號}-tablet.png`（選用）、`banner-{編號}-mobile.png`
 - 圖片放置位置：`assets/images/banners/`
-- 響應式切換點：桌面版 `> 768 px`，手機版 `<= 768 px`
 - 圖片使用 `background-size: cover`；不同螢幕寬度仍可能裁切邊緣，Logo、文字與 CTA 請放在中央約 `70%` 的安全區域
 - 完整圖片規格與連結設定請參考 [Banner 圖片說明](assets/images/banners/README.md)
 

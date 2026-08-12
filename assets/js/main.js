@@ -61,15 +61,31 @@ function initBannerCarousel() {
   }
   
   /**
-   * 載入 Banner 圖片（桌面版與手機版）
-   * 支援 PNG 和 JPG 雙格式，優先載入 PNG
+   * 依目前螢幕寬度挑選對應斷點的圖片路徑
+   * 斷點對齊 CSS：手機 <=768px，平板 769-1024px，桌面 >1024px
+   * 若平板圖片不存在，updateBackground 會 fallback 回桌面版圖片
+   */
+  function getBannerImagePath(bannerIndex, format) {
+    const width = window.innerWidth;
+    if (width <= 768) {
+      return `assets/images/banners/banner-${bannerIndex}-mobile.${format}`;
+    }
+    if (width <= 1024) {
+      return `assets/images/banners/banner-${bannerIndex}-tablet.${format}`;
+    }
+    return `assets/images/banners/banner-${bannerIndex}-desktop.${format}`;
+  }
+
+  /**
+   * 載入 Banner 圖片（桌面版、平板版與手機版）
+   * 支援 PNG 和 JPG 雙格式，優先載入 PNG；平板圖片缺漏時自動 fallback 回桌面版
    */
   function loadBannerImages() {
     slides.forEach((slide, index) => {
       const bannerIndex = index + 1;
       const formats = ['png', 'jpg'];
       let imageLoaded = false;
-      
+
       // 嘗試載入圖片（優先 PNG，再 JPG）
       function tryLoadImage(formatIndex = 0) {
         if (formatIndex >= formats.length) {
@@ -79,44 +95,47 @@ function initBannerCarousel() {
           if (content) content.style.display = 'block';
           return;
         }
-        
+
         const format = formats[formatIndex];
         const desktopImg = `assets/images/banners/banner-${bannerIndex}-desktop.${format}`;
-        const mobileImg = `assets/images/banners/banner-${bannerIndex}-mobile.${format}`;
-        
+
         // 預載入圖片
         const img = new Image();
         img.onload = () => {
           imageLoaded = true;
-          
+
           // 隱藏文字內容（圖片載入成功時）
           const content = slide.querySelector('.banner-content');
           if (content) content.style.display = 'none';
-          
-          // 設定背景圖片
+
+          // 設定背景圖片（平板圖片不存在時 fallback 回桌面版）
           const updateBackground = () => {
-            if (window.innerWidth > 768) {
+            const targetImg = getBannerImagePath(bannerIndex, format);
+            const probe = new Image();
+            probe.onload = () => {
+              slide.style.backgroundImage = `url(${targetImg})`;
+            };
+            probe.onerror = () => {
               slide.style.backgroundImage = `url(${desktopImg})`;
-            } else {
-              slide.style.backgroundImage = `url(${mobileImg})`;
-            }
+            };
+            probe.src = targetImg;
           };
-          
+
           updateBackground();
           window.addEventListener('resize', updateBackground);
-          
+
           console.log(`✓ Banner ${bannerIndex} loaded (${format})`);
         };
-        
+
         img.onerror = () => {
           // 嘗試下一個格式
           tryLoadImage(formatIndex + 1);
         };
-        
-        // 開始載入
-        img.src = window.innerWidth > 768 ? desktopImg : mobileImg;
+
+        // 開始載入（用桌面版圖片確認此 banner 與格式是否存在，桌面版為必備規格）
+        img.src = desktopImg;
       }
-      
+
       // 開始嘗試載入
       tryLoadImage();
     });

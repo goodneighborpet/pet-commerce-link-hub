@@ -744,6 +744,8 @@ a.bento-card:hover .card-arrow {
 
   .banner-card {
     grid-column: span 3;
+    aspect-ratio: 2.1 / 1;
+    min-height: 0;
   }
 
   .category-title-card {
