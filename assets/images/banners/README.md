@@ -1,120 +1,94 @@
-# Banner 圖片說明
+# Banner 圖片與設定說明
 
-此資料夾用於存放首頁輪播 Banner 圖片。
+此資料夾用於存放首頁輪播 Banner 圖片。輪播位於網站標題卡下方，顯示的 Banner 數量與順序由 `index.html` 內的 `.banner-slide` 決定。
 
-## 📐 圖片規格
+## 圖片規格
 
-### PC 版（桌面）
-- **實際顯示尺寸**：約 592 x 280 px
-- **建議圖片尺寸**：1200 x 560 px（2 倍解析度，適用 Retina 螢幕）
-- **最小尺寸**：600 x 280 px
-- **實際比例**：2.1:1（橫向寬版）
-- **格式**：PNG 或 JPG（優先 PNG）
-- **檔案大小**：建議 < 200KB（優化後）
+### 桌面版
 
-### 平板版（769px - 1024px）
+- 適用寬度：`> 1024 px`
+- 建議圖片尺寸：`1200 x 700 px`
+- 建議比例：約 `1.71:1`
+- 顯示區域：最大約 `587 x 341 px`
+- 檔名格式：`banner-{編號}-desktop.png`
+- 桌面版圖片為必要檔案；系統會先確認它存在，再載入其他裝置版本
 
-- **實際顯示尺寸**：容器全寬 x 依寬度等比縮放（`.banner-card` 使用 `aspect-ratio: 2.1/1` 鎖定比例，跨滿 3 欄）
-- **建議圖片尺寸**：1200 x 570 px（2 倍解析度）
-- **實際比例**：固定 `2.1:1`，與桌面版相同構圖即可沿用
-- **格式**：PNG 或 JPG（優先 PNG）
-- **檔名**：`banner-{編號}-tablet.png`（選用，若未提供會自動 fallback 載入 `banner-{編號}-desktop` 圖片）
+### 平板版
 
-### 手機版（行動裝置）
-- **實際顯示尺寸**：寬度全螢幕（約 343-720 px），高度 200 px
-- **建議圖片尺寸**：750 x 400 px（2 倍解析度，適用 Retina 螢幕）
-- **最小尺寸**：375 x 200 px
-- **實際比例**：約 1.7:1 至 3.6:1（寬度不固定，建議使用橫向構圖）
-- **格式**：PNG 或 JPG（優先 PNG）
-- **檔案大小**：建議 < 150KB（優化後）
+- 適用寬度：`769 - 1024 px`
+- 建議圖片尺寸：`1200 x 570 px`
+- 顯示比例：固定 `2.1:1`，由 CSS 的 `aspect-ratio` 鎖定
+- 顯示區域：容器全寬，並依寬度等比縮放
+- 檔名格式：`banner-{編號}-tablet.png`
+- 平板版圖片為選用；未提供時會自動使用桌面版圖片
 
-### 💡 尺寸說明
-- Banner 會使用 `background-size: cover` 自動適應顯示區域
-- 建議圖片尺寸為實際顯示尺寸的 2 倍，以支援高解析度螢幕
-- 重要內容請放置在中央區域，避免被裁切
+### 手機版
 
-## 📁 檔案命名規則
+- 適用寬度：`<= 768 px`
+- 建議圖片尺寸：`750 x 420 px`
+- 建議比例：約 `1.79:1`
+- 顯示區域：容器全寬；常見約 `343-398 x 192-223 px`
+- 檔名格式：`banner-{編號}-mobile.png`
+- 未提供手機版圖片時會自動使用桌面版圖片
 
-請將 Banner 圖片命名為以下格式（支援 PNG 或 JPG）：
+## 圖片格式與載入順序
 
-```
-banner-1-desktop.png    # Banner 1 桌面版（PNG 格式）
-banner-1-mobile.png     # Banner 1 手機版（PNG 格式）
+- 支援 PNG 與 JPG
+- 系統會優先載入 `.png`，找不到時再嘗試 `.jpg`
+- 同一張 Banner 的桌面、平板與手機圖片應使用相同格式
+- 每一張 Banner 至少需要桌面版圖片
+- 圖片載入失敗時，會顯示預設漸層背景與文字內容
 
-banner-2-desktop.jpg    # Banner 2 桌面版（JPG 格式）
-banner-2-mobile.jpg     # Banner 2 手機版（JPG 格式）
+檔案命名範例：
 
-banner-3-desktop.png    # Banner 3 桌面版（PNG 格式）
-banner-3-mobile.png     # Banner 3 手機版（PNG 格式）
-```
-
-**支援雙格式：**
-- 系統優先載入 `.png` 格式
-- 如果找不到 `.png`，會自動嘗試載入 `.jpg`
-- 建議使用 PNG 以獲得更好的圖片品質
-
-## 🎨 設計建議
-
-1. **構圖原則**
-   - **桌面版**：橫向寬版構圖（2.1:1），適合橫幅式設計
-   - **手機版**：橫向構圖，高度較矮（約 1.7-3.6:1），避免上下留白過多
-   - 重要內容（如文字、LOGO）保持在中央 70% 區域，避免被裁切
-
-2. **圖片裁切行為**
-   - 系統使用 `background-size: cover`，圖片會自動縮放並填滿區域
-   - 如圖片比例與顯示區域不符，上下或左右會被裁切
-   - 建議按實際比例設計，確保重要元素不被裁切
-
-3. **視覺效果**
-   - 如有圖片，系統會自動隱藏文字區塊
-   - 建議在圖片上直接設計好所有視覺元素
-   - 可加入行動呼籲（CTA）按鈕或文字
-
-4. **檔案優化**
-   - 使用 [TinyPNG](https://tinypng.com/) 或 [Squoosh](https://squoosh.app/) 壓縮圖片
-   - 優先使用 PNG 以獲得更好的圖片品質
-   - 目標：桌面版 < 200KB，手機版 < 150KB
-
-## 🔄 響應式行為
-
-- **桌面（> 768px）**：顯示 `banner-*-desktop` 圖片
-  - 顯示尺寸：約 592 x 280 px（佔 2/4 欄寬）
-  - 建議圖片比例：2.1:1（橫向寬版）
-  
-- **行動裝置（≤ 768px）**：顯示 `banner-*-mobile` 圖片
-  - 顯示尺寸：全寬 x 200 px（依裝置寬度而定）
-  - 建議圖片比例：1.7:1 至 3.6:1（橫向，高度較矮）
-
-系統會自動根據裝置寬度（768px 為斷點）載入對應版本的圖片，並使用 `background-size: cover` 自動適應顯示區域。
-
-## ✨ 範例檔案結構
-
-```
+```text
 assets/images/banners/
-├── banner-1-desktop.png    (建議 1200 x 560, 比例 2.1:1) - 支援 PNG/JPG
-├── banner-1-mobile.png     (建議 750 x 400)             - 支援 PNG/JPG
-├── banner-2-desktop.png    (建議 1200 x 560, 比例 2.1:1) - 支援 PNG/JPG
-├── banner-2-mobile.png     (建議 750 x 400)             - 支援 PNG/JPG
-├── banner-3-desktop.png    (建議 1200 x 560, 比例 2.1:1) - 支援 PNG/JPG
-├── banner-3-mobile.png     (建議 750 x 400)             - 支援 PNG/JPG
-└── README.md               (本說明文件)
+├── banner-1-desktop.png
+├── banner-1-tablet.png
+├── banner-1-mobile.png
+├── banner-2-desktop.png
+├── banner-2-tablet.png
+├── banner-2-mobile.png
+└── README.md
 ```
 
-## 🚀 快速開始
+平板版為選用檔案，因此也可以只準備桌面版與手機版：
 
-1. 準備你的 Banner 圖片（桌面版 + 手機版）
-2. 調整為建議尺寸
-3. 優化檔案大小
-4. 依照命名規則上傳到此資料夾
-5. 重新整理網站即可看到效果
+```text
+banner-1-desktop.jpg
+banner-1-mobile.jpg
+```
 
-## 🔗 Banner 超連結設定
+## 構圖與裁切
 
-### 如何修改 Banner 點擊連結？
+- Banner 使用 `background-size: cover` 填滿顯示區域
+- 圖片比例與顯示區域不同時，上下或左右邊緣可能被裁切
+- Logo、文字與 CTA 等重要內容應放在中央約 `70%` 的安全區域
+- 建議直接將所有文字與視覺元素設計在圖片內；圖片載入成功後，HTML 的預設文字會隱藏
+- 桌面、平板與手機的構圖可分別調整，以避免關鍵內容在不同螢幕上被裁切
 
-1. 開啟專案根目錄的 `assets/js/config.js` 檔案
-2. 找到 `banner.links` 設定區域
-3. 修改對應的連結網址
+## 圖片最佳化
+
+- 建議使用圖片壓縮工具降低檔案大小
+- 桌面版與平板版建議控制在 `200 KB` 以內
+- 手機版建議控制在 `150 KB` 以內
+- 可使用 [TinyPNG](https://tinypng.com/) 或 [Squoosh](https://squoosh.app/) 進行壓縮
+- 上傳後請在桌面、平板與手機寬度下確認圖片清晰度和裁切位置
+
+## 新增或移除 Banner
+
+Banner 編號必須與 `index.html` 內 `.banner-slide` 的順序一致。新增 Banner 時，需要同步加入：
+
+1. `index.html` 內的 `.banner-slide`
+2. `index.html` 內對應的 `.dot` 分頁按鈕
+3. 此資料夾內對應編號的圖片
+4. `assets/js/config.js` 內 `banner.links` 的連結
+
+移除 Banner 時，也應同步移除上述項目，避免圖片、分頁按鈕與連結順序不一致。
+
+## 輪播設定
+
+在 `assets/js/config.js` 的 `banner` 區塊調整輪播行為：
 
 ```javascript
 window.CONFIG = {
@@ -123,49 +97,34 @@ window.CONFIG = {
     autoPlay: true,
     autoPlayInterval: 5000,
     pauseOnHover: true,
-    // Banner 連結設定（可為每個 Banner 設定不同連結）
     links: [
-      'https://example.com/banner1',  // Banner 1 點擊後導向的網址
-      'https://example.com/banner2',  // Banner 2 點擊後導向的網址
-      'https://example.com/banner3'   // Banner 3 點擊後導向的網址
+      'https://example.com/banner1',
+      'https://example.com/banner2'
     ]
-  },
-  // ...
+  }
 };
 ```
 
-### 連結設定說明
+- `enabled`：是否顯示 Banner；設為 `false` 時會移除整個 Banner 區塊
+- `autoPlay`：是否自動輪播
+- `autoPlayInterval`：自動切換間隔，單位為毫秒
+- `pauseOnHover`：滑鼠停留在 Banner 上時是否暫停輪播
 
-- 📌 **陣列順序**：`links[0]` 對應 `banner-1`，`links[1]` 對應 `banner-2`，依此類推
-- 🔗 **連結格式**：請使用完整的 URL（包含 `https://`）
-- 🆕 **新分頁開啟**：點擊 Banner 會在新分頁開啟，不影響原頁面
-- 🎯 **個別設定**：每個 Banner 可以設定不同的連結網址
-- ⚠️ **注意**：修改完記得儲存檔案並重新整理網站
+## Banner 連結設定
 
-### 範例：設定不同的促銷活動連結
+`banner.links` 的陣列順序會依序對應 Banner：
 
-```javascript
-links: [
-  'https://myshop.com/spring-sale',      // 春季特賣
-  'https://myshop.com/member-benefits',  // 會員優惠
-  'https://myshop.com/free-shipping'     // 免運活動
-]
-```
+- `links[0]` 對應 `banner-1`
+- `links[1]` 對應 `banner-2`
+- `links[2]` 對應 `banner-3`
 
-## 💡 如果沒有圖片？
+連結請使用包含 `https://` 的完整 URL。點擊 Banner 後，連結會在新分頁開啟。
 
-如果沒有上傳圖片，系統會自動顯示預設的漸層背景色和文字內容，不會影響使用。
+## 更新步驟
 
-### Banner 顯示邏輯
-
-- ✅ **有圖片**：自動隱藏文字，只顯示圖片（更乾淨的視覺效果）
-- 📝 **無圖片**：顯示預設文字內容 + 漸層背景色（優雅的回退方案）
-- 🔄 **雙格式支援**：優先載入 PNG，失敗則嘗試 JPG
-
-## ⚠️ 注意事項
-
-- 圖片載入失敗時會顯示漸層背景 + 文字內容（Fallback）
-- 建議同時上傳桌面版與手機版以獲得最佳體驗
-- 定期檢查圖片載入速度，必要時進一步優化
-- Banner 點擊會在新分頁開啟連結，不影響原頁面瀏覽
-- 修改 Banner 連結後記得清除瀏覽器快取再測試
+1. 依照裝置規格準備圖片
+2. 使用相同編號與格式命名桌面、平板和手機圖片
+3. 壓縮圖片並放入 `assets/images/banners/`
+4. 確認 `index.html` 的 Banner 數量與圖片編號一致
+5. 在 `assets/js/config.js` 設定輪播行為與點擊連結
+6. 清除瀏覽器快取，重新載入並測試各種螢幕寬度
