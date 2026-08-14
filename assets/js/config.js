@@ -14,7 +14,7 @@ window.CONFIG = {
     links: [
       'https://myship.7-11.com.tw/seller/profile?id=GM2601212460411',  // Banner 1
       'https://myship.7-11.com.tw/seller/profile?id=GM2601212460411',  // Banner 2
-      'https://myship.7-11.com.tw/seller/profile?id=GM2601212460411'   // Banner 3
+      'https://myship.7-11.com.tw/general/detail/GM2608074192808'      // Banner 3（瑞威）
     ]
   },
 
